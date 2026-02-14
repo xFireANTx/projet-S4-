@@ -2,14 +2,14 @@ h2 {
 	text-align:center;
 }
 
-input[type=text], [type=password]{
+input[type=text], [type=password], [type=number], [type=textarea]{
 	border-radius: 5px;
 	border-style: solid;
 	border-color: lightgrey;
 	border-width: 2px;
 }
 
-input[type=text]:focus, [type=password]:focus  {
+input[type=text]:focus, [type=password]:focus, [type=number]:focus, [type=textarea]:focus{
 	background-color: lightblue;
 	outline: none;
 }
