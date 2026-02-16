@@ -1,10 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
+<meta charset="UTF-8">
+<title>Bandeau Noir</title>
+<link rel="stylesheet" href="style.css">
 <meta name="author" content="groupe 6" />
 <meta name="description" content="Cette page est la page de notation permettant aux clients de noter le restaurant."/>
 <meta name="keywords" content="notation, client, restaurant"/>
 </head>
 <body>
+<div class="bandeau">
+    </div>
+
+    <div class="main">
+    <div class="rating-container">
+        <h2>Notez votre expérience de livraison</h2>
+        <div class="star-rating">
+            <input type="radio" id="liv5" name="rating_livraison" value="5"><label for="liv5">★</label>
+            <input type="radio" id="liv4" name="rating_livraison" value="4"><label for="liv4">★</label>
+            <input type="radio" id="liv3" name="rating_livraison" value="3"><label for="liv3">★</label>
+            <input type="radio" id="liv2" name="rating_livraison" value="2"><label for="liv2">★</label>
+            <input type="radio" id="liv1" name="rating_livraison" value="1"><label for="liv1">★</label>
+        </div>
+    </div>
+
+    <div class="rating-container">
+        <h2>Notez la qualité des produits reçus</h2>
+        <div class="star-rating">
+            <input type="radio" id="prod5" name="rating_produit" value="5"><label for="prod5">★</label>
+            <input type="radio" id="prod4" name="rating_produit" value="4"><label for="prod4">★</label>
+            <input type="radio" id="prod3" name="rating_produit" value="3"><label for="prod3">★</label>
+            <input type="radio" id="prod2" name="rating_produit" value="2"><label for="prod2">★</label>
+            <input type="radio" id="prod1" name="rating_produit" value="1"><label for="prod1">★</label>
+        </div>
+    </div>
+
+    <div class="form-container">
+        <button type="submit" class="btn-submit">Soumettre formulaire</button>
+    </div>
+</div>
+
 </body>
 </html>
