@@ -13,3 +13,30 @@ input[type=text]:focus, [type=password]:focus, [type=number]:focus, [type=textar
 	background-color: lightblue;
 	outline: none;
 }
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    background-color: white; 
+}
+
+.bandeau {
+    width: 125px;
+    height: 100%;
+    background-color: black;
+    flex-shrink: 0;
+}
+
+.main {
+    flex-grow: 1;
+    background-color: #937A23; 
+    margin-left: 20px; 
+}
+
