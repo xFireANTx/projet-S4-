@@ -1,13 +1,50 @@
+
+
+body {
+    display: flex;
+    height: 100vh; 
+}
+
+h1 {
+    background-color: black;
+    color: white;
+    display: inline;
+    margin: 20px;
+    padding: 10px;
+}
+
+h2 {
+	text-align:center;
+}
+
+p {
+    font-size: 150%;
+}
+
+#texte_barre_recherche{
+    size: 10;
+}
+
+#bouton-barre-recherche{
+    size: 10;
+}
+
+input[type=text], [type=password], [type=number], [type=textarea]{
+	border-radius: 5px;
+	border-style: solid;
+	border-color: lightgrey;
+	border-width: 2px;
+}
+
+input[type=text]:focus, [type=password]:focus, [type=number]:focus, [type=textarea]:focus{
+	background-color: lightblue;
+	outline: none;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-body {
-    display: flex;
-    height: 100vh;
-    background-color: white; 
 }
 
 .bandeau {
@@ -18,14 +55,19 @@ body {
 }
 
 .main {
-    flex-grow: 1;
-    background-color: #937A23; 
-    margin-left: 20px; /* ici ca permet de changer la taille du blanc */
+    flex-grow: 1; 
+    margin-left: 20px; 
 }
 
 .rating-container {
-    text-align: center;
+    text-align: center; 
     font-family: sans-serif;
+}
+
+.form-container {
+    width: 100%;
+    text-align: center; 
+    margin-top: 30px;   
 }
 
 .star-rating {
@@ -56,11 +98,13 @@ body {
 }
 
 
+table, th, td {
+  border: 4px solid black;
+  border-collapse: collapse;
+}
 
-.form-container {
-    width: 100%;
-    text-align: center; 
-    margin-top: 30px;   
+th, td {
+  padding: 10px;
 }
 
 .btn-submit {
@@ -83,4 +127,13 @@ body {
 .btn-submit:hover {
     background-color: transparent;
     color: black;
+}
+
+table, th, tr, td {
+	border: 1px solid black;
+}
+
+.modification{
+	height: 100px;
+	width: 100px;
 }
