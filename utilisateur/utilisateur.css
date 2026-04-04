@@ -1,24 +1,85 @@
 
+/*Global*/
 
-body {
-    display: flex;
-    height: 100vh; 
+div.bandeau{
+	position:fixed;
+	width:100%;
+	height: 50px;
+	background-color:#71BFD5;
+	color:#030b0c;
+
+
+}
+div.bandeau > div {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle; 
+}/*important pour que le logo reste sur la même ligne que les autres div*/
+
+div.logo_restaurant{
+	display:inline-block;
+	width: 10%;
+	height: 100%;
 }
 
-h1 {
-    background-color: black;
-    color: white;
-    display: inline;
-    margin: 20px;
-    padding: 10px;
+img.logo{
+	width:100%;
+	height: 100%;
+	object-fit: fill;
 }
 
-h2 {
+div.bandeau_nom{
+	display: inline-block;
+	width: 20%;
+	height: 100%;
+	text-align:center;
+	background-color: lightyellow;
+}
+
+div.bandeau_moncompte{
+	display:inline-block;
+	width: 20%;
+	height: 100%;
+	background-color:lightgreen;
+}
+
+div.bandeau_avis{
+	display: inline-block;
+	width: 20%;
+	height: 100%;
+	background-color:red;
 	text-align:center;
 }
 
-p {
-    font-size: 150%;
+div.bandeau_accueil{
+	display:inline-block;
+	width: 20%;
+	height: 100%;
+	background-color:lightgrey;
+	text-align:center;
+}
+
+a.link_bandeau:link{
+	color:#65a1af;
+}
+
+a.link_bandeau:hover{
+	color:#b2a5d0;
+}
+
+a.link_bandeau:visited{
+	color:#a97cbb;
+}
+
+
+
+
+
+/*Accueil*/
+
+div.remplissage{
+	height: 50px;
+	width:100%
 }
 
 #texte_barre_recherche{
@@ -29,6 +90,7 @@ p {
     size: 10;
 }
 
+/* Connexion*/
 input[type=text], [type=password], [type=number], [type=textarea]{
 	border-radius: 5px;
 	border-style: solid;
@@ -41,18 +103,24 @@ input[type=text]:focus, [type=password]:focus, [type=number]:focus, [type=textar
 	outline: none;
 }
 
+
+.formulaire_connexion {
+	height: 60%;
+	border: 2px solid ;
+	border-radius: 5px;
+	background-color: #148b84;
+	padding:30px;
+}
+
+
+
+/*suite*/
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.bandeau {
-    width: 125px;
-    height: 100%;
-    background-color: black;
-    flex-shrink: 0;
-}
 
 .main {
     flex-grow: 1; 
@@ -128,7 +196,7 @@ th, td {
     background-color: transparent;
     color: black;
 }
-
+/**/
 table, th, tr, td {
 	border: 1px solid black;
 }
