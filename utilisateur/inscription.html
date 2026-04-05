@@ -1,70 +1,82 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<link rel="stylesheet" type="text/css" href="utilisateur.css">
 	<meta name="author" content="groupe 6" />
-	<meta name="description" content="Cette page est la page d'inscription permettant de créer un compte sur le site du restaurant"/>
-	<meta name="keywords" content="page inscription, compte, restaurant"/>
+	<meta name="description"
+		content="Cette page est la page d'inscription permettant de créer un compte sur le site du restaurant" />
+	<meta name="keywords" content="page inscription, compte, restaurant" />
 </head>
+
 <body>
 
-<! -- Redirigez le formulaire au bon endroit -->
-<div class="bandeau">
-	<div class="logo_restaurant"><img class="logo"src="logo_japindien.png"/></div><!--
-	--><div class="bandeau_nom">Le Japindien</div><!--
-	--><div class="bandeau_accueil"><a class="lien_bouton" href="Accueil.html">Accueil</a></div><!--
-	--><div class="bandeau_moncompte">
-		<ul>
-			<li><a class="lien_bouton" href="connexion.html">Connexion</a></li>
-			<li><a class="lien_bouton" href="inscription.html">Inscription</a></li>
-		</ul></div><!--
-	--><div class="bandeau_avis"><a class="lien_bouton" href="presentation.html">A la carte</a></div><!--
-	--><div class="logo_restaurant"><img class="logo"src="logo_japindien.png"/></div>
-	
-</div>
-<div class="remplissage"></div>
+	<! -- Redirigez le formulaire au bon endroit -->
+		<div class="bandeau">
+			<div class="logo_restaurant"><img class="logo" src="../photos/logo_japindien.png" /></div><!--
+	-->
+			<div class="bandeau_nom">Le Japindien</div><!--
+	-->
+			<div class="bandeau_accueil"><a class="lien_bouton" href="Accueil.html">Accueil</a></div><!--
+	-->
+			<div class="bandeau_moncompte">
+				<ul>
+					<li><a class="lien_bouton" href="connexion.html">Connexion</a></li>
+					<li><a class="lien_bouton" href="inscription.html">Inscription</a></li>
+				</ul>
+			</div><!--
+	-->
+			<div class="bandeau_avis"><a class="lien_bouton" href="presentation.html">A la carte</a></div><!--
+	-->
+
+		</div>
+		<div class="remplissage"></div>
 
 
 
-<div class="formulaire">
-<div class="ins_con">&nbsp&nbspINSCRIPTION<div class="espace"></div><a href="connexion.html">CONNEXION</a></div>
-<form class="form_inscri" action="/temp_page.php" target="_self" method="post"> 
+		<div class="formulaire">
+			<div class="ins_con">&nbsp&nbspINSCRIPTION<div class="espace"></div><a href="connexion.html">CONNEXION</a>
+			</div>
+			<form class="form_inscri" action="/temp_page.php" target="_self" method="post">
 
-	<label for="Nom">Nom:</label><br>
-	<input id="Nom" type="text" name="nom" width="50%" placeholder="Nom" requires>
-	<br>
-	
-	<label for="prénom">Prénom:</label><br>
-	<input id="prénom" type="text" name="prénom" width="50%" placeholder="Prénom" required>
-	<br>
-	
-	<label for="adresse">Adresse:</label><br>
-	<input id="adresse" type="text" name="adresse" placeholder="Rue No Boîte postale" required><br>
+				<label for="Nom">Nom:</label><br>
+				<input id="Nom" type="text" name="nom" width="50%" placeholder="Nom" requires>
+				<br>
 
-	<label for="No Postale">No Postale:</label><br>
- 	<input id="No Postale" type="text" name="No postale" size="5" maxlength="5" placeholder="00000" style="width:20%" required><br>
- 	
- 	<label for="Localité">Localité:</label><br>
- 	<input id="Localité" type="text" name="Localité" style="width:35%" placeholder="Cergy" required>
- 	<br>
-	
-	<label for="phone">N° de Telephone:</label><br>
-	<input type="tel" id="phone" name="phone" pattern="[0]{1}[0-9]{9}" placeholder="0102030405" required><br>
-	
-	<label for="Mail">Mail:</label>
-	<input id="Mail" type="text" name="Adresse e-mail" placeholder="Email" required><br>
-	
-	<label for="mdp">Mot de passe:</label>
-	<input id="mdp"type="password" name="mdp" placeholder="Mot de passe" required><br>
-	
-	<label for="Confirmation mdp">Confirmation du mot de passe:</label><br>
-	<input type="password" name="confirmation mdp" placeholder="Confirmation du mot de passe" required>
-	<br>
-	<br>
-<div>
- 	<button type="submit" class="compte_crea" >Créer mon compte</button> &nbsp &nbsp
-	<button type="reset" class="compte_del" ><img class="gomme" src="gomme.png"/></button>
-<div>
-</form>
+				<label for="prénom">Prénom:</label><br>
+				<input id="prénom" type="text" name="prénom" width="50%" placeholder="Prénom" required>
+				<br>
+
+				<label for="adresse">Adresse:</label><br>
+				<input id="adresse" type="text" name="adresse" placeholder="Rue No Boîte postale" required><br>
+
+				<label for="No Postale">No Postale:</label><br>
+				<input id="No Postale" type="text" name="No postale" size="5" maxlength="5" placeholder="00000"
+					style="width:20%" required><br>
+
+				<label for="Localité">Localité:</label><br>
+				<input id="Localité" type="text" name="Localité" style="width:35%" placeholder="Cergy" required>
+				<br>
+
+				<label for="phone">N° de Telephone:</label><br>
+				<input type="tel" id="phone" name="phone" pattern="[0]{1}[0-9]{9}" placeholder="0102030405"
+					required><br>
+
+				<label for="Mail">Mail:</label>
+				<input id="Mail" type="text" name="Adresse e-mail" placeholder="Email" required><br>
+
+				<label for="mdp">Mot de passe:</label>
+				<input id="mdp" type="password" name="mdp" placeholder="Mot de passe" required><br>
+
+				<label for="Confirmation mdp">Confirmation du mot de passe:</label><br>
+				<input type="password" name="confirmation mdp" placeholder="Confirmation du mot de passe" required>
+				<br>
+				<br>
+				<div>
+					<button type="submit" class="compte_crea">Créer mon compte</button> &nbsp &nbsp
+					<button type="reset" class="compte_del"><img class="gomme" src="gomme.png" /></button>
+					<div>
+			</form>
 </body>
+
 </html>

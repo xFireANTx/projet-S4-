@@ -1,46 +1,57 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<link rel="stylesheet" type="text/css" href="utilisateur.css">
 	<meta name="author" content="groupe 6" />
-	<meta name="description" content="Cette page est la page de connexion permettant d'accéder à un compte client sur le site du restaurant"/>
-	<meta name="keywords" content="page connexion, compte, client, restaurant"/>
+	<meta name="description"
+		content="Cette page est la page de connexion permettant d'accéder à un compte client sur le site du restaurant" />
+	<meta name="keywords" content="page connexion, compte, client, restaurant" />
 </head>
+
 <body>
-<div class="bandeau">
-	<div class="logo_restaurant"><img class="logo"src="logo_japindien.png"/></div><!--
-	--><div class="bandeau_nom">Le Japindien</div><!--
-	--><div class="bandeau_accueil"><a class="lien_bouton" href="Accueil.html">Accueil</a></div><!--
-	--><div class="bandeau_moncompte">
-		<ul>
-			<li><a class="lien_bouton" href="connexion.html">Connexion</a></li>
-			<li><a class="lien_bouton" href="inscription.html">Inscription</a></li>
-		</ul></div><!--
-	--><div class="bandeau_avis"><a class="lien_bouton" href="presentation.html">A la carte</a></div><!--
-	--><div class="logo_restaurant"><img class="logo"src="logo_japindien.png"/></div>
-	
-</div>
-<div class="remplissage"></div>
-<div class="formulaire">
-<div class="ins_con">&nbsp&nbsp<a href="inscription.html">INSCRIPTION</a><div class="espace"></div>CONNEXION</div>
-<form class="form_inscri" action="/temp_page.php" target="_self" method="post"> 
+	<div class="bandeau">
+		<div class="logo_restaurant"><img class="logo" src="../photos/logo_japindien.png" /></div><!--
+	-->
+		<div class="bandeau_nom">Le Japindien</div><!--
+	-->
+		<div class="bandeau_accueil"><a class="lien_bouton" href="Accueil.html">Accueil</a></div><!--
+	-->
+		<div class="bandeau_moncompte">
+			<ul>
+				<li><a class="lien_bouton" href="connexion.html">Connexion</a></li>
+				<li><a class="lien_bouton" href="inscription.html">Inscription</a></li>
+			</ul>
+		</div><!--
+	-->
+		<div class="bandeau_avis"><a class="lien_bouton" href="presentation.html">A la carte</a></div><!--
+	-->
 
-	
-	
-	<label for="connexion_Mail"> Adresse Mail:</label>
-	<input id="connexion_Mail" type="text" name="connexion_Adresse e-mail" placeholder="Email" required><br>
-	
-	<label for="connexion_mdp">Mot de passe:</label>
-	<input id="connexion_mdp"type="password" name="connexion_mdp" placeholder="Mot de passe" required><br>
-	
-	<br>
-<div>
- 	<button type="submit" class="compte_crea" >Me connecter</button> &nbsp &nbsp
-	<button type="reset" class="compte_del" ><img class="gomme" src="gomme.png"/></button>
-</div>
-</form>
 
-</div>
+	</div>
+	<div class="remplissage"></div>
+	<div class="formulaire">
+		<div class="ins_con">&nbsp&nbsp<a href="inscription.html">INSCRIPTION</a>
+			<div class="espace"></div>CONNEXION
+		</div>
+		<form class="form_inscri" action="/temp_page.php" target="_self" method="post">
+
+
+
+			<label for="connexion_Mail"> Adresse Mail:</label>
+			<input id="connexion_Mail" type="text" name="connexion_Adresse e-mail" placeholder="Email" required><br>
+
+			<label for="connexion_mdp">Mot de passe:</label>
+			<input id="connexion_mdp" type="password" name="connexion_mdp" placeholder="Mot de passe" required><br>
+
+			<br>
+			<div>
+				<button type="submit" class="compte_crea">Me connecter</button> &nbsp &nbsp
+				<button type="reset" class="compte_del"><img class="gomme" src="gomme.png" /></button>
+			</div>
+		</form>
+
+	</div>
 
 </body>
 
