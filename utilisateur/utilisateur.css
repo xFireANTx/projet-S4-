@@ -1,120 +1,131 @@
 /*Global*/
 
-body{
+body {
 	background-color: #F9F9F9;
 }
 
-div.espace{
-	
+div.espace {
+
 	width: 30%;
 	display: inline-block;
 }
 
-div.bandeau{
-	position:fixed;
-	width:100%;
+div.bandeau {
+	position: fixed;
+	width: 100%;
 	height: 50px;
-	background-color:#71BFD5;
-	color:#D40078;
+	background-color: #71BFD5;
+	color: #D40078;
 
 
 }
-div.bandeau > div {
+
+div.bandeau>div {
 	display: inline-block;
 	height: 100%;
-	vertical-align: middle; 
-}/*important pour que le logo reste sur la même ligne que les autres div*/
+	vertical-align: middle;
+}
 
-div.logo_restaurant{
-	display:inline-block;
+/*important pour que le logo reste sur la même ligne que les autres div*/
+
+div.logo_restaurant {
+	display: inline-block;
 	width: 10%;
 	height: 100%;
 }
 
-img.logo{
-	width:100%;
+img.logo {
+	width: 100%;
 	height: 100%;
 	object-fit: fill;
 }
 
-div.bandeau_nom{
+div.bandeau_nom {
 	display: inline-block;
 	width: 20%;
 	height: 100%;
-	text-align:center;
+	text-align: center;
 
 }
 
-div.bandeau_moncompte{
-	display:inline-block;
-	width: 20%;
-	height: 100%;
-}
-
-div.bandeau_avis{
+div.bandeau_moncompte {
 	display: inline-block;
 	width: 20%;
 	height: 100%;
-	text-align:center;
 }
 
-div.bandeau_accueil{
-	display:inline-block;
+div.bandeau_avis {
+	display: inline-block;
 	width: 20%;
 	height: 100%;
-	text-align:center;
+	text-align: center;
 }
 
-a.link_bandeau:link{
-	color:#D40078;
+div.bandeau_accueil {
+	display: inline-block;
+	width: 20%;
+	height: 100%;
+	text-align: center;
 }
 
-a.link_bandeau:hover{
-	color:#D40078;
+a.link_bandeau:link {
+	color: #D40078;
 }
 
-a.link_bandeau:visited{
-	color:#D40078;
+a.link_bandeau:hover {
+	color: #D40078;
+}
+
+a.link_bandeau:visited {
+	color: #D40078;
 }
 
 .lien_bouton {
-  display: inline-block; 
-  padding: 10px 20px; 
-  background-color: #D40078; 
-  color: white; 
-  text-decoration: none; 
-  border: none; 
-  border-radius: 5px; 
-  cursor: pointer; 
-  font-weight: bold; 
-  text-align: center; 
+	display: inline-block;
+	padding: 10px 20px;
+	background-color: #D40078;
+	color: white;
+	text-decoration: none;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-weight: bold;
+	text-align: center;
 }
-div.remplissage{
+
+div.remplissage {
 	height: 50px;
-	width:100%
+	width: 100%
 }
 
 /*Accueil*/
 
 
 
-#texte_barre_recherche{
-    size: 10;
+#texte_barre_recherche {
+	size: 10;
 }
 
-#bouton-barre-recherche{
-    size: 10;
+#bouton-barre-recherche {
+	size: 10;
 }
 
 /* Connexion*/
-input[type=text], [type=password], [type=number], [type=textarea], [type=tel]{
+input[type=text],
+[type=password],
+[type=number],
+[type=textarea],
+[type=tel] {
 	border-style: none none solid none;
 	border-width: 1px;
 	height: 30px;
 	width: 100%;
 }
 
-input[type=text]:focus, [type=password]:focus, [type=number]:focus, [type=textarea]:focus{
+input[type=text]:focus,
+[type=password]:focus,
+[type=number]:focus,
+[type=textarea]:focus {
 	background-color: lightblue;
 	outline: none;
 }
@@ -122,49 +133,50 @@ input[type=text]:focus, [type=password]:focus, [type=number]:focus, [type=textar
 
 .formulaire_connexion {
 	height: 60%;
-	border: 2px solid ;
+	border: 2px solid;
 	border-radius: 5px;
 	background-color: #148b84;
-	padding:30px;
+	padding: 30px;
 }
+
 /*inscription*/
 
-div.formulaire{
- 	border: solid 1px white;
- 	border-radius: 5px;
+div.formulaire {
+	border: solid 1px white;
+	border-radius: 5px;
 	width: 40%;
 	margin: 30px auto;
-	text-align:center;
-	
+	text-align: center;
+
 }
 
-div.ins_con{
+div.ins_con {
 	margin: 30px auto;
 	width: 70%;
 }
 
-.form_inscri{
-	text-align:left;
-	background-color:white;
+.form_inscri {
+	text-align: left;
+	background-color: white;
 	margin: 10px 20px 10px 20px;
 	padding: 20px;
-	
+
 }
 
-img.gomme{
+img.gomme {
 	object-fit: cover;
 	height: 100%;
 	width: 100%;
 }
 
-button.compte_crea{
+button.compte_crea {
 	vertical-align: middle;
 	display: inline-block;
 	height: 40px;
 	width: 200px;
 }
 
-button.compte_del{
+button.compte_del {
 	vertical-align: middle;
 	display: inline-block;
 	height: 40px;
@@ -174,91 +186,189 @@ button.compte_del{
 
 /*suite*/
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 
 .main {
-    flex-grow: 1; 
-    margin-left: 20px; 
+	flex-grow: 1;
+	margin-left: 20px;
 }
 
 .rating-container {
-    text-align: center; 
-    font-family: sans-serif;
+	text-align: center;
+	font-family: sans-serif;
 }
 
 .form-container {
-    width: 100%;
-    text-align: center; 
-    margin-top: 30px;   
+	width: 100%;
+	text-align: center;
+	margin-top: 30px;
 }
 
 .star-rating {
-    display: flex;
-    flex-direction: row-reverse; 
-    justify-content: center;
-    font-size: 3em;
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: center;
+	font-size: 3em;
 }
 
 .star-rating input {
-    display: none;
+	display: none;
 }
 
 .star-rating label {
-    color: #ccc;
-    cursor: pointer;
-    transition: color 0.2s ease;
+	color: #ccc;
+	cursor: pointer;
+	transition: color 0.2s ease;
 }
 
 .star-rating label:hover,
-.star-rating label:hover ~ label,
-.star-rating input:checked ~ label {
-    color: #000; 
+.star-rating label:hover~label,
+.star-rating input:checked~label {
+	color: #000;
 }
 
 .star-rating label:hover {
-    transform: scale(1.1);
+	transform: scale(1.1);
 }
 
 
-table, th, td {
-  border: 4px solid black;
-  border-collapse: collapse;
+table,
+th,
+td {
+	border: 4px solid black;
+	border-collapse: collapse;
 }
 
-th, td {
-  padding: 10px;
+th,
+td {
+	padding: 10px;
 }
 
 .btn-submit {
-    padding: 15px 40px;     
-    font-size: 1.2rem;       
-    font-weight: bold;
-    text-transform: uppercase;
-    
-    background-color: black; 
-    color: #C7A11A;          
-    border: 2px solid black;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    
+	padding: 15px 40px;
+	font-size: 1.2rem;
+	font-weight: bold;
+	text-transform: uppercase;
 
-    display: inline-block; 
+	background-color: black;
+	color: #C7A11A;
+	border: 2px solid black;
+	cursor: pointer;
+	transition: all 0.3s ease;
+
+
+	display: inline-block;
 }
 
 .btn-submit:hover {
-    background-color: transparent;
-    color: black;
+	background-color: transparent;
+	color: black;
 }
+
 /**/
-table, th, tr, td {
+table,
+th,
+tr,
+td {
 	border: 1px solid black;
 }
 
-.modification{
+.modification {
 	height: 100px;
 	width: 100px;
+}
+
+
+
+.plat {
+	width: 300px;
+	background-color: #fff;
+	border-radius: 8px;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+	/* ombre pour délimiter la case */
+	padding: 15px;
+	font-family: 'Arial', sans-serif;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+}
+
+
+.plat-populaire {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	font-size: 12px;
+	color: #666;
+	font-weight: bold;
+}
+
+.image {
+	width: 100%;
+	height: 180px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 15px;
+}
+
+.image img {
+	max-width: 100%;
+	/* L'image ne peut pas être plus large que sa fenêtre */
+	max-height: 100%;
+	/* L'image ne peut pas être plus haute que sa fenêtre */
+	object-fit: contain;
+	/* Garde les proportions sans déformer ou couper l'image */
+}
+
+.titre {
+	color: #c41e5e;
+	margin: 0 0 10px 0;
+	font-size: 18px;
+}
+
+.description {
+	color: #666;
+	font-size: 13px;
+	line-height: 1.4;
+	margin-bottom: 20px;
+	min-height: 50px;
+	/* Pour garder l'alignement si le texte est court */
+}
+
+
+.bas-carte {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+
+.prix {
+	display: block;
+	font-weight: bold;
+	color: #c41e5e;
+	font-size: 16px;
+}
+
+
+
+.ajouter {
+	width: 40px;
+	height: 40px;
+	border: none;
+	/* Enlève la bordure grise par défaut */
+	border-radius: 4px;
+	background: linear-gradient(135deg, #a78bfa, #f472b6);
+	color: white;
+	font-size: 24px;
+	cursor: pointer;
+	transition: opacity 0.2s;
+}
+
+.ajouter:hover {
+	opacity: 0.9;
 }
