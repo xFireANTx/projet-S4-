@@ -12,43 +12,59 @@
 <div class="bandeau">
 	<div class="logo_restaurant"><img class="logo"src="logo_japindien.png"/></div><!--
 	--><div class="bandeau_nom">Le Japindien</div><!--
-	--><div class="bandeau_accueil"><a class="link_bandeau" href="Accueil.html">Accueil</a></div><!--
+	--><div class="bandeau_accueil"><a class="lien_bouton" href="Accueil.html">Accueil</a></div><!--
 	--><div class="bandeau_moncompte">
 		<ul>
-			<li><a class="link_bandeau" href="connexion.html">Connexion</a></li>
-			<li><a class="link_bandeau" href="inscription.html">Inscription</a></li>
+			<li><a class="lien_bouton" href="connexion.html">Connexion</a></li>
+			<li><a class="lien_bouton" href="inscription.html">Inscription</a></li>
 		</ul></div><!--
-	--><div class="bandeau_avis"><a class="link_bandeau" href="notation.html">Avis</a></div><!--
+	--><div class="bandeau_avis"><a class="lien_bouton" href="presentation.html">A la carte</a></div><!--
 	--><div class="logo_restaurant"><img class="logo"src="logo_japindien.png"/></div>
 	
 </div>
 <div class="remplissage"></div>
 
 
-<form action="/temp_page.php" target="blank" method="post" style="text-font:bold"> 
-	Nom:<input type="text" name="nom" placeholder="Nom" width="50%">
-	
-	Prénom:<input type="text" name="prénom" placeholder="Prénom" width="50%"><br>
-	
-	
-	
-	Adresse:<input type="textarea" name="adresse" style="width:60% ; height:20px" 	placeholder="Rue No Boîte postale"></textarea><br>
 
-	No Postale/Localité:
- 	<input type="text" name="No postale" size="5" maxlength="5" placeholder="XXXXX">
- 	<input type="text" name="Localité" style="width:35%"placeholder="Cergy">
- 	<br>
+<div class="formulaire">
+<div class="ins_con">&nbsp&nbspINSCRIPTION<div class="espace"></div><a href="connexion.html">CONNEXION</a></div>
+<form class="form_inscri" action="/temp_page.php" target="_self" method="post"> 
 
-<bold>N° de Telephone:</bold><input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"><br>
-<fieldset>
-	<legend>Compte</legend>
-	Mail:<input type="text" name="Adresse e-mail" placeholder="Mail@messagerie.etc"><br>
-	Mot de passe:<input type="password" name="mdp"><br>
-	Confirmation du mot de passe:<input type="password" name="confirmation mdp">
+	<label for="Nom">Nom:</label><br>
+	<input id="Nom" type="text" name="nom" width="50%" placeholder="Nom" requires>
 	<br>
-</fieldset>
- 	<button type="submit">S'inscrire</button>
-	<button type="delete">Effacer</button>
+	
+	<label for="prénom">Prénom:</label><br>
+	<input id="prénom" type="text" name="prénom" width="50%" placeholder="Prénom" required>
+	<br>
+	
+	<label for="adresse">Adresse:</label><br>
+	<input id="adresse" type="text" name="adresse" placeholder="Rue No Boîte postale" required><br>
+
+	<label for="No Postale">No Postale:</label><br>
+ 	<input id="No Postale" type="text" name="No postale" size="5" maxlength="5" placeholder="00000" style="width:20%" required><br>
+ 	
+ 	<label for="Localité">Localité:</label><br>
+ 	<input id="Localité" type="text" name="Localité" style="width:35%" placeholder="Cergy" required>
+ 	<br>
+	
+	<label for="phone">N° de Telephone:</label><br>
+	<input type="tel" id="phone" name="phone" pattern="[0]{1}[0-9]{9}" placeholder="0102030405" required><br>
+	
+	<label for="Mail">Mail:</label>
+	<input id="Mail" type="text" name="Adresse e-mail" placeholder="Email" required><br>
+	
+	<label for="mdp">Mot de passe:</label>
+	<input id="mdp"type="password" name="mdp" placeholder="Mot de passe" required><br>
+	
+	<label for="Confirmation mdp">Confirmation du mot de passe:</label><br>
+	<input type="password" name="confirmation mdp" placeholder="Confirmation du mot de passe" required>
+	<br>
+	<br>
+<div>
+ 	<button type="submit" class="compte_crea" >Créer mon compte</button> &nbsp &nbsp
+	<button type="reset" class="compte_del" ><img class="gomme" src="gomme.png"/></button>
+<div>
 </form>
 </body>
 </html>
