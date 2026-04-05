@@ -375,3 +375,25 @@ td {
 .ajouter:hover {
 	opacity: 0.9;
 }
+
+.section-titre {
+	color: #c41e5e;
+	font-family: 'Arial', sans-serif;
+	font-size: 28px;
+	font-weight: bold;
+	margin-left: 40px;
+	margin-top: 30px;
+	margin-bottom: 20px;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.flag-icon {
+	width: 30px;
+	height: auto;
+	border-radius: 2px;
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 10px;
+}
