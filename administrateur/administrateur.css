@@ -1,31 +1,9 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+
+button > img{
+	width: 20px;
+	height: 20px;
 }
 
-body {
-    display: flex;
-    height: 100vh;
-    background-color: white; 
-}
-
-.bandeau {
-    width: 125px;
-    height: 100%;
-    background-color: black;
-    flex-shrink: 0;
-}
-
-.main {
-    flex-grow: 1;
-    margin-left: 20px; 
-}
-
-.rating-container {
-    text-align: center;
-    font-family: sans-serif;
-}
 
 
 table, th, td {
@@ -35,4 +13,12 @@ table, th, td {
 
 th, td {
   padding: 10px;
+}
+
+/*Livraison*/
+
+div.tableau_livraison{
+	margin: 0 auto;
+	width : 100%;
+	height : 200px
 }
