@@ -16,37 +16,28 @@ div.bandeau {
 	left: 0;
 	width: 100%;
 	height: 60px;
-	/* Ajuste selon tes besoins */
 	background-color: #71BFD5;
 	color: #D40078;
 	z-index: 1000;
-
-	/* Flexbox pour l'alignement */
 	display: flex;
 	align-items: center;
-	/* Aligne verticalement au milieu */
 	justify-content: space-between;
-	/* Espace entre le nom et les boutons */
 	padding: 0 30px;
-	/* Ajoute un peu d'espace sur les côtés */
 }
 
 
 .navigation_droite {
 	display: flex;
 	gap: 20px;
-	/* Espace de 20px entre chaque bouton */
 	align-items: center;
 }
 
-/* On supprime les largeurs fixes de 20% que tu avais avant */
 .bandeau_accueil,
 .bandeau_moncompte,
 .bandeau_avis {
 	width: auto !important;
 }
 
-/* On enlève les largeurs fixes inutiles */
 div.logo_restaurant,
 div.bandeau_nom,
 div.bandeau_moncompte,
@@ -63,14 +54,12 @@ div.bandeau_nom {
 	color: #D40078;
 }
 
-/* Pour les listes de connexion/inscription */
 div.bandeau_moncompte ul {
 	display: flex;
 	gap: 10px;
 	list-style: none;
 }
 
-/*important pour que le logo reste sur la même ligne que les autres div*/
 
 div.logo_restaurant {
 	display: inline-block;
@@ -359,7 +348,7 @@ td {
 	color: black;
 }
 
-/**/
+
 table,
 th,
 tr,
@@ -379,7 +368,6 @@ td {
 	flex-wrap: nowrap;
 	justify-content: center;
 	gap: 30px;
-	/* L'espace entre les cartes */
 	padding: 40px;
 }
 
@@ -388,7 +376,6 @@ td {
 	background-color: #fff;
 	border-radius: 8px;
 	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-	/* ombre pour délimiter la case */
 	padding: 15px;
 	font-family: 'Arial', sans-serif;
 	position: relative;
@@ -409,11 +396,8 @@ td {
 
 .image img {
 	max-width: 100%;
-	/* L'image ne peut pas être plus large que sa fenêtre */
 	max-height: 100%;
-	/* L'image ne peut pas être plus haute que sa fenêtre */
 	object-fit: contain;
-	/* Garde les proportions sans déformer ou couper l'image */
 }
 
 .titre {
