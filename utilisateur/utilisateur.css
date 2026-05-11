@@ -469,12 +469,3 @@ td {
 	vertical-align: middle;
 	margin-left: 10px;
 }
-
-div.bandeau {
-	position: fixed;
-	width: 100%;
-	height: 50px;
-	background-color: #71BFD5;
-	color: #D40078;
-	z-index: 1000;
-}
