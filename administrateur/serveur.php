@@ -31,8 +31,6 @@
         "poulpe" => "section 9",
     ];
 
-
-
     $targetSection = null;
     foreach ($sections as $section) {
         if (strpos($section, $search) !== false) {
@@ -48,4 +46,3 @@
         header("Location: index.php");
         exit();
     }
-?>

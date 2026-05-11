@@ -13,6 +13,27 @@
 		<div class="logo_restaurant"><img class="logo" src="../photos/logo_japindien.png" /></div>
 		<div class="bandeau_nom">Le Japindien</div>
 
+    <form action="traitement.php" method="GET">
+        <input
+            type="text"
+            name="search"
+            placeholder="Recherchez un plat..."
+            list="mots-cles"
+        >
+        <datalist id="mots-cles">
+            <option value="maki">
+            <option value="samousa">
+            <option value="cheese naan">
+            <option value="poulet tandoori mariné au whiskey">
+            <option value="soupe miso">
+            <option value="brochette">
+            <option value="onigiri">
+            <option value="donburi">
+            <option value="poulpe">
+        </datalist>
+        <button type="submit">Rechercher</button>
+    </form>
+	
 		<div class="navigation_droite">
 			<div class="bandeau_accueil"><a class="lien_bouton" href="Accueil.html">Accueil</a></div>
 			<div class="bandeau_moncompte">
@@ -192,24 +213,6 @@
 		</div>
 	</div>
 
-
-	<br><br>
-	<div class="search-container">
-		<form action="traitement.php" method="GET">
-			<input
-				type="text"
-				name="search"
-				placeholder="Recherchez une section..."
-				list="mots-cles"
-			>
-			<datalist id="mots-cles">
-				<option value="section1">
-				<option value="section2">
-				<option value="section3">
-			</datalist>
-			<button type="submit">Rechercher</button>
-		</form>
-	</div>
 </body>
 
 </html>
