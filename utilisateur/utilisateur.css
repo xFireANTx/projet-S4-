@@ -270,6 +270,14 @@ button.compte_crea {
 	display: inline-block;
 	height: 40px;
 	width: 200px;
+	background: linear-gradient(135deg, #a78bfa, #f472b6);
+	border-color: white;
+	border-radius: 15px;
+	color: white;
+}
+
+button.compte_crea:hover {
+	opacity: 0.9;
 }
 
 button.compte_del {
