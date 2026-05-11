@@ -229,17 +229,34 @@ div.formulaire {
 
 }
 
-div.ins_con {
-	margin: 30px auto;
-	width: 70%;
-}
+
 
 .form_inscri {
 	text-align: left;
 	background-color: white;
 	margin: 10px 20px 10px 20px;
 	padding: 20px;
+	font-size: 1.2rem;
 
+}
+
+div.ins_con {
+	margin: 30px auto;
+	width: 70%;
+	color: #D40078;
+	font-size: 1.3rem;
+	font-weight: bold;
+}
+
+a.lien {
+	color: darkslategray;
+	text-decoration: none;
+	font-size: 1.3rem;
+	font-weight: bold;
+}
+
+a.lien:hover {
+	color: #D40078;
 }
 
 img.gomme {
