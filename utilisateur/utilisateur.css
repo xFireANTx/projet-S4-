@@ -469,3 +469,69 @@ td {
 	vertical-align: middle;
 	margin-left: 10px;
 }
+
+
+.plat.carte-formule {
+	width: 100%;
+	max-width: 1000px;
+	flex-direction: row;
+	gap: 30px;
+	padding: 30px;
+	align-items: center;
+}
+
+
+.formule-images {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 15px;
+	flex: 1;
+}
+
+.formule-images img {
+	width: 150px;
+	height: 150px;
+	object-fit: contain;
+}
+
+.formule-images .plus {
+	font-size: 24px;
+	font-weight: bold;
+	color: #c41e5e;
+}
+
+.formule-details {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100%;
+}
+
+.liste-formule {
+	list-style: none;
+	margin: 15px 0;
+	font-size: 14px;
+	color: #555;
+}
+
+.liste-formule li {
+	margin-bottom: 5px;
+}
+
+
+.ancien-prix {
+	text-decoration: line-through;
+	color: #999;
+	font-size: 14px;
+	margin-right: 10px;
+}
+
+
+@media (max-width: 768px) {
+	.plat.carte-formule {
+		flex-direction: column;
+		text-align: center;
+	}
+}
