@@ -19,6 +19,20 @@
     $search = isset($_GET['search']) ? strtolower($_GET['search']) : '';
     $sections = ['section1', 'section2', 'section3'];
 
+    $motsCles = [
+        "maki" => "section 1",
+        "samousa" => "section 2",
+        "cheese naan" => "section 3",
+        "poulet tandoori mmariné au whiskey" => "section 4",
+        "soupe miso" => "section 5",
+        "brochette" => "section 6",
+        "onigiri" => "section 7",
+        "donburi" => "section 8",
+        "poulpe" => "section 9",
+    ];
+
+
+
     $targetSection = null;
     foreach ($sections as $section) {
         if (strpos($section, $search) !== false) {
@@ -34,80 +48,4 @@
         header("Location: index.php");
         exit();
     }
-
-//liste de mots cles
-$results = [
-    "maki" => [
-        "url" => "https://ton-site.fr/html"
-    ],
-    "samousa" => [
-        "url" => "https://ton-site.fr/css"
-    ],
-    "cheese naan" => [
-        "url" => "https://ton-site.fr/php"
-    ],
-    "poulet tandoori mmariné au whiskey" => [
-        "url" => "https://ton-site.fr/javascript"
-    ],
-    "soupe miso" => [
-        "url" => "https://ton-site.fr/javascript"
-    ],
-    "brochette" => [
-        "url" => "https://ton-site.fr/javascript"
-    ],
-    "onigiri" => [
-        "url" => "https://ton-site.fr/javascript"
-    ],
-    "donburi" => [
-        "url" => "https://ton-site.fr/javascript"
-    ],
-    "poulpe" => [
-        "url" => "https://ton-site.fr/javascript"
-    ],
-    "tonkatsu" => [
-        "url" => "https://ton-site.fr/javascript"
-    ],
-    "ramen" => [
-        "url" => "https://ton-site.fr/javascript"
-    ],
-    "curry" => [
-        "url" => "https://ton-site.fr/javascript"
-    ],
-    "chirachi" => [
-        "url" => "https://ton-site.fr/javascript"
-    ],
-    "suchi" => [
-        "url" => "https://ton-site.fr/javascript"
-    ],
-    "yakiniku" => [
-        "url" => "https://ton-site.fr/javascript"
-    ],
-    "tikkaa massala" => [
-        "url" => "https://ton-site.fr/javascript"
-    ],
-    "poulet tandoori" => [
-        "url" => "https://ton-site.fr/javascript"
-    ],
-    "dahl" => [
-        "url" => "https://ton-site.fr/javascript"
-    ],
-    "aloo gobi" => [
-        "url" => "https://ton-site.fr/javascript"
-    ],
-    "ladoo" => [
-        "url" => "https://ton-site.fr/javascript"
-    ],
-    "raita" => [
-        "url" => "https://ton-site.fr/javascript"
-    ],
-];
-
-$filteredResults = [];
-foreach ($results as $key => $value) {
-    if (stripos($key, $texte_barre_recherche) !== false || stripos($value, $texte_barre_recherche) !== false) {
-        $filteredResults[$key] = $value;
-    }
-}
-
-
 ?>
