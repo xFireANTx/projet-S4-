@@ -40,10 +40,10 @@
     }
 
     if ($targetSection) {
-        header("Location: index.php#$targetSection");
+        header("Location: Accueil.html#$targetSection");
         exit();
     } else {
-        header("Location: index.php");
+        header("Location: Acceuil.html");
         exit();
     }
     ?>
