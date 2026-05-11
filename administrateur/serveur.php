@@ -17,18 +17,18 @@
         
     //acceuil
     $search = isset($_GET['search']) ? strtolower($_GET['search']) : '';
-    $sections = ['section1', 'section2', 'section3'];
+    $sections = ['section1', 'section2', 'section3', 'section4', 'section5', 'section6', 'section7', 'section8', 'section9'];
 
     $motsCles = [
-        "maki" => "section 1",
-        "samousa" => "section 2",
-        "cheese naan" => "section 3",
-        "poulet tandoori mmariné au whiskey" => "section 4",
-        "soupe miso" => "section 5",
-        "brochette" => "section 6",
-        "onigiri" => "section 7",
-        "donburi" => "section 8",
-        "poulpe" => "section 9",
+        "maki" => "section1",
+        "samousa" => "section2",
+        "cheese naan" => "section3",
+        "poulet tandoori mmariné au whiskey" => "section4",
+        "soupe miso" => "section5",
+        "brochette" => "section6",
+        "onigiri" => "section7",
+        "donburi" => "section8",
+        "poulpe" => "section9",
     ];
 
     $targetSection = null;
