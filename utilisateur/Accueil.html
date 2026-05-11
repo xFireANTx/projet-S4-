@@ -367,11 +367,12 @@
 	</div>
 
 	<br><br>
-	<form class="form_accueil" target="_self" method="post" action="../administrateur/serveur.php">
-		<input type="text" id="texte_barre_recherche" name="texte_barre_recherche"
-			placeholder="Rentrez votre recherche">
-		<input type="button" id="bouton_barre_recherche" value="rechercher">
-	</form>
+<div class="search-container">
+        <form action="search.php" method="GET">
+            <input type="text" name="q" placeholder="Rechercher..." class="search-input" value="<?php echo htmlspecialchars($query); ?>">
+            <button type="submit" class="search-button">Rechercher</button>
+        </form>
+    </div>
 </body>
 
 </html>
