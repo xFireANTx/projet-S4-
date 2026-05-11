@@ -17,10 +17,13 @@
 		<div class="bandeau_accueil"><a class="lien_bouton" href="Accueil.html">Accueil</a></div><!--
 	-->
 		<div class="bandeau_moncompte">
-			<ul>
-				<li><a class="lien_bouton" href="connexion.html">Connexion</a></li>
-				<li><a class="lien_bouton" href="inscription.html">Inscription</a></li>
-			</ul>
+			<div class="dropdown">
+				<button class="lien_bouton">Mon compte</button>
+				<div class="dropdown-content">
+					<a href="connexion.html">Connexion</a>
+					<a href="inscription.html">Inscription</a>
+				</div>
+			</div>
 		</div><!--
 	-->
 		<div class="bandeau_avis"><a class="lien_bouton" href="presentation.html">A la carte</a></div><!--
@@ -365,10 +368,10 @@
 
 	<br><br>
 	<form class="form_accueil" target="_self" method="post" action="../administrateur/serveur.php">
-		<input type="text" id="texte_barre_recherche" name="texte_barre_recherche" placeholder="Rentrez votre recherche">
+		<input type="text" id="texte_barre_recherche" name="texte_barre_recherche"
+			placeholder="Rentrez votre recherche">
 		<input type="button" id="bouton_barre_recherche" value="rechercher">
 	</form>
-	</p>
 </body>
 
 </html>
