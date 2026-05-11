@@ -1,8 +1,5 @@
 <?php
 
-    //accueil
-    $texte_barre_recherche = isset($_GET['q']) ? trim($_GET['q']) : '';
-
     //connexion
     $connexion_adresse_mail = $_POST['connexion_Adresse_e-mail'];
     $connexion_mdp = $_POST['connexion_mdp'];
@@ -17,8 +14,26 @@
     $adresse_mail = $_POST['Adresse e-mail'];
     $mdp = $_POST['mdp'];
     $confirmation_mdp = $_POST['confirmation mdp'];
-    
+        
+    //acceuil
+    $search = isset($_GET['search']) ? strtolower($_GET['search']) : '';
+    $sections = ['section1', 'section2', 'section3'];
 
+    $targetSection = null;
+    foreach ($sections as $section) {
+        if (strpos($section, $search) !== false) {
+            $targetSection = $section;
+            break;
+        }
+    }
+
+    if ($targetSection) {
+        header("Location: index.php#$targetSection");
+        exit();
+    } else {
+        header("Location: index.php");
+        exit();
+    }
 
 //liste de mots cles
 $results = [
