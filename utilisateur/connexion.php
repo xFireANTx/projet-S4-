@@ -29,6 +29,10 @@ session_start();
 			}
 			
 			if($utilisateur_trouve){
+				if($email === "admin@japindien.com"){
+					header("Location: ../administrateur/admin.php");
+					exit;
+				}
 				header("Location: Accueil.php");
 				exit;
 			}
