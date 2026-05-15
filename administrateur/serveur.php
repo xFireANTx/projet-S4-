@@ -1,9 +1,4 @@
 <?php
-
-    //connexion
-    $connexion_adresse_mail = $_POST['connexion_Adresse_e-mail'];
-    $connexion_mdp = $_POST['connexion_mdp'];
-        
     //acceuil
     $search = isset($_GET['search']) ? strtolower($_GET['search']) : '';
     $sections = ['section1', 'section2', 'section3', 'section4', 'section5', 'section6', 'section7', 'section8', 'section9'];
