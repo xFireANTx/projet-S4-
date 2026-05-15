@@ -46,12 +46,15 @@ div.bandeau_accueil {
 	width: auto;
 	display: flex;
 	align-items: center;
+	height: 100%;
 }
 
 div.bandeau_nom {
 	font-size: 1.5rem;
 	font-weight: bold;
 	color: #D40078;
+	height: 100%;
+	text-align: center;
 }
 
 div.bandeau_moncompte ul {
@@ -61,32 +64,10 @@ div.bandeau_moncompte ul {
 }
 
 
-div.logo_restaurant {
-	display: inline-block;
-	width: 10%;
-	height: 100%;
-}
-
-
-
 img.logo {
 	width: 100%;
 	height: 100%;
 	object-fit: fill;
-}
-
-div.bandeau_nom {
-	display: inline-block;
-	width: 20%;
-	height: 100%;
-	text-align: center;
-
-}
-
-div.bandeau_moncompte {
-	display: inline-block;
-	width: 20%;
-	height: 100%;
 }
 
 div.bandeau_avis {
@@ -96,12 +77,6 @@ div.bandeau_avis {
 	text-align: center;
 }
 
-div.bandeau_accueil {
-	display: inline-block;
-	width: 20%;
-	height: 100%;
-	text-align: center;
-}
 
 a.link_bandeau:link {
 	color: #D40078;
@@ -179,8 +154,6 @@ div.remplissage {
 }
 
 
-
-
 #texte_barre_recherche {
 	size: 10;
 }
@@ -188,6 +161,8 @@ div.remplissage {
 #bouton-barre-recherche {
 	size: 10;
 }
+
+
 
 /* Connexion*/
 input[type=text],
