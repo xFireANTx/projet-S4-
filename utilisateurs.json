@@ -1,1 +1,10 @@
-[]
+[
+    {
+        "nom": "Machefert",
+        "prenom": "Tom",
+        "adresse": "a",
+        "phone": "0600000000",
+        "email": "admin@japindien.com",
+        "mdp": "$2y$10$Heg.rvgs4\/OWsMBNPtYSwuovgJdnvO616e66Bo0zxVoc4k3krKafa"
+    }
+]
