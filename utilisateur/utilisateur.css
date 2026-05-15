@@ -15,7 +15,7 @@ div.bandeau {
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 60px;
+	height: 80px;
 	background-color: #71BFD5;
 	color: #D40078;
 	z-index: 1000;
@@ -32,17 +32,9 @@ div.bandeau {
 	align-items: center;
 }
 
-.bandeau_accueil,
-.bandeau_moncompte,
-.bandeau_avis {
-	width: auto !important;
-}
 
-div.logo_restaurant,
-div.bandeau_nom,
-div.bandeau_moncompte,
-div.bandeau_avis,
-div.bandeau_accueil {
+div.logo_restaurant, div.bandeau_nom, div.bandeau_moncompte,div.bandeau_accueil 
+{
 	width: auto;
 	display: flex;
 	align-items: center;
@@ -52,15 +44,7 @@ div.bandeau_accueil {
 div.bandeau_nom {
 	font-size: 1.5rem;
 	font-weight: bold;
-	color: #D40078;
-	height: 100%;
 	text-align: center;
-}
-
-div.bandeau_moncompte ul {
-	display: flex;
-	gap: 10px;
-	list-style: none;
 }
 
 
@@ -70,25 +54,6 @@ img.logo {
 	object-fit: fill;
 }
 
-div.bandeau_avis {
-	display: inline-block;
-	width: 20%;
-	height: 100%;
-	text-align: center;
-}
-
-
-a.link_bandeau:link {
-	color: #D40078;
-}
-
-a.link_bandeau:hover {
-	color: #D40078;
-}
-
-a.link_bandeau:visited {
-	color: #D40078;
-}
 
 .lien_bouton {
 	display: inline-block;
@@ -101,6 +66,10 @@ a.link_bandeau:visited {
 	cursor: pointer;
 	font-weight: bold;
 	text-align: center;
+}
+
+.lien_bouton:hover {
+	background-color: #b50066;
 }
 
 
@@ -149,7 +118,7 @@ a.link_bandeau:visited {
 }
 
 div.remplissage {
-	height: 50px;
+	height: 80px;
 	width: 100%
 }
 
@@ -263,7 +232,8 @@ button.compte_del {
 }
 
 
-/*suite*/
+
+/*notation*/
 * {
 	margin: 0;
 	padding: 0;
@@ -315,18 +285,6 @@ button.compte_del {
 }
 
 
-table,
-th,
-td {
-	border: 4px solid black;
-	border-collapse: collapse;
-}
-
-th,
-td {
-	padding: 10px;
-}
-
 .btn-submit {
 	padding: 15px 40px;
 	font-size: 1.2rem;
@@ -349,13 +307,9 @@ td {
 }
 
 
-table,
-th,
-tr,
-td {
-	border: 1px solid black;
-}
 
+
+/*mise en page des menus*/
 .modification {
 	height: 100px;
 	width: 100px;
