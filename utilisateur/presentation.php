@@ -1,3 +1,7 @@
+<?php
+	session_start();
+	$estconnecte = isset($_SESSION['client']);
+?>
 <!DOCTYPE html>
 <html>
 
@@ -12,17 +16,29 @@
         <div class="bandeau_nom">Le Japindien</div>
 
         <div class="navigation_droite">
-            <div class="bandeau_accueil"><a class="lien_bouton" href="Accueil.html">Accueil</a></div>
-            <div class="bandeau_moncompte">
-                <div class="dropdown">
-                    <button class="lien_bouton">Mon compte</button>
-                    <div class="dropdown-content">
-                        <a href="connexion.html">Connexion</a>
-                        <a href="inscription.html">Inscription</a>
-                    </div>
-                </div>
-            </div>
-            <div class="bandeau_avis"><a class="lien_bouton" href="presentation.html">A la carte</a></div>
+            <div class="bandeau_accueil"><a class="lien_bouton" href="Accueil.php">Accueil</a></div>
+			<?php if ($estconnecte): ?>
+				<div class="bandeau_moncompte">
+					<div class="dropdown">
+						<button class="lien_bouton">Mon compte</button>
+						<div class="dropdown-content">
+							<a href="profil.php">Profil</a>
+							<a href="deconnexion.php">Deconnexion</a>
+						</div>
+					</div>
+				</div>
+			<?php else: ?>
+				<div class="bandeau_moncompte">
+					<div class="dropdown">
+						<button class="lien_bouton">Mon compte</button>
+						<div class="dropdown-content">
+							<a href="connexion.html">Connexion</a>
+							<a href="inscription.html">Inscription</a>
+						</div>
+					</div>
+				</div>
+			<?php endif; ?>
+            <div class="bandeau_avis"><a class="lien_bouton" href="presentation.php">A la carte</a></div>
         </div>
     </div>
     <div class="remplissage"></div>
