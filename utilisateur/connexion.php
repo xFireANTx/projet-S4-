@@ -29,7 +29,7 @@ session_start();
 			}
 			
 			if($utilisateur_trouve){
-				header("Location: Accueil.html");
+				header("Location: Accueil.php");
 				exit;
 			}
 			else{
