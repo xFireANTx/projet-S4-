@@ -45,6 +45,7 @@
 <p><strong>Email :</strong> <?php echo $profil_client['email'] ?></p>
 <p><strong>Téléphone:</strong> <?php echo $profil_client['phone'] ?></p>
 <p><strong>Adresse</strong> <?php echo $profil_client['adresse'] ?></p>
-
+<button onclick="javascript:history.back()">Retour</button>
+	
 </body>
 </html>

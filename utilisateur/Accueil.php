@@ -61,8 +61,14 @@
 					</div>
 				</div>
 			<?php endif; ?>
+
 			<div class="bandeau_accueil"><a class="lien_bouton" href="presentation.html">A la carte</a></div>
-			<div class="bandeau_accueil"><a class="lien_bouton" href="notation.html">Note</a></div>
+			
+			<?php if($_SESSION['client']['email'] === 'admin@japindien.com'):?>
+				<div class="bandeau_accueil"><a class="lien_bouton" href="../administrateur/admin.php">Admin</a></div>
+			<?php else: ?>
+				<div class="bandeau_accueil"><a class="lien_bouton" href="notation.html">Note</a></div>
+			<?php endif; ?>  
 		</div>
 	</div>
 
