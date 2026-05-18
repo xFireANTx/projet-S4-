@@ -3,19 +3,19 @@
         "id": 1,
         "nom": "Menu signature",
         "prix": "20",
-        "nb personnes": "1",
+        "nb personnes": "1"
     },
     {
         "id": 2,
         "nom": "Menu japonais",
         "prix": "22",
-        "nb personnes": "1",
+        "nb personnes": "1"
     },
     {
         "id": 3,
         "nom": "Menu indiens",
         "prix": "22",
-        "nb personnes": "1",
+        "nb personnes": "1"
     },
     {
         "id": 4,
