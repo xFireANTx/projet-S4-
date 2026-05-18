@@ -1,0 +1,81 @@
+[
+    {
+        "id": 1,
+        "nom": "Menu signature",
+        "prix": "20",
+        "nb personnes": "1",
+    }
+
+    {
+        "id": 2,
+        "nom": "Menu japonais",
+        "prix": "22",
+        "nb personnes": "1",
+        ,
+    }
+
+    {
+        "id": 3,
+        "nom": "Menu indiens",
+        "prix": "22",
+        "nb personnes": "1",
+    }
+
+    {
+        "id": 4,
+        "nom": "Coca-Cola",
+        "prix": "2,5",
+        "allergène": [],
+        "image": "../photos/coca-cola.png"
+    }
+
+    {
+        "id": 5,
+        "nom": "Ice Tea",
+        "prix": "2,5",
+        "allergène": [],
+        "image": "../photos/icetea.png"
+    }
+
+    {
+        "id": 6,
+        "nom": "Jus de pomme",
+        "prix": "2,5",
+        "allergène": [],
+        "image": "../photos/juspomme.png"
+    }
+
+    {
+        "id": 7,
+        "nom": "Scheweppes",
+        "prix": "2,5",
+        "allergène": [],
+        "image": "../photos/scheweppes.png"
+    }
+
+    {
+        "id": 8,
+        "nom": "Mogu",
+        "prix": "3",
+        "allergène": [],
+        "image": "../photos/mogu.png"
+    }
+
+    {
+        "id": 9,
+        "nom": "Lassi mangue",
+        "prix": "4,5",
+        "allergène": [],
+        "image": "../photos/lassimangue.png"
+    }
+
+    {
+        "id": 10,
+        "nom": "Maki curry",
+        "prix": "13,5",
+        "allergène": [
+            "poisson"
+        ],
+        "image": "../photos/sushicurry.png"
+    }
+]
