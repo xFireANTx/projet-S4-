@@ -4,26 +4,32 @@
         "nom": "Menu signature",
         "prix": "20",
         "nb personnes": "1",
-        "description": "L'expérience japo-indienne a son paroxisme : faites un voyage en inde et au japon en un seul repas."
+        "description": "L'expérience japo-indienne a son paroxisme : faites un voyage en inde et au japon en un seul repas.",
+        "pays":"rien",
+        "type":"menu"
     },
     {
         "id": 2,
         "nom": "Menu japonais",
         "prix": "22",
         "nb personnes": "1",
-        "description": "L'expérience japonaise complète: du plate au dessert en passant par la boisson."
+        "description": "L'expérience japonaise complète: du plate au dessert en passant par la boisson.",
+        "pays":"rien",
+        "type":"menu"
     },
     {
         "id": 3,
         "nom": "Menu indiens",
         "prix": "22",
         "nb personnes": "1",
-        "description": "L'expérience indienne complète: du plate au dessert en passant par la boisson."
+        "description": "L'expérience indienne complète: du plate au dessert en passant par la boisson.",
+        "pays":"rien",
+        "type":"menu"
     },
     {
         "id": 4,
         "nom": "Coca-Cola",
-        "prix": "2,5",
+        "prix": "2,50",
         "allergène": [],
         "image": "../photos/coca.png",
         "description": "Une boisson rafraîchissante et populaire.",
@@ -33,7 +39,7 @@
     {
         "id": 5,
         "nom": "Ice Tea",
-        "prix": "2,5",
+        "prix": "2,50",
         "allergène": [],
         "image": "../photos/icetea.png",
         "description": "Une boisson rafraîchissante à la pêche.",
@@ -43,7 +49,7 @@
     {
         "id": 6,
         "nom": "Jus de pomme",
-        "prix": "2,5",
+        "prix": "2,50",
         "allergène": [],
         "image": "../photos/juspomme.png",
         "description": "Un jus de pomme frais et naturel.",
@@ -53,17 +59,17 @@
     {
         "id": 7,
         "nom": "Scheweppes",
-        "prix": "2,5",
+        "prix": "2,50",
         "allergène": [],
         "image": "../photos/schweppes.png",
         "description": "Une boisson rafraîchissante aux agrumes.",
-        "pays":"rien",
+        "pays":"boisson",
         "type":"boisson"
     },
     {
         "id": 8,
         "nom": "Mogu",
-        "prix": "3",
+        "prix": "3,00",
         "allergène": [],
         "image": "../photos/mogu.png",
         "description": "Une boisson traditionnelle à la fraise.",
@@ -73,7 +79,7 @@
     {
         "id": 9,
         "nom": "Lassi mangue",
-        "prix": "4,5",
+        "prix": "4,50",
         "allergène": [],
         "image": "../photos/lassimangue.png",
         "description": "Un lassi rafraîchissant à la mangue.",
@@ -83,7 +89,7 @@
     {
         "id": 10,
         "nom": "Maki curry",
-        "prix": "13,5",
+        "prix": "13,50",
         "allergène": [
             "poisson"
         ],
@@ -95,7 +101,7 @@
     {
         "id": 11,
         "nom": "Samousa boeuf de kobé",
-        "prix": "12",
+        "prix": "12,00",
         "allergène": [
             "viande"
         ],
@@ -107,7 +113,7 @@
     {
         "id": 12,
         "nom": "cheese naan au saké",
-        "prix": "11,5",
+        "prix": "11,50",
         "allergène": [],
         "image": "../photos/cheesenaan.png",
         "description": "Un délicieux et tendre cheese naan relevé au saké",
@@ -117,7 +123,7 @@
     {
         "id": 13,
         "nom": "Poulet Tandoori mariné au whisky japonais",
-        "prix": "13,5",
+        "prix": "13,50",
         "allergène": [
             "viande"
         ],
@@ -129,7 +135,7 @@
     {
         "id": 14,
         "nom": "Soupe miso poulet Tikka massala",
-        "prix": "12",
+        "prix": "12,00",
         "allergène": [],
         "image": "../photos/soupemiso.png",
         "description": "Une soupe miso composé d'un poulet Tikkaa Massala pour un plat aussi gourmand que léger.",
@@ -139,7 +145,7 @@
     {
         "id": 15,
         "nom": "brochette yakitori de Ladoo",
-        "prix": "11,5",
+        "prix": "11,50",
         "allergène": [
             "viande"
         ],
@@ -151,7 +157,7 @@
     {
         "id": 16,
         "nom": "Onigiri poulet tiki tikka",
-        "prix": "13,5",
+        "prix": "13,50",
         "allergène": [
             "viande"
         ],
@@ -163,7 +169,7 @@
     {
         "id": 17,
         "nom": "Donburi au curry d'agneau",
-        "prix": "12",
+        "prix": "12,00",
         "allergène": [
             "viande"
         ],
@@ -175,7 +181,7 @@
     {
         "id": 18,
         "nom": "poulpe au cumin",
-        "prix": "11,5",
+        "prix": "11,50",
         "allergène": [
             "poisson"
         ],
@@ -187,7 +193,7 @@
     {
         "id": 19,
         "nom": "Tonkatsu",
-        "prix": "13,5",
+        "prix": "13,50",
         "allergène": [
             "viande"
         ],
@@ -199,7 +205,7 @@
     {
         "id": 20,
         "nom": "Ramen",
-        "prix": "12",
+        "prix": "12,00",
         "allergène": [
             "viande"
         ],
@@ -211,7 +217,7 @@
     {
         "id": 21,
         "nom": "Katsu Curry",
-        "prix": "11,5",
+        "prix": "11,50",
         "allergène": [
             "viande"
         ],
@@ -223,7 +229,7 @@
     {
         "id": 22,
         "nom": "Chirachi anguille",
-        "prix": "13,5",
+        "prix": "13,50",
         "allergène": [
             "poisson"
         ],
@@ -235,7 +241,7 @@
     {
         "id": 23,
         "nom": "Assortiment de sushi et maki",
-        "prix": "12",
+        "prix": "12,00",
         "allergène": [
             "poisson"
         ],
@@ -247,7 +253,7 @@
     {
         "id": 24,
         "nom": "Yakiniku",
-        "prix": "11,5",
+        "prix": "11,50",
         "allergène": [
             "viande"
         ],
@@ -259,7 +265,7 @@
     {
         "id": 25,
         "nom": "Poulet Tikkaa Massala",
-        "prix": "13,5",
+        "prix": "13,50",
         "allergène": [
             "viande"
         ],
@@ -271,7 +277,7 @@
     {
         "id": 26,
         "nom": "Poulet Tandori",
-        "prix": "12",
+        "prix": "12,00",
         "allergène": [
             "viande"
         ],
@@ -283,7 +289,7 @@
     {
         "id": 27,
         "nom": "Dahl",
-        "prix": "11,5",
+        "prix": "11,50",
         "allergène": [],
         "image": "../photos/dahl.jpg",
         "description": "Un plat traditionnel à base de lentilles et de légumes, servi avec du riz.",
@@ -293,7 +299,7 @@
     {
         "id": 28,
         "nom": "Aloo Gobi",
-        "prix": "13,5",
+        "prix": "13,50",
         "allergène": [],
         "image": "../photos/aloo.jpg",
         "description": "Pommes de terre et chou-fleur dans une sauce au yaourt et à l'ail.",
@@ -303,7 +309,7 @@
     {
         "id": 29,
         "nom": "Ladoo",
-        "prix": "12",
+        "prix": "12,00",
         "allergène": [],
         "image": "../photos/ladoo.jpg",
         "description": "Douceur indienne à base de sucre et de farine de pois chiches.",
@@ -313,7 +319,7 @@
     {
         "id": 30,
         "nom": "Raita",
-        "prix": "11,5",
+        "prix": "11,50",
         "allergène": [],
         "image": "../photos/raita.jpg",
         "description": "Salade fraîche à base de yaourt et de légumes : concombres, carottes, tomates",
@@ -323,7 +329,7 @@
     {
         "id": 31,
         "nom": "Mochis",
-        "prix": "5",
+        "prix": "5,00",
         "allergène": [],
         "image": "../photos/mochis.png",
         "description": "Doux et moelleux, ces gâteaux japonais sont parfaits pour terminer un repas.",
@@ -333,7 +339,7 @@
     {
         "id": 32,
         "nom": "Cheesecake",
-        "prix": "8,5",
+        "prix": "8,50",
         "allergène": [],
         "image": "../photos/cheesecake.png",
         "description": "Doux et crémeux, ce cheesecake est un dessert incontournable du Japon.",
@@ -343,7 +349,7 @@
     {
         "id": 33,
         "nom": "Dorayaki",
-        "prix": "4,5",
+        "prix": "4,50",
         "allergène": [],
         "image": "../photos/dorayaki.png",
         "description": "Un dessert japonais composé de pancakes fourrés avec une garniture de pâte de haricot rouge.",
@@ -353,7 +359,7 @@
     {
         "id": 34,
         "nom": "Kulfi",
-        "prix": "6,5",
+        "prix": "6,50",
         "allergène": [],
         "image": "../photos/kulfi.png",
         "description": "Un dessert indien traditionnel à base de lait concentré et de sucre.",
@@ -363,7 +369,7 @@
     {
         "id": 35,
         "nom": "Gulab Jamun",
-        "prix": "5,5",
+        "prix": "5,50",
         "allergène": [],
         "image": "../photos/gulab-jamun.png",
         "description": "Douceur indienne à base de sucre et de farine de pois chiches.",
@@ -373,7 +379,7 @@
     {
         "id": 36,
         "nom": "Jalebi",
-        "prix": "4,5",
+        "prix": "4,50",
         "allergène": [],
         "image": "../photos/jalebi.png",
         "description": "Douceur indienne à base de sucre et de farine de pois chiches.",
