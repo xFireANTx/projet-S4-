@@ -39,7 +39,8 @@
     </form>
 
 		<div class="navigation_droite">
-			<div class="bandeau_accueil"><a class="lien_bouton" href="Accueil.html">Accueil</a></div>
+			<div class="bandeau_accueil"><a class="lien_bouton" href="Accueil.php">Accueil</a></div>
+			
 			<?php if ($estconnecte): ?>
 				<div class="bandeau_moncompte">
 					<div class="dropdown">
@@ -61,14 +62,13 @@
 					</div>
 				</div>
 			<?php endif; ?>
-
-			<div class="bandeau_accueil"><a class="lien_bouton" href="presentation.html">A la carte</a></div>
 			
+			<div class="bandeau_accueil"><a class="lien_bouton" href="presentation.php">A la carte</a></div>
 			<?php if($_SESSION['client']['email'] === 'admin@japindien.com'):?>
 				<div class="bandeau_accueil"><a class="lien_bouton" href="../administrateur/admin.php">Admin</a></div>
 			<?php else: ?>
 				<div class="bandeau_accueil"><a class="lien_bouton" href="notation.html">Note</a></div>
-			<?php endif; ?>  
+			<?php endif; ?>
 		</div>
 	</div>
 
