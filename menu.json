@@ -4,70 +4,61 @@
         "nom": "Menu signature",
         "prix": "20",
         "nb personnes": "1",
-    }
-
+    },
     {
         "id": 2,
         "nom": "Menu japonais",
         "prix": "22",
         "nb personnes": "1",
-    }
-
+    },
     {
         "id": 3,
         "nom": "Menu indiens",
         "prix": "22",
         "nb personnes": "1",
-    }
-
+    },
     {
         "id": 4,
         "nom": "Coca-Cola",
         "prix": "2,5",
         "allergène": [],
         "image": "../photos/coca-cola.png"
-    }
-
+    },
     {
         "id": 5,
         "nom": "Ice Tea",
         "prix": "2,5",
         "allergène": [],
         "image": "../photos/icetea.png"
-    }
-
+    },
     {
         "id": 6,
         "nom": "Jus de pomme",
         "prix": "2,5",
         "allergène": [],
         "image": "../photos/juspomme.png"
-    }
-
+    },
     {
         "id": 7,
         "nom": "Scheweppes",
         "prix": "2,5",
         "allergène": [],
         "image": "../photos/scheweppes.png"
-    }
-
+    },
     {
         "id": 8,
         "nom": "Mogu",
         "prix": "3",
         "allergène": [],
         "image": "../photos/mogu.png"
-    }
-
+    },
     {
         "id": 9,
         "nom": "Lassi mangue",
         "prix": "4,5",
         "allergène": [],
         "image": "../photos/lassimangue.png"
-    }
-
+    },
     {
         "id": 10,
         "nom": "Maki curry",
@@ -76,8 +67,7 @@
             "poisson"
         ],
         "image": "../photos/sushicurry.png"
-    }
-
+    },
     {
         "id": 11,
         "nom": "Samousa boeuf de kobé",
@@ -86,16 +76,14 @@
             "viande"
         ],
         "image": "../photos/samousa.png"
-    }
-
+    },
     {
         "id": 12,
         "nom": "cheese naan au saké",
         "prix": "11,5",
         "allergène": [],
         "image": "../photos/cheesenaan.png"
-    }
-
+    },
     {
         "id": 13,
         "nom": "Poulet Tandoori mariné au whisky japonais",
@@ -104,16 +92,14 @@
             "viande"
         ],
         "image": "../photos/poulettando.png"
-    }
-
+    },
     {
         "id": 14,
         "nom": "Soupe miso poulet Tikka massala",
         "prix": "12",
         "allergène": [],
         "image": "../photos/soupemiso.png"
-    }
-
+    },
     {
         "id": 15,
         "nom": "brochette yakitori de Ladoo",
@@ -122,8 +108,7 @@
             "viande"
         ],
         "image": "../photos/brochette.png"
-    }
-
+    },
     {
         "id": 16,
         "nom": "Onigiri poulet tiki tikka",
@@ -132,8 +117,7 @@
             "viande"
         ],
         "image": "../photos/onigiri.png"
-    }
-
+    },
     {
         "id": 17,
         "nom": "Donburi au curry d'agneau",
@@ -142,8 +126,7 @@
             "viande"
         ],
         "image": "../photos/donburi.png"
-    }
-
+    },
     {
         "id": 18,
         "nom": "poulpe au cumin",
@@ -152,8 +135,7 @@
             "poisson"
         ],
         "image": "../photos/poulpe.png"
-    }
-
+    },
     {
         "id": 19,
         "nom": "Tonkatsu",
@@ -162,8 +144,7 @@
             "viande"
         ],
         "image": "../photos/tonkatsu.png"
-    }
-
+    },
     {
         "id": 20,
         "nom": "Ramen",
@@ -172,8 +153,7 @@
             "viande"
         ],
         "image": "../photos/ramen.png"
-    }
-
+    },
     {
         "id": 21,
         "nom": "Katsu Curry",
@@ -182,8 +162,7 @@
             "viande"
         ],
         "image": "../photos/katsu.png"
-    }
-
+    },
     {
         "id": 22,
         "nom": "Chirachi anguille",
@@ -192,8 +171,7 @@
             "poisson"
         ],
         "image": "../photos/chirachi.png"
-    }
-
+    },
     {
         "id": 23,
         "nom": "Assortiment de sushi et maki",
@@ -202,8 +180,7 @@
             "poisson"
         ],
         "image": "../photos/sushi.png"
-    }
-
+    },
     {
         "id": 24,
         "nom": "Yakiniku",
@@ -212,8 +189,7 @@
             "viande"
         ],
         "image": "../photos/yakiniku.png"
-    }
-
+    },
     {
         "id": 25,
         "nom": "Poulet Tikkaa Massala",
@@ -222,8 +198,7 @@
             "viande"
         ],
         "image": "../photos/poulettikka.jpg"
-    }
-
+    },
     {
         "id": 26,
         "nom": "Poulet Tandori",
@@ -232,80 +207,70 @@
             "viande"
         ],
         "image": "../photos/poulettandori.jpg"
-    }
-
+    },
     {
         "id": 27,
         "nom": "Dahl",
         "prix": "11,5",
         "allergène": [],
         "image": "../photos/dahl.jpg"
-    }
-
+    },
     {
         "id": 28,
         "nom": "Aloo Gobi",
         "prix": "13,5",
         "allergène": [],
         "image": "../photos/aloo.jpg"
-    }
-
+    },
     {
         "id": 29,
         "nom": "Ladoo",
         "prix": "12",
         "allergène": [],
         "image": "../photos/ladoo.jpg"
-    }
-
+    },
     {
         "id": 30,
         "nom": "Raita",
         "prix": "11,5",
         "allergène": [],
         "image": "../photos/raita.jpg"
-    }
-
+    },
     {
         "id": 31,
         "nom": "Mochis",
         "prix": "5",
         "allergène": [],
         "image": "../photos/mochis.jpg"
-    }
-
+    },
     {
         "id": 32,
         "nom": "Cheesecake",
         "prix": "8,5",
         "allergène": [],
         "image": "../photos/cheesecake.png"
-    }
-
+    },
     {
         "id": 33,
         "nom": "Dorayaki",
         "prix": "4,5",
         "allergène": [],
         "image": "../photos/dorayaki.png"
-    }
-
+    },
     {
         "id": 34,
         "nom": "Kulfi",
         "prix": "6,5",
         "allergène": [],
         "image": "../photos/kulfi.png"
-    }
-
+    },
     {
         "id": 35,
         "nom": "Gulab Jamun",
         "prix": "5,5",
         "allergène": [],
         "image": "../photos/gulab-jamun.png"
-    }
-
+    },
     {
         "id": 36,
         "nom": "Jalebi",
