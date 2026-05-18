@@ -1,6 +1,6 @@
 <?php
-	session_start();
-	$estconnecte = isset($_SESSION['client']);
+session_start();
+$estconnecte = isset($_SESSION['client']);
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,30 +17,29 @@
 		<div class="logo_restaurant"><img class="logo" src="../photos/logo_japindien.png" /></div>
 		<div class="bandeau_nom">Le Japindien</div>
 
-    <form action="../administrateur/serveur.php" method="GET">
-        <input
-            type="text"
-            name="search"
-            placeholder="Recherchez un plat..."
-            list="mots-cles"
-        >
-        <datalist id="mots-cles">
-            <option value="maki">
-            <option value="samousa">
-            <option value="cheese naan">
-            <option value="poulet tandoori mariné au whiskey">
-            <option value="soupe miso">
-            <option value="brochette">
-            <option value="onigiri">
-            <option value="donburi">
-            <option value="poulpe">
-        </datalist>
-        <button type="submit">Rechercher</button>
-    </form>
+		<form action="../administrateur/serveur.php" method="GET">
+			<input
+				type="text"
+				name="search"
+				placeholder="Recherchez un plat..."
+				list="mots-cles">
+			<datalist id="mots-cles">
+				<option value="maki">
+				<option value="samousa">
+				<option value="cheese naan">
+				<option value="poulet tandoori mariné au whiskey">
+				<option value="soupe miso">
+				<option value="brochette">
+				<option value="onigiri">
+				<option value="donburi">
+				<option value="poulpe">
+			</datalist>
+			<button type="submit">Rechercher</button>
+		</form>
 
 		<div class="navigation_droite">
 			<div class="bandeau_accueil"><a class="lien_bouton" href="Accueil.php">Accueil</a></div>
-			
+
 			<?php if ($estconnecte): ?>
 				<div class="bandeau_moncompte">
 					<div class="dropdown">
@@ -62,9 +61,9 @@
 					</div>
 				</div>
 			<?php endif; ?>
-			
+
 			<div class="bandeau_accueil"><a class="lien_bouton" href="presentation.php">A la carte</a></div>
-			<?php if($_SESSION['client']['email'] === 'admin@japindien.com'):?>
+			<?php if ($estconnecte && $_SESSION['client']['email'] === 'admin@japindien.com'): ?>
 				<div class="bandeau_accueil"><a class="lien_bouton" href="../administrateur/admin.php">Admin</a></div>
 			<?php else: ?>
 				<div class="bandeau_accueil"><a class="lien_bouton" href="notation.html">Note</a></div>

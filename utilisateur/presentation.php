@@ -1,6 +1,6 @@
 <?php
-	session_start();
-	$estconnecte = isset($_SESSION['client']);
+session_start();
+$estconnecte = isset($_SESSION['client']);
 ?>
 <!DOCTYPE html>
 <html>
@@ -12,39 +12,39 @@
 
 <body>
     <div class="bandeau">
-			<div class="logo_restaurant"><img class="logo" src="../photos/logo_japindien.png" /></div>
-			<div class="bandeau_nom">Le Japindien</div>
+        <div class="logo_restaurant"><img class="logo" src="../photos/logo_japindien.png" /></div>
+        <div class="bandeau_nom">Le Japindien</div>
 
-			<div class="navigation_droite">
-				<div class="bandeau_accueil"><a class="lien_bouton" href="Accueil.php">Accueil</a></div>
-				<?php if ($estconnecte): ?>
-				<div class="bandeau_moncompte">
-					<div class="dropdown">
-						<button class="lien_bouton">Mon compte</button>
-						<div class="dropdown-content">
-							<a href="profil.php">Profil</a>
-							<a href="deconnexion.php">Deconnexion</a>
-						</div>
-					</div>
-				</div>
-			<?php else: ?>
-				<div class="bandeau_moncompte">
-					<div class="dropdown">
-						<button class="lien_bouton">Mon compte</button>
-						<div class="dropdown-content">
-							<a href="connexion.html">Connexion</a>
-							<a href="inscription.html">Inscription</a>
-						</div>
-					</div>
-				</div>
-			<?php endif; ?>
-            
-		<div class="bandeau_accueil"><a class="lien_bouton" href="presentation.php">A la carte</a></div>
-		<?php if($_SESSION['client']['email'] === 'admin@japindien.com'):?>
-			<div class="bandeau_accueil"><a class="lien_bouton" href="../administrateur/admin.php">Admin</a></div>
-		<?php else: ?>
-			<div class="bandeau_accueil"><a class="lien_bouton" href="notation.html">Note</a></div>
-		<?php endif; ?>            
+        <div class="navigation_droite">
+            <div class="bandeau_accueil"><a class="lien_bouton" href="Accueil.php">Accueil</a></div>
+            <?php if ($estconnecte): ?>
+                <div class="bandeau_moncompte">
+                    <div class="dropdown">
+                        <button class="lien_bouton">Mon compte</button>
+                        <div class="dropdown-content">
+                            <a href="profil.php">Profil</a>
+                            <a href="deconnexion.php">Deconnexion</a>
+                        </div>
+                    </div>
+                </div>
+            <?php else: ?>
+                <div class="bandeau_moncompte">
+                    <div class="dropdown">
+                        <button class="lien_bouton">Mon compte</button>
+                        <div class="dropdown-content">
+                            <a href="connexion.html">Connexion</a>
+                            <a href="inscription.html">Inscription</a>
+                        </div>
+                    </div>
+                </div>
+            <?php endif; ?>
+
+            <div class="bandeau_accueil"><a class="lien_bouton" href="presentation.php">A la carte</a></div>
+            <?php if ($estconnecte && $_SESSION['client']['email'] === 'admin@japindien.com'): ?>
+                <div class="bandeau_accueil"><a class="lien_bouton" href="../administrateur/admin.php">Admin</a></div>
+            <?php else: ?>
+                <div class="bandeau_accueil"><a class="lien_bouton" href="notation.html">Note</a></div>
+            <?php endif; ?>
         </div>
     </div>
     <div class="remplissage"></div>
@@ -54,12 +54,12 @@
     <div class="conteneur-menu">
         <div class="plat carte-formule">
             <div class="formule-images">
-				<img src="../photos/lassimangue.png" alt="Lassi Mangue">
-				<span class="plus">+</span>
-				<img src="../photos/sushicurry.png" alt="Maki curry">
-				<span class="plus">+</span>
-				<img src="../photos/dorayaki.png" alt="Dorayaki">
-			</div>
+                <img src="../photos/lassimangue.png" alt="Lassi Mangue">
+                <span class="plus">+</span>
+                <img src="../photos/sushicurry.png" alt="Maki curry">
+                <span class="plus">+</span>
+                <img src="../photos/dorayaki.png" alt="Dorayaki">
+            </div>
 
             <div class="formule-details">
                 <div class="contenu-carte">
@@ -549,7 +549,7 @@
                 <p class="description">Douceur indienne à base de sucre et de farine de pois chiches.</p>
             </div>
             <div class="bas-carte">
-				<div class="bas-gauche"><span class="prix">12,00€</span></div>
+                <div class="bas-gauche"><span class="prix">12,00€</span></div>
                 <button class="ajouter">+</button>
             </div>
         </div>
