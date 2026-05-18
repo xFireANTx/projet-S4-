@@ -1,6 +1,13 @@
 <?php
 session_start();
 $estconnecte = isset($_SESSION['client']);
+
+$fichier_plat = __DIR__ . '/../menu.json';
+$liste_plat = [];
+
+if (file_exists($fichier_plat)) {
+	$liste_plat = json_decode(file_get_contents($fichier_plat), true);
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -72,162 +79,54 @@ $estconnecte = isset($_SESSION['client']);
 	</div>
 
 	<div class="remplissage"></div>
-
 	<br>
-	<h2 class="section-titre">
-		Nos signatures
-	</h2>
-	<div class="conteneur-menu">
-		<div class="plat">
-			<div id="section1" class="section">
-				<div class="image">
-					<img src="../photos/sushicurry.png" alt="sushi curry">
+	<h2 class="section-titre">Nos signatures</h2>
+		<?php if(!empty($liste_plat)): ?>
+			<?php 
+			$compteur = 0;
+			
+			foreach ($liste_plat as $plat): 
+				if($plat['pays']==='spe'):
+					if($compteur%3==0){
+						echo "<div class='conteneur-menu'>";
+					}
+			?>
+				<?php ?>
+				<div class="plat">
+					<div class="section">
+						<div class="image">
+							<img src="<?= $plat['image']?>" alt="<?= $plat['nom'] ?>">
+						</div>
+						<div class="contenu-carte">
+							<h3 class="titre"><?= $plat['nom'] ?></h3>
+							<p class="description"><?= $plat['description'] ?></p>
+						</div>
+						<div class="bas-carte">
+							<div class="bas-gauche"><span class="prix"><?= $plat['prix'] ?>€</span></div>
+								<button class="ajouter"
+								data-id="<?= $plat['id'] ?>"
+								data-nom="<?= $plat['nom']?>"
+								data-prix="<?= $plat['prix']?>"					
+								>+</button>
+							</div>
+						</div>
 				</div>
-				<div class="contenu-carte">
-					<h3 class="titre">Maki curry</h3>
-					<p class="description">Délicieux assortiment de riz et d'une sauce curry secrète.</p>
-				</div>
-				<div class="bas-carte">
-					<div class="bas-gauche"><span class="prix">13,50€</span></div>
-					<button class="ajouter">+</button>
-				</div>
-			</div>
-		</div>
-
-		<div class="plat">
-			<div id="section2" class="section">
-				<div class="image">
-					<img src="../photos/samousa.png" alt="samousa au boeuf de kobé">
-				</div>
-				<div class="contenu-carte">
-					<h3 class="titre">Samousa boeuf de kobé</h3>
-					<p class="description">Un samousa composé du boeuf le plus tendre du monde.</p>
-				</div>
-				<div class="bas-carte">
-					<div class="bas-gauche"><span class="prix">12,00€</span></div>
-					<button class="ajouter">+</button>
-				</div>
-			</div>
-		</div>
-
-		<div class="plat">
-			<div id="section3" class="section">
-				<div class="image">
-					<img src="../photos/cheesenaan.png" alt="cheese naan">
-				</div>
-				<div class="contenu-carte">
-					<h3 class="titre">cheese naan au saké</h3>
-					<p class="description">Un délicieux et tendre cheese naan relevé au saké</p>
-				</div>
-				<div class="bas-carte">
-					<div class="bas-gauche"><span class="prix">11,50€</span></div>
-					<button class="ajouter">+</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="conteneur-menu">
-		<div class="plat">
-			<div id="section4" class="section">
-				<div class="image">
-					<img src="../photos/poulettando.png" alt="Poulet Tandoori mariné au whisky japonais">
-				</div>
-				<div class="contenu-carte">
-					<h3 class="titre">Poulet Tandoori mariné au whisky japonais</h3>
-					<p class="description">Un poulet mariné dans un whisky japonais d'excellence pour une tendresse
-						exceptionnelle.</p>
-				</div>
-				<div class="bas-carte">
-					<div class="bas-gauche"><span class="prix">13,50€</span></div>
-					<button class="ajouter">+</button>
-				</div>
-			</div>
-		</div>
-
-		<div class="plat">
-			<div id="section5" class="section">
-				<div class="image">
-					<img src="../photos/soupemiso.png" alt="soupe miso poulet Tikkaa Massala">
-				</div>
-				<div class="contenu-carte">
-					<h3 class="titre">Soupe miso poulet Tikkaa Massala</h3>
-					<p class="description">Une soupe miso composé d'un poulet Tikkaa Massala pour un plat aussi gourmand que
-						léger.</p>
-				</div>
-				<div class="bas-carte">
-					<div class="bas-gauche"><span class="prix">12,00€</span></div>
-					<button class="ajouter">+</button>
-				</div>
-			</div>
-		</div>
-
-		<div class="plat">
-			<div id="section6" class="section">
-				<div class="image">
-					<img src="../photos/brochette.png" alt="brochette yakitori de Ladoo">
-				</div>
-				<div class="contenu-carte">
-					<h3 class="titre">brochette yakitori de Ladoo</h3>
-					<p class="description">Une délicieuse brochette de viande de Ladoo grillée à la perfection.</p>
-				</div>
-				<div class="bas-carte">
-					<div class="bas-gauche"><span class="prix">11,50€</span></div>
-					<button class="ajouter">+</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="conteneur-menu">
-		<div class="plat">
-			<div id="section7" class="section">
-				<div class="image">
-					<img src="../photos/onigiri.png" alt="Onigiri poulet tiki tikka">
-				</div>
-				<div class="contenu-carte">
-					<h3 class="titre">Onigiri poulet tiki tikka</h3>
-					<p class="description">Un onigiri composé d'un poulet assaisonné de tiki tikka.</p>
-				</div>
-				<div class="bas-carte">
-					<div class="bas-gauche"><span class="prix">13,50€</span></div>
-					<button class="ajouter">+</button>
-				</div>
-			</div>
-		</div>
-
-		<div class="plat">
-			<div id="section8" class="section">
-				<div class="image">
-					<img src="../photos/donburi.png" alt="Donburi au curry d'agneau">
-				</div>
-				<div class="contenu-carte">
-					<h3 class="titre">Donburi au curry d'agneau</h3>
-					<p class="description">Un Donburi composé d'un morceau tendre d'agneau et d'une sauce curry</p>
-				</div>
-				<div class="bas-carte">
-					<div class="bas-gauche"><span class="prix">12,00€</span></div>
-					<button class="ajouter">+</button>
-				</div>
-			</div>
-		</div>
-
-		<div class="plat">
-			<div id="section9" class="section">
-				<div class="image">
-					<img src="../photos/poulpe.png" alt="poulpe au cumin">
-				</div>
-				<div class="contenu-carte">
-					<h3 class="titre">poulpe au cumin</h3>
-					<p class="description">Un tentacule de poulpe épicé au cumin</p>
-				</div>
-				<div class="bas-carte">
-					<div class="bas-gauche"><span class="prix">11,50€</span></div>
-					<button class="ajouter">+</button>
-				</div>
-			</div>
-		</div>
-	</div>
+	<?php 
+				$compteur++; 
+			endif;
+			if ($compteur % 3 == 0) {
+				echo '</div>'; 
+			}
+			
+	 endforeach; 
+	 
+	 if ($compteur % 3 != 0) {
+			echo '</div>';
+		}
+	?>
+	<?php else: ?>
+		<p style="text-align: center; width: 100%;">Aucun plat disponible pour le moment.</p>
+	<?php endif; ?>
 
 </body>
 
