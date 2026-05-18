@@ -1,6 +1,13 @@
 <?php
 session_start();
 $estconnecte = isset($_SESSION['client']);
+
+$fichier_plat = __DIR__ . '/../menu.json';
+$liste_plat = [];
+
+if (file_exists($fichier_plat)) {
+	$liste_plat = json_decode(file_get_contents($fichier_plat), true);
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -156,512 +163,243 @@ $estconnecte = isset($_SESSION['client']);
 
 
     <h2 class="section-titre">Boissons</h2>
-    <div class="conteneur-menu">
-        <div class="plat">
-            <div class="image">
-                <img src="../photos/coca.png" alt="Coca-Cola">
-            </div>
-            <div class="contenu-carte">
-                <h3 class="titre">Coca-Cola</h3>
-                <p class="description">Une boisson rafraîchissante et populaire.</p>
-            </div>
-            <div class="bas-carte">
-                <div class="bas-gauche"><span class="prix">2,50€</span></div>
-                <button class="ajouter">+</button>
-            </div>
-        </div>
-
-        <div class="plat">
-            <div class="image">
-                <img src="../photos/icetea.png" alt="Ice Tea">
-            </div>
-            <div class="contenu-carte">
-                <h3 class="titre">Ice Tea</h3>
-                <p class="description">Une boisson rafraîchissante à la pêche.</p>
-            </div>
-            <div class="bas-carte">
-                <div class="bas-gauche"><span class="prix">2,50€</span></div>
-                <button class="ajouter">+</button>
-            </div>
-        </div>
-
-        <div class="plat">
-            <div class="image">
-                <img src="../photos/juspomme.png" alt="Jus de pomme">
-            </div>
-            <div class="contenu-carte">
-                <h3 class="titre">Jus de pomme</h3>
-                <p class="description">Un jus de pomme frais et naturel.</p>
-            </div>
-            <div class="bas-carte">
-                <div class="bas-gauche"><span class="prix">2,50€</span></div>
-                <button class="ajouter">+</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="conteneur-menu">
-        <div class="plat">
-            <div class="image">
-                <img src="../photos/schweppes.png" alt="Schweppes">
-            </div>
-            <div class="contenu-carte">
-                <h3 class="titre">Schweppes</h3>
-                <p class="description">Une boisson rafraîchissante aux agrumes.</p>
-            </div>
-            <div class="bas-carte">
-                <div class="bas-gauche"><span class="prix">2,50€</span></div>
-                <button class="ajouter">+</button>
-            </div>
-        </div>
-
-        <div class="plat">
-            <div class="image">
-                <img src="../photos/mogu.png" alt="Mogu">
-            </div>
-            <div class="contenu-carte">
-                <h3 class="titre">Mogu</h3>
-                <p class="description">Une boisson traditionnelle à la fraise.</p>
-            </div>
-            <div class="bas-carte">
-                <div class="bas-gauche"><span class="prix">3€</span></div>
-                <button class="ajouter">+</button>
-            </div>
-        </div>
-
-        <div class="plat">
-            <div class="image">
-                <img src="../photos/lassimangue.png" alt="Lassi mangue">
-            </div>
-            <div class="contenu-carte">
-                <h3 class="titre">Lassi mangue</h3>
-                <p class="description">Un lassi rafraîchissant à la mangue.</p>
-            </div>
-            <div class="bas-carte">
-                <div class="bas-gauche"><span class="prix">4,50€</span></div>
-                <button class="ajouter">+</button>
-            </div>
-        </div>
-    </div>
+    	<?php if(!empty($liste_plat)): ?>
+			<?php 
+			$compteur = 0;
+			
+			foreach ($liste_plat as $plat): 
+				if($plat['type']==='boisson'):
+					if($compteur%3==0){
+						echo "<div class='conteneur-menu'>";
+					}
+			?>
+				<?php ?>
+				<div class="plat">
+					<div class="section">
+						<div class="image">
+							<img src="<?= $plat['image']?>" alt="<?= $plat['nom'] ?>">
+						</div>
+						<div class="contenu-carte">
+							<h3 class="titre"><?= $plat['nom'] ?></h3>
+							<p class="description"><?= $plat['description'] ?></p>
+						</div>
+						<div class="bas-carte">
+							<div class="bas-gauche"><span class="prix"><?= $plat['prix'] ?>€</span></div>
+								<button class="ajouter"
+								data-id="<?= $plat['id'] ?>"
+								data-nom="<?= $plat['nom']?>"
+								data-prix="<?= $plat['prix']?>"					
+								>+</button>
+							</div>
+						</div>
+				</div>
+	<?php 
+				$compteur++; 
+			endif;
+			if ($compteur % 3 == 0) {
+				echo '</div>'; 
+			}
+			
+	 endforeach; 
+	 
+	 if ($compteur % 3 != 0) {
+			echo '</div>';
+		}
+	?>
+	<?php endif; ?>
 
     <h2 class="section-titre">
         Nos signatures
     </h2>
-    <div class="conteneur-menu">
-        <div class="plat">
-            <div class="image">
-                <img src="../photos/sushicurry.png" alt="sushi curry" id="maki">
-            </div>
-            <div class="contenu-carte">
-                <h3 class="titre">Maki curry</h3>
-                <p class="description">Délicieux assortiment de riz et d'une sauce curry secrète.</p>
-            </div>
-            <div class="bas-carte">
-                <div class="bas-gauche"><span class="prix">13,50€</span></div>
-                <button class="ajouter">+</button>
-            </div>
-        </div>
+    
+        	<?php if(!empty($liste_plat)): ?>
+			<?php 
+			$compteur = 0;
+			
+			foreach ($liste_plat as $plat): 
+				if($plat['pays']==='spe'):
+					if($compteur%3==0){
+						echo "<div class='conteneur-menu'>";
+					}
+			?>
+				<?php ?>
+				<div class="plat">
+					<div class="section">
+						<div class="image">
+							<img src="<?= $plat['image']?>" alt="<?= $plat['nom'] ?>">
+						</div>
+						<div class="contenu-carte">
+							<h3 class="titre"><?= $plat['nom'] ?></h3>
+							<p class="description"><?= $plat['description'] ?></p>
+						</div>
+						<div class="bas-carte">
+							<div class="bas-gauche"><span class="prix"><?= $plat['prix'] ?>€</span></div>
+								<button class="ajouter"
+								data-id="<?= $plat['id'] ?>"
+								data-nom="<?= $plat['nom']?>"
+								data-prix="<?= $plat['prix']?>"					
+								>+</button>
+							</div>
+						</div>
+				</div>
+	<?php 
+				$compteur++; 
+			endif;
+			if ($compteur % 3 == 0) {
+				echo '</div>'; 
+			}
+			
+	 endforeach; 
+	 
+	 if ($compteur % 3 != 0) {
+			echo '</div>';
+		}
+	?>
+	<?php endif; ?>
 
-        <div class="plat">
-            <div class="image">
-                <img src="../photos/samousa.png" alt="samousa au boeuf de kobé">
-            </div>
-            <div class="contenu-carte">
-                <h3 class="titre">Samousa boeuf de kobé</h3>
-                <p class="description">Un samousa composé du boeuf le plus tendre du monde.</p>
-            </div>
-            <div class="bas-carte">
-                <div class="bas-gauche"><span class="prix">12,00€</span></div>
-                <button class="ajouter">+</button>
-            </div>
-        </div>
-
-        <div class="plat">
-            <div class="image">
-                <img src="../photos/cheesenaan.png" alt="cheese naan">
-            </div>
-            <div class="contenu-carte">
-                <h3 class="titre">cheese naan au saké</h3>
-                <p class="description">Un délicieux et tendre cheese naan relevé au saké</p>
-            </div>
-            <div class="bas-carte">
-                <div class="bas-gauche"><span class="prix">11,50€</span></div>
-                <button class="ajouter">+</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="conteneur-menu">
-        <div class="plat">
-            <div class="image">
-                <img src="../photos/poulettando.png" alt="Poulet Tandoori mariné au whisky japonais">
-            </div>
-            <div class="contenu-carte">
-                <h3 class="titre">Poulet Tandoori mariné au whisky japonais</h3>
-                <p class="description">Un poulet mariné dans un whisky japonais d'excellence pour une tendresse
-                    exceptionnelle.</p>
-            </div>
-            <div class="bas-carte">
-                <div class="bas-gauche"><span class="prix">13,50€</span></div>
-                <button class="ajouter">+</button>
-            </div>
-        </div>
-
-        <div class="plat">
-            <div class="image">
-                <img src="../photos/soupemiso.png" alt="soupe miso poulet Tikkaa Massala">
-            </div>
-            <div class="contenu-carte">
-                <h3 class="titre">Soupe miso poulet Tikkaa Massala</h3>
-                <p class="description">Une soupe miso composé d'un poulet Tikkaa Massala pour un plat aussi gourmand que
-                    léger.</p>
-            </div>
-            <div class="bas-carte">
-                <div class="bas-gauche"><span class="prix">12,00€</span></div>
-                <button class="ajouter">+</button>
-            </div>
-        </div>
-
-        <div class="plat">
-            <div class="image">
-                <img src="../photos/brochette.png" alt="brochette yakitori de Ladoo">
-            </div>
-            <div class="contenu-carte">
-                <h3 class="titre">brochette yakitori de Ladoo</h3>
-                <p class="description">Une délicieuse brochette de viande de Ladoo grillée à la perfection.</p>
-            </div>
-            <div class="bas-carte">
-                <div class="bas-gauche"><span class="prix">11,50€</span></div>
-                <button class="ajouter">+</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="conteneur-menu">
-        <div class="plat">
-            <div class="image">
-                <img src="../photos/onigiri.png" alt="Onigiri poulet tiki tikka">
-            </div>
-            <div class="contenu-carte">
-                <h3 class="titre">Onigiri poulet tiki tikka</h3>
-                <p class="description">Un onigiri composé d'un poulet assaisonné de tiki tikka.</p>
-            </div>
-            <div class="bas-carte">
-                <div class="bas-gauche"><span class="prix">13,50€</span></div>
-                <button class="ajouter">+</button>
-            </div>
-        </div>
-
-        <div class="plat">
-            <div class="image">
-                <img src="../photos/donburi.png" alt="Donburi au curry d'agneau">
-            </div>
-            <div class="contenu-carte">
-                <h3 class="titre">Donburi au curry d'agneau</h3>
-                <p class="description">Un Donburi composé d'un morceau tendre d'agneau et d'une sauce curry</p>
-            </div>
-            <div class="bas-carte">
-                <div class="bas-gauche"><span class="prix">12,00€</span></div>
-                <button class="ajouter">+</button>
-            </div>
-        </div>
-
-        <div class="plat">
-            <div class="image">
-                <img src="../photos/poulpe.png" alt="poulpe au cumin">
-            </div>
-            <div class="contenu-carte">
-                <h3 class="titre">poulpe au cumin</h3>
-                <p class="description">Un tentacule de poulpe épicé au cumin</p>
-            </div>
-            <div class="bas-carte">
-                <div class="bas-gauche"><span class="prix">11,50€</span></div>
-                <button class="ajouter">+</button>
-            </div>
-        </div>
-    </div>
     <h2 class="section-titre">
         Nos plats <img src="../photos/japon.png" alt="Drapeau Japon" class="flag-icon">
     </h2>
-    <div class="conteneur-menu">
-        <div class="plat">
-            <div class="image">
-                <img src="../photos/tonkatsu.png" alt="Tonkatsu">
-            </div>
-            <div class="contenu-carte">
-                <h3 class="titre">Tonkatsu</h3>
-                <p class="description"> Porc pané et frit accompagné de sauce Worcestershire, ainsi que de chou émincé
-                    et du karashi.</p>
-            </div>
-            <div class="bas-carte">
-                <div class="bas-gauche"><span class="prix">13,50€</span></div>
-                <button class="ajouter">+</button>
-            </div>
-        </div>
-
-        <div class="plat">
-            <div class="image">
-                <img src="../photos/ramen.png" alt="Ramen">
-            </div>
-            <div class="contenu-carte">
-                <h3 class="titre">Ramen</h3>
-                <p class="description">Ramen au bœuf assaisonné au miso, accompagné de légumes (maïs, algue, pousse de
-                    bambou, poireaux)</p>
-            </div>
-            <div class="bas-carte">
-                <div class="bas-gauche"><span class="prix">12,00€</span></div>
-                <button class="ajouter">+</button>
-            </div>
-        </div>
-
-        <div class="plat">
-            <div class="image">
-                <img src="../photos/katsu.png" alt="Katsu Curry">
-            </div>
-            <div class="contenu-carte">
-                <h3 class="titre">Katsu Curry</h3>
-                <p class="description">Un morceau de viande de porc pané et frit accompagné d'une délicieuse sauce
-                    curry.</p>
-            </div>
-            <div class="bas-carte">
-                <div class="bas-gauche"><span class="prix">11,50€</span></div>
-                <button class="ajouter">+</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="conteneur-menu">
-        <div class="plat">
-            <div class="image">
-                <img src="../photos/chirachi.png" alt="Chirachi anguille">
-            </div>
-            <div class="contenu-carte">
-                <h3 class="titre">Chirachi anguille</h3>
-                <p class="description">Riz vinaigré recouvert de fines tranches d'anguille grillée.</p>
-            </div>
-            <div class="bas-carte">
-                <div class="bas-gauche"><span class="prix">13,50€</span></div>
-                <button class="ajouter">+</button>
-            </div>
-        </div>
-
-        <div class="plat">
-            <div class="image">
-                <img src="../photos/sushi.png" alt="Assortiment de sushi et maki">
-            </div>
-            <div class="contenu-carte">
-                <h3 class="titre">Assortiment de sushi et maki</h3>
-                <p class="description">Plateau composé de différents types de sushi et maki.</p>
-            </div>
-            <div class="bas-carte">
-                <div class="bas-gauche"><span class="prix">12,00€</span></div>
-                <button class="ajouter">+</button>
-            </div>
-        </div>
-
-        <div class="plat">
-            <div class="image">
-                <img src="../photos/yakiniku.png" alt="Yakiniku">
-            </div>
-            <div class="contenu-carte">
-                <h3 class="titre">Yakiniku</h3>
-                <p class="description">Viande de bœuf grillée à la perfection, accompagnée de légumes et d'une sauce
-                    spéciale.</p>
-            </div>
-            <div class="bas-carte">
-                <div class="bas-gauche"><span class="prix">11,50€</span></div>
-                <button class="ajouter">+</button>
-            </div>
-        </div>
-    </div>
-
+        	<?php if(!empty($liste_plat)): ?>
+			<?php 
+			$compteur = 0;
+			
+			foreach ($liste_plat as $plat): 
+				if($plat['pays']==='jap' && $plat['type']==='plat'):
+					if($compteur%3==0){
+						echo "<div class='conteneur-menu'>";
+					}
+			?>
+				<?php ?>
+				<div class="plat">
+					<div class="section">
+						<div class="image">
+							<img src="<?= $plat['image']?>" alt="<?= $plat['nom'] ?>">
+						</div>
+						<div class="contenu-carte">
+							<h3 class="titre"><?= $plat['nom'] ?></h3>
+							<p class="description"><?= $plat['description'] ?></p>
+						</div>
+						<div class="bas-carte">
+							<div class="bas-gauche"><span class="prix"><?= $plat['prix'] ?>€</span></div>
+								<button class="ajouter"
+								data-id="<?= $plat['id'] ?>"
+								data-nom="<?= $plat['nom']?>"
+								data-prix="<?= $plat['prix']?>"					
+								>+</button>
+							</div>
+						</div>
+				</div>
+	<?php 
+				$compteur++; 
+			endif;
+			if ($compteur % 3 == 0) {
+				echo '</div>'; 
+			}
+			
+	 endforeach; 
+	 
+	 if ($compteur % 3 != 0) {
+			echo '</div>';
+		}
+	?>
+	<?php endif; ?>
+	
     <h2 class="section-titre">
         Nos plats <img src="../photos/inde.png" alt="Drapeau Inde" class="flag-icon">
     </h2>
-
-    <div class="conteneur-menu">
-        <div class="plat">
-            <div class="image">
-                <img src="../photos/poulettikkaa.jpg" alt="Poulet Tikkaa Massala">
-            </div>
-            <div class="contenu-carte">
-                <h3 class="titre">Poulet Tikkaa Massala</h3>
-                <p class="description"> Poulet mariné dans une sauce au yaourt et à l'ail, grillé et servi avec du riz
-                    et des légumes.</p>
-            </div>
-            <div class="bas-carte">
-                <div class="bas-gauche"><span class="prix">13,50€</span></div>
-                <button class="ajouter">+</button>
-            </div>
-        </div>
-
-        <div class="plat">
-            <div class="image">
-                <img src="../photos/poulettandori.jpg" alt="Poulet Tandori">
-            </div>
-            <div class="contenu-carte">
-                <h3 class="titre">Poulet Tandori</h3>
-                <p class="description">Poulet mariné dans une sauce au yaourt et à l'ail, grillé et servi avec du riz et
-                    des légumes.</p>
-            </div>
-            <div class="bas-carte">
-                <div class="bas-gauche"><span class="prix">12,00€</span></div>
-                <button class="ajouter">+</button>
-            </div>
-        </div>
-
-        <div class="plat">
-            <div class="image">
-                <img src="../photos/dahl.jpg" alt="Dahl">
-            </div>
-            <div class="contenu-carte">
-                <h3 class="titre">Dahl</h3>
-                <p class="description">Un plat traditionnel à base de lentilles et de légumes, servi avec du riz.</p>
-            </div>
-            <div class="bas-carte">
-                <div class="bas-gauche"><span class="prix">11,50€</span></div>
-                <button class="ajouter">+</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="conteneur-menu">
-        <div class="plat">
-            <div class="image">
-                <img src="../photos/aloo.jpg" alt="Aloo Gobi">
-            </div>
-            <div class="contenu-carte">
-                <h3 class="titre">Aloo Gobi</h3>
-                <p class="description">Pommes de terre et chou-fleur dans une sauce au yaourt et à l'ail.</p>
-            </div>
-            <div class="bas-carte">
-                <div class="bas-gauche"><span class="prix">13,50€</span></div>
-                <button class="ajouter">+</button>
-            </div>
-        </div>
-
-        <div class="plat">
-            <div class="image">
-                <img src="../photos/ladoo.jpg" alt="Ladoo">
-            </div>
-            <div class="contenu-carte">
-                <h3 class="titre">Ladoo</h3>
-                <p class="description">Douceur indienne à base de sucre et de farine de pois chiches.</p>
-            </div>
-            <div class="bas-carte">
-                <div class="bas-gauche"><span class="prix">12,00€</span></div>
-                <button class="ajouter">+</button>
-            </div>
-        </div>
-
-        <div class="plat">
-            <div class="image">
-                <img src="../photos/raita.jpg" alt="Raita">
-            </div>
-            <div class="contenu-carte">
-                <h3 class="titre">Raita</h3>
-                <p class="description"> Salade fraîche à base de yaourt et de légumes : concombres, carottes, tomates
-                </p>
-            </div>
-            <div class="bas-carte">
-                <div class="bas-gauche"><span class="prix">11,50€</span></div>
-                <button class="ajouter">+</button>
-            </div>
-        </div>
-    </div>
-
+        	<?php if(!empty($liste_plat)): ?>
+			<?php 
+			$compteur = 0;
+			
+			foreach ($liste_plat as $plat): 
+				if($plat['pays']==='ind' && $plat['type']==='plat'):
+					if($compteur%3==0){
+						echo "<div class='conteneur-menu'>";
+					}
+			?>
+				<?php ?>
+				<div class="plat">
+					<div class="section">
+						<div class="image">
+							<img src="<?= $plat['image']?>" alt="<?= $plat['nom'] ?>">
+						</div>
+						<div class="contenu-carte">
+							<h3 class="titre"><?= $plat['nom'] ?></h3>
+							<p class="description"><?= $plat['description'] ?></p>
+						</div>
+						<div class="bas-carte">
+							<div class="bas-gauche"><span class="prix"><?= $plat['prix'] ?>€</span></div>
+								<button class="ajouter"
+								data-id="<?= $plat['id'] ?>"
+								data-nom="<?= $plat['nom']?>"
+								data-prix="<?= $plat['prix']?>"					
+								>+</button>
+							</div>
+						</div>
+				</div>
+	<?php 
+				$compteur++; 
+			endif;
+			if ($compteur % 3 == 0) {
+				echo '</div>'; 
+			}
+			
+	 endforeach; 
+	 
+	 if ($compteur % 3 != 0) {
+			echo '</div>';
+		}
+	?>
+	<?php endif; ?>
     <h2 class="section-titre">
         Nos desserts
     </h2>
 
-    <div class="conteneur-menu">
-        <div class="plat">
-            <div class="image">
-                <img src="../photos/mochis.png" alt="Mochis">
-            </div>
-            <div class="contenu-carte">
-                <h3 class="titre">Mochis</h3>
-                <p class="description">Doux et moelleux, ces gâteaux japonais sont parfaits pour terminer un repas.</p>
-            </div>
-            <div class="bas-carte">
-                <div class="bas-gauche"><span class="prix">5€</span></div>
-                <button class="ajouter">+</button>
-            </div>
-        </div>
-
-        <div class="plat">
-            <div class="image">
-                <img src="../photos/cheesecake.png" alt="Cheesecake">
-            </div>
-            <div class="contenu-carte">
-                <h3 class="titre">Cheesecake</h3>
-                <p class="description">Doux et crémeux, ce cheesecake est un dessert incontournable du Japon.</p>
-            </div>
-            <div class="bas-carte">
-                <div class="bas-gauche"><span class="prix">8,50€</span></div>
-                <button class="ajouter">+</button>
-            </div>
-        </div>
-
-        <div class="plat">
-            <div class="image">
-                <img src="../photos/dorayaki.png" alt="Dorayaki">
-            </div>
-            <div class="contenu-carte">
-                <h3 class="titre">Dorayaki</h3>
-                <p class="description">Un dessert japonais composé de pancakes fourrés avec une garniture de pâte de
-                    haricot rouge.</p>
-            </div>
-            <div class="bas-carte">
-                <div class="bas-gauche"><span class="prix">4,50€</span></div>
-                <button class="ajouter">+</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="conteneur-menu">
-        <div class="plat">
-            <div class="image">
-                <img src="../photos/kulfi.png" alt="Kulfi">
-            </div>
-            <div class="contenu-carte">
-                <h3 class="titre">Kulfi</h3>
-                <p class="description">Un dessert indien traditionnel à base de lait concentré et de sucre.</p>
-            </div>
-            <div class="bas-carte">
-                <div class="bas-gauche"><span class="prix">6,50€</span></div>
-                <button class="ajouter">+</button>
-            </div>
-        </div>
-
-        <div class="plat">
-            <div class="image">
-                <img src="../photos/gulab-jamun.png" alt="Gulab Jamun">
-            </div>
-            <div class="contenu-carte">
-                <h3 class="titre">Gulab Jamun</h3>
-                <p class="description">Douceur indienne à base de sucre et de farine de pois chiches.</p>
-            </div>
-            <div class="bas-carte">
-                <div class="bas-gauche"><span class="prix">5,50€</span></div>
-                <button class="ajouter">+</button>
-            </div>
-        </div>
-
-        <div class="plat">
-            <div class="image">
-                <img src="../photos/jalebi.png" alt="Jalebi">
-            </div>
-            <div class="contenu-carte">
-                <h3 class="titre">Jalebi</h3>
-                <p class="description"> Douceur indienne à base de sucre et de farine de pois chiches.</p>
-            </div>
-            <div class="bas-carte">
-                <div class="bas-gauche"><span class="prix">4,50€</span></div>
-                <button class="ajouter">+</button>
-            </div>
-        </div>
-    </div>
+        	<?php if(!empty($liste_plat)): ?>
+			<?php 
+			$compteur = 0;
+			
+			foreach ($liste_plat as $plat): 
+				if($plat['type']==='dessert'):
+					if($compteur%3==0){
+						echo "<div class='conteneur-menu'>";
+					}
+			?>
+				<?php ?>
+				<div class="plat">
+					<div class="section">
+						<div class="image">
+							<img src="<?= $plat['image']?>" alt="<?= $plat['nom'] ?>">
+						</div>
+						<div class="contenu-carte">
+							<h3 class="titre"><?= $plat['nom'] ?></h3>
+							<p class="description"><?= $plat['description'] ?></p>
+						</div>
+						<div class="bas-carte">
+							<div class="bas-gauche"><span class="prix"><?= $plat['prix'] ?>€</span></div>
+								<button class="ajouter"
+								data-id="<?= $plat['id'] ?>"
+								data-nom="<?= $plat['nom']?>"
+								data-prix="<?= $plat['prix']?>"					
+								>+</button>
+							</div>
+						</div>
+				</div>
+	<?php 
+				$compteur++; 
+			endif;
+			if ($compteur % 3 == 0) {
+				echo '</div>'; 
+			}
+			
+	 endforeach; 
+	 
+	 if ($compteur % 3 != 0) {
+			echo '</div>';
+		}
+	?>
+	<?php endif; ?>
 </body>
 
 </html>
