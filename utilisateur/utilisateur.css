@@ -33,8 +33,10 @@ div.bandeau {
 }
 
 
-div.logo_restaurant, div.bandeau_nom, div.bandeau_moncompte,div.bandeau_accueil 
-{
+div.logo_restaurant,
+div.bandeau_nom,
+div.bandeau_moncompte,
+div.bandeau_accueil {
 	width: auto;
 	display: flex;
 	align-items: center;
@@ -488,4 +490,42 @@ button.compte_del {
 		flex-direction: column;
 		text-align: center;
 	}
+}
+
+
+/* mode sombre : c'est le css qui est pris en compte quand le mode sombre est activé*/
+
+body.sombre {
+	background-color: #000000;
+	color: #ffffff;
+}
+
+body.sombre .description,
+body.sombre .titre,
+body.sombre .prix,
+body.sombre .section-titre {
+	color: #ffffff;
+}
+
+body.sombre .plat,
+body.sombre .bandeau {
+	background-color: gray;
+}
+
+body.sombre .bandeau_nom {
+	color: black;
+}
+
+body.sombre .lien_bouton {
+	background-color: black;
+
+}
+
+body.sombre .ajouter {
+	background: linear-gradient(135deg, #333, #8b8383) !important;
+}
+
+body.sombre .form_inscri {
+	background-color: black;
+
 }
