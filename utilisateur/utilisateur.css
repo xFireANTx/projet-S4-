@@ -525,6 +525,10 @@ body.sombre .ajouter {
 	background: linear-gradient(135deg, #333, #8b8383) !important;
 }
 
+body.sombre .compte_crea {
+	background: linear-gradient(135deg, #333, #8b8383) !important;
+}
+
 body.sombre .form_inscri {
 	background-color: black;
 
