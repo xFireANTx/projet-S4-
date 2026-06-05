@@ -1,10 +1,46 @@
 [
     {
-        "nom": "Machefert",
-        "prenom": "Tom",
+        "nom": "Machecouille",
+        "prenom": "Tapette",
         "adresse": "a",
         "phone": "0600000000",
         "email": "admin@japindien.com",
-        "mdp": "$2y$10$Heg.rvgs4\/OWsMBNPtYSwuovgJdnvO616e66Bo0zxVoc4k3krKafa"
+        "mdp": "$2y$10$Heg.rvgs4\/OWsMBNPtYSwuovgJdnvO616e66Bo0zxVoc4k3krKafa",
+        "loyalty": 0,
+        "orders": []
+    },
+    {
+        "nom": "schaff;,^n,ok",
+        "prenom": "anton n; njkhj",
+        "adresse": "tralalero tralala",
+        "phone": "0645124512",
+        "email": "anton@gmail.com",
+        "mdp": "$2y$10$toofKDmENdjeABvrA14QAeMXLFckkbbeeIcstjJK5o63o0jVAiJYC",
+        "loyalty": 120,
+        "orders": [
+            {
+                "date": "2026-05-01",
+                "total": "24.50",
+                "items": [
+                    "Sushi",
+                    "Maki"
+                ]
+            },
+            {
+                "date": "2026-05-18",
+                "total": "15.20",
+                "items": [
+                    "Riz sauté"
+                ]
+            }
+        ]
+    },
+    {
+        "nom": "glizzi",
+        "prenom": "lucas",
+        "adresse": "tung tung tung sahur",
+        "phone": "0111111111",
+        "email": "lucas@gmail.com",
+        "mdp": "$2y$10$4l258v4t0AcLVftccvykIODkwrcicVCqw3gxJp.OZqEvCQ6oqaKua"
     }
 ]
