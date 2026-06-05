@@ -45,6 +45,8 @@ if (file_exists($fichier_plat)) {
 		</form>
 
 		<div class="navigation_droite">
+			<button id="bouton-theme" class="lien_bouton" style="background-color: #333;">Mode Sombre</button>
+
 			<div class="bandeau_accueil"><a class="lien_bouton" href="Accueil.php">Accueil</a></div>
 
 			<?php if ($estconnecte): ?>
@@ -81,21 +83,21 @@ if (file_exists($fichier_plat)) {
 	<div class="remplissage"></div>
 	<br>
 	<h2 class="section-titre">Nos signatures</h2>
-		<?php if(!empty($liste_plat)): ?>
-			<?php 
-			$compteur = 0;
-			
-			foreach ($liste_plat as $plat): 
-				if($plat['pays']==='spe'):
-					if($compteur%3==0){
-						echo "<div class='conteneur-menu'>";
-					}
-			?>
+	<?php if (!empty($liste_plat)): ?>
+		<?php
+		$compteur = 0;
+
+		foreach ($liste_plat as $plat):
+			if ($plat['pays'] === 'spe'):
+				if ($compteur % 3 == 0) {
+					echo "<div class='conteneur-menu'>";
+				}
+		?>
 				<?php ?>
 				<div class="plat">
 					<div class="section">
 						<div class="image">
-							<img src="<?= $plat['image']?>" alt="<?= $plat['nom'] ?>">
+							<img src="<?= $plat['image'] ?>" alt="<?= $plat['nom'] ?>">
 						</div>
 						<div class="contenu-carte">
 							<h3 class="titre"><?= $plat['nom'] ?></h3>
@@ -103,31 +105,31 @@ if (file_exists($fichier_plat)) {
 						</div>
 						<div class="bas-carte">
 							<div class="bas-gauche"><span class="prix"><?= $plat['prix'] ?>€</span></div>
-								<button class="ajouter"
+							<button class="ajouter"
 								data-id="<?= $plat['id'] ?>"
-								data-nom="<?= $plat['nom']?>"
-								data-prix="<?= $plat['prix']?>"					
-								>+</button>
-							</div>
+								data-nom="<?= $plat['nom'] ?>"
+								data-prix="<?= $plat['prix'] ?>">+</button>
 						</div>
+					</div>
 				</div>
-	<?php 
-				$compteur++; 
+		<?php
+				$compteur++;
 			endif;
 			if ($compteur % 3 == 0) {
-				echo '</div>'; 
+				echo '</div>';
 			}
-			
-	 endforeach; 
-	 
-	 if ($compteur % 3 != 0) {
+
+		endforeach;
+
+		if ($compteur % 3 != 0) {
 			echo '</div>';
 		}
-	?>
+		?>
 	<?php else: ?>
 		<p style="text-align: center; width: 100%;">Aucun plat disponible pour le moment.</p>
 	<?php endif; ?>
 
+	<script src="mode_sombre.js"></script>
 </body>
 
 </html>
