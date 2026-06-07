@@ -508,7 +508,8 @@ body.sombre .section-titre {
 }
 
 body.sombre .plat,
-body.sombre .bandeau {
+body.sombre .bandeau, 
+body.sombre #panier-volet {
 	background-color: gray;
 }
 
