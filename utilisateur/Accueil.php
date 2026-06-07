@@ -24,26 +24,6 @@ if (file_exists($fichier_plat)) {
 		<div class="logo_restaurant"><img class="logo" src="../photos/logo_japindien.png" /></div>
 		<div class="bandeau_nom">Le Japindien</div>
 
-		<form action="../administrateur/serveur.php" method="GET">
-			<input
-				type="text"
-				name="search"
-				placeholder="Recherchez un plat..."
-				list="mots-cles">
-			<datalist id="mots-cles">
-				<option value="maki">
-				<option value="samousa">
-				<option value="cheese naan">
-				<option value="poulet tandoori mariné au whiskey">
-				<option value="soupe miso">
-				<option value="brochette">
-				<option value="onigiri">
-				<option value="donburi">
-				<option value="poulpe">
-			</datalist>
-			<button type="submit">Rechercher</button>
-		</form>
-
 		<div class="navigation_droite">
 			<button id="bouton-theme" class="lien_bouton" style="background-color: #333;">Mode Sombre</button>
 
@@ -75,8 +55,13 @@ if (file_exists($fichier_plat)) {
 			<?php if ($estconnecte && $_SESSION['client']['email'] === 'admin@japindien.com'): ?>
 				<div class="bandeau_accueil"><a class="lien_bouton" href="../administrateur/admin.php">Admin</a></div>
 			<?php else: ?>
-				<div class="bandeau_accueil"><a class="lien_bouton" href="notation.html">Note</a></div>
+				<div class="bandeau_accueil">
+					<button id="bouton-panier" class="lien_bouton" onclick="togglePanier()">
+						Panier (<span id="panier-compteur">0</span>)
+					</button>
+    				</div>
 			<?php endif; ?>
+			
 		</div>
 	</div>
 
@@ -129,7 +114,34 @@ if (file_exists($fichier_plat)) {
 		<p style="text-align: center; width: 100%;">Aucun plat disponible pour le moment.</p>
 	<?php endif; ?>
 
+			<div id="panier-volet" class="panier-ferme">
+			    	<div class="panier-entete">
+					<h3>Mon Panier</h3>
+					<button class="bouton-fermer" onclick="togglePanier()">×</button>
+			    	</div>
+			    
+			    	<div id="panier-articles">
+				</div>
+			    
+			    	<div class="panier-total">
+					<p>Total : <span id="panier-somme">0.00</span>€</p>
+					
+					<div style="margin-bottom: 15px; margin-top: 10px;">
+						<label for="date-commande" style="display: block; margin-bottom: 5px;">Date de livraison :</label>
+						<input type="date" id="date-commande" style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
+    					</div>
+    					
+					<div style="margin-bottom: 15px;">
+						<label for="heure-commande" style="display: block; margin-bottom: 5px;">Heure souhaitée :</label>
+						<input type="time" id="heure-commande" min="10:30" max="22:30" style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
+					</div>
+						<button id="bouton-valider" onclick="validerCommande()">Commander</button>
+						<button id="bouton-vider" onclick="viderPanier()">Vider le panier</button>
+				</div>
+			</div>
+
 	<script src="mode_sombre.js"></script>
+	<script src="panier.js"></script>
 </body>
 
 </html>
