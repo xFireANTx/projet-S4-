@@ -1,6 +1,6 @@
 [
     {
-        "nom": "Machecouille",
+        "nom": "Machecouilles",
         "prenom": "Tapette",
         "adresse": "a",
         "phone": "0600000000",
@@ -10,8 +10,8 @@
         "orders": []
     },
     {
-        "nom": "schaff;,^n,ok",
-        "prenom": "anton n; njkhj",
+        "nom": "schaff",
+        "prenom": "anton",
         "adresse": "tralalero tralala",
         "phone": "0645124512",
         "email": "anton@gmail.com",
@@ -37,10 +37,22 @@
     },
     {
         "nom": "glizzi",
-        "prenom": "lucas",
+        "prenom": "lucouilles",
         "adresse": "tung tung tung sahur",
         "phone": "0111111111",
         "email": "lucas@gmail.com",
-        "mdp": "$2y$10$4l258v4t0AcLVftccvykIODkwrcicVCqw3gxJp.OZqEvCQ6oqaKua"
+        "mdp": "$2y$10$4l258v4t0AcLVftccvykIODkwrcicVCqw3gxJp.OZqEvCQ6oqaKua",
+        "loyalty": 0,
+        "orders": []
+    },
+    {
+        "nom": "bomboardillo ",
+        "prenom": "crocodillo",
+        "adresse": "brainrot av",
+        "phone": "0669696969",
+        "email": "tung@gmail.com",
+        "mdp": "$2y$10$phY466QainDdAHOmbSi3k.ifXbxB5CsaqPX8056KtKEIfuUkAEdvu",
+        "loyalty": 0,
+        "order": []
     }
 ]

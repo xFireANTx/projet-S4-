@@ -67,7 +67,9 @@
 		 	"phone" => $phone, 
 		 	"email" => $email, 
 		 	"mdp" => password_hash($mdp, PASSWORD_DEFAULT),//Le mode de passe est encrypté même dans le .json
-		];
+			"loyalty" => 0,
+			"order" => [],
+			];
 
 		array_push($donnees, $nouvelUtilisateur);
 		if(file_put_contents($fichier, json_encode($donnees, JSON_PRETTY_PRINT))) {

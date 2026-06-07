@@ -191,17 +191,24 @@ document.querySelectorAll('.edit-btn').forEach(btn=>{
 					return;
 				}
 			}
-			fetch('update_profile.php', {
-				method:'POST', headers:{'Content-Type':'application/json'},
+			fetch(window.location.pathname, {
+				method: 'POST',
+				headers: {'Content-Type':'application/json'},
 				body: JSON.stringify({ field: field, value: value, email: '<?php echo h($profil_client['email']) ?>' })
-			}).then(r=>r.json()).then(res=>{
+			}).then(r=>{
+				if(!r.ok){ throw new Error('HTTP '+r.status); }
+				return r.json();
+			}).then(res=>{
 				if(res.success){
 					span.textContent = value;
 					input.remove(); save.remove(); cancel.remove(); span.style.display='inline'; btn.style.display='inline';
 				} else {
 					alert(res.error || 'Erreur');
 				}
-			}).catch(()=>alert('Erreur de connexion'));
+			}).catch(err=>{
+				console.error(err);
+				alert('Erreur de connexion ou réponse invalide');
+			});
 		});
 	});
 });
