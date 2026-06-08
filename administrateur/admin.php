@@ -62,8 +62,8 @@
 				<ul>
 					<li><a class="lien_bouton" href="admin.php" target="_blank">Admin</a></li>
 					<li><a class="lien_bouton" href="../utilisateur/profil.php"  target="_blank">Profil</a></li>
-					<li><a class="lien_bouton" href="commande.html"  target="_blank">Commande</a></li>
-					<li><a class="lien_bouton" href="livraison.html"  target="_blank">Livraison</a></li>
+					<li><a class="lien_bouton" href="commande.php"  target="_blank">Commande</a></li>
+					<li><a class="lien_bouton" href="livraison.php"  target="_blank">Livraison</a></li>
 					<li><a class="lien_bouton" href="../utilisateur/Accueil.php" target="_blank">Accueil</a></li>
 					<li><a class="lien_bouton" href="../utilisateur/connexion.html"  target="_blank">Connexion</a></li>
 					<li><a class="lien_bouton" href="../utilisateur/inscription.html"  target="_blank">Inscription</a></li>

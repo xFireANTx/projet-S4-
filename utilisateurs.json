@@ -2,7 +2,7 @@
     {
         "nom": "Machecouilles",
         "prenom": "Tapette",
-        "adresse": "a",
+        "adresse": "ajnonok",
         "phone": "0600000000",
         "email": "admin@japindien.com",
         "mdp": "$2y$10$Heg.rvgs4\/OWsMBNPtYSwuovgJdnvO616e66Bo0zxVoc4k3krKafa",
@@ -30,7 +30,16 @@
                 "date": "2026-05-18",
                 "total": "15.20",
                 "items": [
-                    "Riz sauté"
+                    "Riz saut\u00e9"
+                ]
+            },
+            {
+                "date": "2026-06-08 \u00e0 02:03",
+                "total": 37,
+                "items": [
+                    "1x Maki curry",
+                    "1x Samousa boeuf de kob\u00e9",
+                    "1x cheese naan au sak\u00e9"
                 ]
             }
         ]

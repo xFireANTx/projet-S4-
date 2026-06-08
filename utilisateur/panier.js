@@ -96,28 +96,55 @@ function mettreAJourAffichage() {
 
 
 function validerCommande() {
-	if (panier.length === 0) {
-		alert("Votre panier est vide !");
-		return;
-	}
-	const champDate = document.getElementById('date-commande');
-	const champHeure = document.getElementById('heure-commande');
-	
-	const dateChoisie = champDate.value;
-	const heureChoisie = champHeure.value;
-	
-	if(!dateChoisie){
-		alert("Veuillez choisir une date pour votre commande.");
-		return;
-	}
-	if (!heureChoisie) {
-		alert("Veuillez choisir une heure pour votre commande.");
-		return;
-	}
-	
-	alert("Commande enregistrée pour le " +dateChoisie + "à " +heureChoisie+ " .");
-	viderPanier();
-	togglePanier();
-	champDate.value = '';
-	champHeure.value = '';
+    if (panier.length === 0) {
+        alert("Votre panier est vide !");
+        return;
+    }
+    
+    const champDate = document.getElementById('date-commande');
+    const champHeure = document.getElementById('heure-commande');
+    const boutonValider = document.getElementById('bouton-valider');
+    
+    const dateChoisie = champDate.value;
+    const heureChoisie = champHeure.value;
+    
+    if(!dateChoisie || !heureChoisie){
+        alert("Veuillez choisir une date et une heure pour votre commande.");
+        return;
+    }
+
+    // Désactiver le bouton pendant le chargement
+    boutonValider.disabled = true;
+    boutonValider.textContent = "Commande en cours...";
+
+    fetch('traitement_commande.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            panier: panier,
+            date: dateChoisie,
+            heure: heureChoisie
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if(data.success) {
+            alert("Commande enregistrée pour le " + dateChoisie + " à " + heureChoisie + ".");
+            viderPanier();
+            togglePanier();
+            champDate.value = '';
+            champHeure.value = '';
+        } else {
+            alert("Erreur : " + (data.message || "Veuillez vous reconnecter."));
+        }
+    })
+    .catch(error => {
+        console.error('Erreur:', error);
+        alert("Une erreur de connexion est survenue.");
+    })
+    .finally(() => {
+        // Réactiver le bouton
+        boutonValider.disabled = false;
+        boutonValider.textContent = "Commander";
+    });
 }
