@@ -2,7 +2,6 @@
 $fichier_commandes = __DIR__ . '/../commandes.json';
 $commandes = file_exists($fichier_commandes) ? json_decode(file_get_contents($fichier_commandes), true) : [];
 
-// Si l'admin a cliqué sur "Valider la livraison"
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_livraison'])) {
     $id_a_valider = $_POST['id_livraison'];
     foreach ($commandes as &$c) {
@@ -10,9 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_livraison'])) {
             $c['statut'] = 'livree';
         }
     }
-    // Sauvegarder la modification
     file_put_contents($fichier_commandes, json_encode($commandes, JSON_PRETTY_PRINT));
-    // Recharger la page pour mettre à jour l'affichage
     header("Location: livraison.php");
     exit;
 }

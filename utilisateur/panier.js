@@ -113,7 +113,6 @@ function validerCommande() {
         return;
     }
 
-    // Désactiver le bouton pendant le chargement
     boutonValider.disabled = true;
     boutonValider.textContent = "Commande en cours...";
 

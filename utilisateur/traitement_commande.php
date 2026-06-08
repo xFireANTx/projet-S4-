@@ -2,13 +2,11 @@
 session_start();
 header('Content-Type: application/json');
 
-// Vérifier si l'utilisateur est connecté
 if (!isset($_SESSION['client'])) {
     echo json_encode(['success' => false, 'message' => 'Non connecté']);
     exit;
 }
 
-// Récupérer les données envoyées par panier.js
 $donnees_json = file_get_contents('php://input');
 $donnees = json_decode($donnees_json, true);
 
@@ -21,14 +19,13 @@ $email_client = $_SESSION['client']['email'];
 $total = 0;
 $articles_resume = [];
 
-// Calcul du total et résumé pour le profil
 foreach ($donnees['panier'] as $item) {
     $total += $item['prix'] * $item['quantite'];
     $articles_resume[] = $item['quantite'] . 'x ' . $item['nom'];
 }
 
 $nouvelle_commande = [
-    'id' => uniqid(), // ID unique pour la commande
+    'id' => uniqid(), 
     'client_email' => $email_client,
     'client_nom' => $_SESSION['client']['nom'] . ' ' . $_SESSION['client']['prenom'],
     'client_adresse' => $_SESSION['client']['adresse'] ?? 'Adresse non renseignée',
@@ -40,7 +37,6 @@ $nouvelle_commande = [
     'statut' => 'en_attente' // Peut devenir 'livrée' plus tard
 ];
 
-// 1. Sauvegarder dans commandes.json (pour l'admin)
 $fichier_commandes = __DIR__ . '/../commandes.json';
 $toutes_commandes = file_exists($fichier_commandes) ? json_decode(file_get_contents($fichier_commandes), true) : [];
 $toutes_commandes[] = $nouvelle_commande;
@@ -55,7 +51,6 @@ foreach ($utilisateurs as &$u) {
         if (!isset($u['orders'])) {
             $u['orders'] = [];
         }
-        // Ajouter la commande simplifiée pour le profil
         $u['orders'][] = [
             'date' => $donnees['date'] . ' à ' . $donnees['heure'],
             'total' => $total,
