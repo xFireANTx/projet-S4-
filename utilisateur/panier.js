@@ -82,7 +82,7 @@ function mettreAJourAffichage() {
 		            <strong>${item.nom}</strong><br>
 		            <small>${item.prix.toFixed(2)}€ x ${item.quantite}</small>
 		        </div>
-		        <div div style="width: 90px">
+		        <div style="width: 90px">
 		            <button  onclick="modifierQuantite('${item.id}', 'moins')">-</button>
 		            <button  onclick="modifierQuantite('${item.id}', 'plus')">+</button>
 		        </div>
