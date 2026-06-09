@@ -1,4 +1,6 @@
 <?php
+$fichier_commandes = __DIR__ . '/../commandes.json';
+$commandes = file_exists($fichier_commandes) ? json_decode(file_get_contents($fichier_commandes), true) : [];
 // On force le fuseau horaire français pour éviter les décalages d'heure du serveur
 date_default_timezone_set('Europe/Paris');
 
@@ -38,7 +40,7 @@ foreach ($commandes as $cmd) {
     }
 }
 
-// 3. TRI CHRONOLOGIQUE (La plus urgente en haut)
+// tri chronologique
 $fonction_tri = function($a, $b) {
     return strtotime($a['date_livraison'] . ' ' . $a['heure_livraison']) - strtotime($b['date_livraison'] . ' ' . $b['heure_livraison']);
 };
