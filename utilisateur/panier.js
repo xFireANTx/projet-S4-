@@ -113,6 +113,7 @@ function validerCommande() {
         return;
     }
 
+    // Désactiver le bouton pendant le chargement
     boutonValider.disabled = true;
     boutonValider.textContent = "Commande en cours...";
 
@@ -127,15 +128,36 @@ function validerCommande() {
     })
     .then(response => response.json())
     .then(data => {
-        if(data.success) {
-            alert("Commande enregistrée pour le " + dateChoisie + " à " + heureChoisie + ".");
-            viderPanier();
-            togglePanier();
-            champDate.value = '';
-            champHeure.value = '';
-        } else {
-            alert("Erreur : " + (data.message || "Veuillez vous reconnecter."));
+		if (!data.success) {
+			alert("Erreur : " + (data.message || "Veuillez vous reconnecter."));
+			return;
+		}
+
+		const paiement = data.cybank;
+
+        // Création du formulaire demandé par CY Bank
+        const form = document.createElement('form');
+        form.method = 'POST';
+        form.action = 'https://www.plateforme-smc.fr/cybank/index.php';
+
+        function ajouterChamp(nom, valeur) {
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = nom;
+            input.value = valeur;
+            form.appendChild(input);
         }
+
+        ajouterChamp('transaction', paiement.transaction);
+        ajouterChamp('montant', paiement.montant);
+        ajouterChamp('vendeur', paiement.vendeur);
+        ajouterChamp('retour', paiement.retour);
+        ajouterChamp('control', paiement.control);
+
+        document.body.appendChild(form);
+
+        // Envoi vers CY Bank
+        form.submit();
     })
     .catch(error => {
         console.error('Erreur:', error);
