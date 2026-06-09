@@ -1,6 +1,5 @@
 <?php
-$fichier_commandes = __DIR__ . '/../commandes.json';
-$commandes = file_exists($fichier_commandes) ? json_decode(file_get_contents($fichier_commandes), true) : [];
+
 // On force le fuseau horaire français pour éviter les décalages d'heure du serveur
 date_default_timezone_set('Europe/Paris');
 
