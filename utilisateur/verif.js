@@ -1,8 +1,6 @@
 function toggleMdp(idChamp) {
-    // On récup le champ grâce à son identifiant
     const champ = document.getElementById(idChamp);
 
-    // On change son type : si c'est masqué  on l'affiche et inverse
     if (champ.type === "password") {
         champ.type = "text";
     } else {
