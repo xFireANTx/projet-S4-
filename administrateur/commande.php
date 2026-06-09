@@ -4,8 +4,19 @@
 date_default_timezone_set('Europe/Paris');
 
 $fichier_commandes = __DIR__ . '/../commandes.json';
-$commandes = file_exists($fichier_commandes) ? json_decode(file_get_contents($fichier_commandes), true) : [];
+$commandes = []; // On initialise un tableau vide par défaut
 
+if (file_exists($fichier_commandes)) {
+    $contenu = file_get_contents($fichier_commandes);
+    // On vérifie que le fichier n'est pas complètement vide avant de le décoder
+    if (!empty(trim($contenu))) { 
+        $donnees = json_decode($contenu, true);
+        // On s'assure que le résultat est bien un tableau
+        if (is_array($donnees)) {
+            $commandes = $donnees;
+        }
+    }
+}
 //bouton pret
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_pret'])) {
     $id_a_mettre_pret = $_POST['id_pret'];
