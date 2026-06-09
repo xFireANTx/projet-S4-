@@ -58,10 +58,26 @@ if (file_exists($fichier_plat)) {
 	</div>
 	<div class="remplissage"></div>
 
+
+	<div class="filtres-checkbox" style="margin: 20px 40px; font-family: Arial, sans-serif;">
+		<p style="font-weight: bold; margin-bottom: 10px; color: #c41e5e;">Filtrer la carte :</p>
+
+		<label style="margin-right: 20px; font-size: 16px; cursor: pointer;">
+			<input type="checkbox" name="allergene" value="viande" style="margin-right: 5px; transform: scale(1.2);">
+			🥩 Sans viande
+		</label>
+
+		<label style="margin-right: 20px; font-size: 16px; cursor: pointer;">
+			<input type="checkbox" name="allergene" value="poisson" style="margin-right: 5px; transform: scale(1.2);">
+			🐟 Sans poisson
+		</label>
+	</div>
+
+
 	<h2 class="section-titre">Nos menus</h2>
 
 	<div class="conteneur-menu">
-		<div class="plat carte-formule">
+		<div class="plat carte-formule" data-allergenes="poisson">
 			<div class="formule-images">
 				<img src="../photos/lassimangue.png" alt="Lassi Mangue">
 				<span class="plus">+</span>
@@ -96,7 +112,7 @@ if (file_exists($fichier_plat)) {
 	</div>
 
 	<div class="conteneur-menu">
-		<div class="plat carte-formule">
+		<div class="plat carte-formule" data-allergenes="viande">
 			<div class="formule-images">
 				<img src="../photos/mogu.png" alt="Mogu">
 				<span class="plus">+</span>
@@ -130,7 +146,7 @@ if (file_exists($fichier_plat)) {
 	</div>
 
 	<div class="conteneur-menu">
-		<div class="plat carte-formule">
+		<div class="plat carte-formule" data-allergenes="viande">
 			<div class="formule-images">
 				<img src="../photos/lassimangue.png" alt="Lassi Mangue">
 				<span class="plus">+</span>
@@ -163,7 +179,6 @@ if (file_exists($fichier_plat)) {
 		</div>
 	</div>
 
-
 	<h2 class="section-titre">Boissons</h2>
 	<?php if (!empty($liste_plat)): ?>
 		<?php
@@ -176,7 +191,7 @@ if (file_exists($fichier_plat)) {
 				}
 		?>
 				<?php ?>
-				<div class="plat">
+				<div class="plat" data-allergenes="<?php echo !empty($plat['allergène']) ? implode(',', $plat['allergène']) : ''; ?>">
 					<div class="section">
 						<div class="image">
 							<img src="<?= $plat['image'] ?>" alt="<?= $plat['nom'] ?>">
@@ -184,6 +199,22 @@ if (file_exists($fichier_plat)) {
 						<div class="contenu-carte">
 							<h3 class="titre"><?= $plat['nom'] ?></h3>
 							<p class="description"><?= $plat['description'] ?></p>
+
+							<div class="zone-allergenes">
+								<span class="declencheur-allergene" onclick="afficherAllergenes(this)" style="cursor: pointer; color: #71BFD5; font-size: 13px; font-weight: bold; text-decoration: underline;">
+									Allergènes
+								</span>
+								<p class="liste-allergenes" style="display: none; font-size: 12px; color: #D40078; margin-top: 5px;">
+									<?php
+									if (!empty($plat['allergène'])) {
+										// Transforme le tableau d'allergènes en une chaîne de texte séparée par des virgules
+										echo implode(', ', $plat['allergène']);
+									} else {
+										echo "Aucun allergène reconnu.";
+									}
+									?>
+								</p>
+							</div>
 						</div>
 						<div class="bas-carte">
 							<div class="bas-gauche"><span class="prix"><?= $plat['prix'] ?>€</span></div>
@@ -224,7 +255,7 @@ if (file_exists($fichier_plat)) {
 				}
 		?>
 				<?php ?>
-				<div class="plat">
+				<div class="plat" data-allergenes="<?php echo !empty($plat['allergène']) ? implode(',', $plat['allergène']) : ''; ?>">
 					<div class="section">
 						<div class="image">
 							<img src="<?= $plat['image'] ?>" alt="<?= $plat['nom'] ?>">
@@ -232,6 +263,22 @@ if (file_exists($fichier_plat)) {
 						<div class="contenu-carte">
 							<h3 class="titre"><?= $plat['nom'] ?></h3>
 							<p class="description"><?= $plat['description'] ?></p>
+
+							<div class="zone-allergenes">
+								<span class="declencheur-allergene" onclick="afficherAllergenes(this)" style="cursor: pointer; color: #71BFD5; font-size: 13px; font-weight: bold; text-decoration: underline;">
+									Allergènes
+								</span>
+								<p class="liste-allergenes" style="display: none; font-size: 12px; color: #D40078; margin-top: 5px;">
+									<?php
+									if (!empty($plat['allergène'])) {
+										// Transforme le tableau d'allergènes en une chaîne de texte séparée par des virgules
+										echo implode(', ', $plat['allergène']);
+									} else {
+										echo "Aucun allergène reconnu.";
+									}
+									?>
+								</p>
+							</div>
 						</div>
 						<div class="bas-carte">
 							<div class="bas-gauche"><span class="prix"><?= $plat['prix'] ?>€</span></div>
@@ -271,7 +318,7 @@ if (file_exists($fichier_plat)) {
 				}
 		?>
 				<?php ?>
-				<div class="plat">
+				<div class="plat" data-allergenes="<?php echo !empty($plat['allergène']) ? implode(',', $plat['allergène']) : ''; ?>">
 					<div class="section">
 						<div class="image">
 							<img src="<?= $plat['image'] ?>" alt="<?= $plat['nom'] ?>">
@@ -279,6 +326,22 @@ if (file_exists($fichier_plat)) {
 						<div class="contenu-carte">
 							<h3 class="titre"><?= $plat['nom'] ?></h3>
 							<p class="description"><?= $plat['description'] ?></p>
+
+							<div class="zone-allergenes">
+								<span class="declencheur-allergene" onclick="afficherAllergenes(this)" style="cursor: pointer; color: #71BFD5; font-size: 13px; font-weight: bold; text-decoration: underline;">
+									Allergènes
+								</span>
+								<p class="liste-allergenes" style="display: none; font-size: 12px; color: #D40078; margin-top: 5px;">
+									<?php
+									if (!empty($plat['allergène'])) {
+										// Transforme le tableau d'allergènes en une chaîne de texte séparée par des virgules
+										echo implode(', ', $plat['allergène']);
+									} else {
+										echo "Aucun allergène reconnu.";
+									}
+									?>
+								</p>
+							</div>
 						</div>
 						<div class="bas-carte">
 							<div class="bas-gauche"><span class="prix"><?= $plat['prix'] ?>€</span></div>
@@ -318,7 +381,7 @@ if (file_exists($fichier_plat)) {
 				}
 		?>
 				<?php ?>
-				<div class="plat">
+				<div class="plat" data-allergenes="<?php echo !empty($plat['allergène']) ? implode(',', $plat['allergène']) : ''; ?>">
 					<div class="section">
 						<div class="image">
 							<img src="<?= $plat['image'] ?>" alt="<?= $plat['nom'] ?>">
@@ -326,6 +389,22 @@ if (file_exists($fichier_plat)) {
 						<div class="contenu-carte">
 							<h3 class="titre"><?= $plat['nom'] ?></h3>
 							<p class="description"><?= $plat['description'] ?></p>
+
+							<div class="zone-allergenes">
+								<span class="declencheur-allergene" onclick="afficherAllergenes(this)" style="cursor: pointer; color: #71BFD5; font-size: 13px; font-weight: bold; text-decoration: underline;">
+									Allergènes
+								</span>
+								<p class="liste-allergenes" style="display: none; font-size: 12px; color: #D40078; margin-top: 5px;">
+									<?php
+									if (!empty($plat['allergène'])) {
+										// Transforme le tableau d'allergènes en une chaîne de texte séparée par des virgules
+										echo implode(', ', $plat['allergène']);
+									} else {
+										echo "Aucun allergène reconnu.";
+									}
+									?>
+								</p>
+							</div>
 						</div>
 						<div class="bas-carte">
 							<div class="bas-gauche"><span class="prix"><?= $plat['prix'] ?>€</span></div>
@@ -365,7 +444,7 @@ if (file_exists($fichier_plat)) {
 				}
 		?>
 				<?php ?>
-				<div class="plat">
+				<div class="plat" data-allergenes="<?php echo !empty($plat['allergène']) ? implode(',', $plat['allergène']) : ''; ?>">
 					<div class="section">
 						<div class="image">
 							<img src="<?= $plat['image'] ?>" alt="<?= $plat['nom'] ?>">
@@ -373,6 +452,22 @@ if (file_exists($fichier_plat)) {
 						<div class="contenu-carte">
 							<h3 class="titre"><?= $plat['nom'] ?></h3>
 							<p class="description"><?= $plat['description'] ?></p>
+
+							<div class="zone-allergenes">
+								<span class="declencheur-allergene" onclick="afficherAllergenes(this)" style="cursor: pointer; color: #71BFD5; font-size: 13px; font-weight: bold; text-decoration: underline;">
+									Allergènes
+								</span>
+								<p class="liste-allergenes" style="display: none; font-size: 12px; color: #D40078; margin-top: 5px;">
+									<?php
+									if (!empty($plat['allergène'])) {
+										// Transforme le tableau d'allergènes en une chaîne de texte séparée par des virgules
+										echo implode(', ', $plat['allergène']);
+									} else {
+										echo "Aucun allergène reconnu.";
+									}
+									?>
+								</p>
+							</div>
 						</div>
 						<div class="bas-carte">
 							<div class="bas-gauche"><span class="prix"><?= $plat['prix'] ?>€</span></div>
@@ -398,6 +493,21 @@ if (file_exists($fichier_plat)) {
 		?>
 	<?php endif; ?>
 	<script src="mode_sombre.js"></script>
+	<script src="filtre_allergenes.js"></script>
+
+	<script>
+		function afficherAllergenes(elementClique) {
+			// 1. On cherche le paragraphe des allergènes qui se trouve juste à côté du texte cliqué
+			const liste = elementClique.nextElementSibling;
+
+			// 2. Si la liste est cachée, on l'affiche, sinon on la cache
+			if (liste.style.display === "none") {
+				liste.style.display = "block";
+			} else {
+				liste.style.display = "none";
+			}
+		}
+	</script>
 </body>
 
 </html>

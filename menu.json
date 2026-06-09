@@ -5,8 +5,11 @@
         "prix": "20",
         "nb personnes": "1",
         "description": "L'expérience japo-indienne a son paroxisme : faites un voyage en inde et au japon en un seul repas.",
-        "pays":"rien",
-        "type":"menu"
+        "pays": "rien",
+        "type": "menu",
+        "allergène": [
+            "poisson"
+        ]
     },
     {
         "id": 2,
@@ -14,8 +17,11 @@
         "prix": "22",
         "nb personnes": "1",
         "description": "L'expérience japonaise complète: du plate au dessert en passant par la boisson.",
-        "pays":"rien",
-        "type":"menu"
+        "pays": "rien",
+        "type": "menu",
+        "allergène": [
+            "viande"
+        ]
     },
     {
         "id": 3,
@@ -23,8 +29,11 @@
         "prix": "22",
         "nb personnes": "1",
         "description": "L'expérience indienne complète: du plate au dessert en passant par la boisson.",
-        "pays":"rien",
-        "type":"menu"
+        "pays": "rien",
+        "type": "menu",
+        "allergène": [
+            "viande"
+        ]
     },
     {
         "id": 4,
@@ -33,8 +42,8 @@
         "allergène": [],
         "image": "../photos/coca.png",
         "description": "Une boisson rafraîchissante et populaire.",
-        "pays":"rien",
-        "type":"boisson"
+        "pays": "rien",
+        "type": "boisson"
     },
     {
         "id": 5,
@@ -43,8 +52,8 @@
         "allergène": [],
         "image": "../photos/icetea.png",
         "description": "Une boisson rafraîchissante à la pêche.",
-        "pays":"rien",
-        "type":"boisson"
+        "pays": "rien",
+        "type": "boisson"
     },
     {
         "id": 6,
@@ -53,8 +62,8 @@
         "allergène": [],
         "image": "../photos/juspomme.png",
         "description": "Un jus de pomme frais et naturel.",
-        "pays":"rien",
-        "type":"boisson"
+        "pays": "rien",
+        "type": "boisson"
     },
     {
         "id": 7,
@@ -63,8 +72,8 @@
         "allergène": [],
         "image": "../photos/schweppes.png",
         "description": "Une boisson rafraîchissante aux agrumes.",
-        "pays":"boisson",
-        "type":"boisson"
+        "pays": "boisson",
+        "type": "boisson"
     },
     {
         "id": 8,
@@ -73,8 +82,8 @@
         "allergène": [],
         "image": "../photos/mogu.png",
         "description": "Une boisson traditionnelle à la fraise.",
-        "pays":"jap",
-        "type":"boisson"
+        "pays": "jap",
+        "type": "boisson"
     },
     {
         "id": 9,
@@ -83,8 +92,8 @@
         "allergène": [],
         "image": "../photos/lassimangue.png",
         "description": "Un lassi rafraîchissant à la mangue.",
-        "pays":"ind",
-        "type":"boisson"
+        "pays": "ind",
+        "type": "boisson"
     },
     {
         "id": 10,
@@ -95,8 +104,8 @@
         ],
         "image": "../photos/sushicurry.png",
         "description": "Délicieux assortiment de riz et d'une sauce curry secrète.",
-        "pays":"spe",
-        "type":"plat"
+        "pays": "spe",
+        "type": "plat"
     },
     {
         "id": 11,
@@ -107,8 +116,8 @@
         ],
         "image": "../photos/samousa.png",
         "description": "Un samousa composé du boeuf le plus tendre du monde.",
-        "pays":"spe",
-        "type":"plat"
+        "pays": "spe",
+        "type": "plat"
     },
     {
         "id": 12,
@@ -117,8 +126,8 @@
         "allergène": [],
         "image": "../photos/cheesenaan.png",
         "description": "Un délicieux et tendre cheese naan relevé au saké",
-        "pays":"spe",
-        "type":"plat"
+        "pays": "spe",
+        "type": "plat"
     },
     {
         "id": 13,
@@ -129,8 +138,8 @@
         ],
         "image": "../photos/poulettando.png",
         "description": "Un poulet mariné dans un whisky japonais d'excellence pour une tendresse exceptionnelle.",
-        "pays":"spe",
-        "type":"plat"
+        "pays": "spe",
+        "type": "plat"
     },
     {
         "id": 14,
@@ -139,8 +148,8 @@
         "allergène": [],
         "image": "../photos/soupemiso.png",
         "description": "Une soupe miso composé d'un poulet Tikkaa Massala pour un plat aussi gourmand que léger.",
-        "pays":"spe",
-        "type":"plat"
+        "pays": "spe",
+        "type": "plat"
     },
     {
         "id": 15,
@@ -151,8 +160,8 @@
         ],
         "image": "../photos/brochette.png",
         "description": "Une délicieuse brochette de viande de Ladoo grillée à la perfection.",
-        "pays":"spe",
-        "type":"plat"
+        "pays": "spe",
+        "type": "plat"
     },
     {
         "id": 16,
@@ -163,8 +172,8 @@
         ],
         "image": "../photos/onigiri.png",
         "description": "Un onigiri composé d'un poulet assaisonné de tiki tikka.",
-        "pays":"spe",
-        "type":"plat"
+        "pays": "spe",
+        "type": "plat"
     },
     {
         "id": 17,
@@ -175,8 +184,8 @@
         ],
         "image": "../photos/donburi.png",
         "description": "Un Donburi composé d'un morceau tendre d'agneau et d'une sauce curry",
-        "pays":"spe",
-        "type":"plat"
+        "pays": "spe",
+        "type": "plat"
     },
     {
         "id": 18,
@@ -187,8 +196,8 @@
         ],
         "image": "../photos/poulpe.png",
         "description": "Un tentacule de poulpe épicé au cumin",
-        "pays":"spe",
-        "type":"plat"
+        "pays": "spe",
+        "type": "plat"
     },
     {
         "id": 19,
@@ -199,8 +208,8 @@
         ],
         "image": "../photos/tonkatsu.png",
         "description": "Porc pané et frit accompagné de sauce Worcestershire, ainsi que de chou émincé et du karashi.",
-        "pays":"jap",
-        "type":"plat"
+        "pays": "jap",
+        "type": "plat"
     },
     {
         "id": 20,
@@ -211,8 +220,8 @@
         ],
         "image": "../photos/ramen.png",
         "description": "Ramen au bœuf assaisonné au miso, accompagné de légumes (maïs, algue, pousse de bambou, poireaux)",
-        "pays":"jap",
-        "type":"plat"
+        "pays": "jap",
+        "type": "plat"
     },
     {
         "id": 21,
@@ -223,8 +232,8 @@
         ],
         "image": "../photos/katsu.png",
         "description": "Un morceau de viande de porc pané et frit accompagné d'une délicieuse sauce curry.",
-        "pays":"jap",
-        "type":"plat"
+        "pays": "jap",
+        "type": "plat"
     },
     {
         "id": 22,
@@ -235,8 +244,8 @@
         ],
         "image": "../photos/chirachi.png",
         "description": "Riz vinaigré recouvert de fines tranches d'anguille grillée.",
-        "pays":"jap",
-        "type":"plat"
+        "pays": "jap",
+        "type": "plat"
     },
     {
         "id": 23,
@@ -247,8 +256,8 @@
         ],
         "image": "../photos/sushi.png",
         "description": "Plateau composé de différents types de sushi et maki.",
-        "pays":"jap",
-        "type":"plat"
+        "pays": "jap",
+        "type": "plat"
     },
     {
         "id": 24,
@@ -259,8 +268,8 @@
         ],
         "image": "../photos/yakiniku.png",
         "description": "Viande de bœuf grillée à la perfection, accompagnée de légumes et d'une sauce spéciale.",
-        "pays":"jap",
-        "type":"plat"
+        "pays": "jap",
+        "type": "plat"
     },
     {
         "id": 25,
@@ -271,8 +280,8 @@
         ],
         "image": "../photos/poulettikkaa.jpg",
         "description": "Poulet mariné dans une sauce au yaourt et à l'ail, grillé et servi avec du riz et des légumes.",
-        "pays":"ind",
-        "type":"plat"
+        "pays": "ind",
+        "type": "plat"
     },
     {
         "id": 26,
@@ -283,8 +292,8 @@
         ],
         "image": "../photos/poulettandori.jpg",
         "description": "Poulet mariné dans une sauce au yaourt et à l'ail, grillé et servi avec du riz et des légumes.",
-        "pays":"ind",
-        "type":"plat"
+        "pays": "ind",
+        "type": "plat"
     },
     {
         "id": 27,
@@ -293,8 +302,8 @@
         "allergène": [],
         "image": "../photos/dahl.jpg",
         "description": "Un plat traditionnel à base de lentilles et de légumes, servi avec du riz.",
-        "pays":"ind",
-        "type":"plat"
+        "pays": "ind",
+        "type": "plat"
     },
     {
         "id": 28,
@@ -303,8 +312,8 @@
         "allergène": [],
         "image": "../photos/aloo.jpg",
         "description": "Pommes de terre et chou-fleur dans une sauce au yaourt et à l'ail.",
-        "pays":"ind",
-        "type":"plat"
+        "pays": "ind",
+        "type": "plat"
     },
     {
         "id": 29,
@@ -313,8 +322,8 @@
         "allergène": [],
         "image": "../photos/ladoo.jpg",
         "description": "Douceur indienne à base de sucre et de farine de pois chiches.",
-        "pays":"ind",
-        "type":"plat"
+        "pays": "ind",
+        "type": "plat"
     },
     {
         "id": 30,
@@ -323,8 +332,8 @@
         "allergène": [],
         "image": "../photos/raita.jpg",
         "description": "Salade fraîche à base de yaourt et de légumes : concombres, carottes, tomates",
-        "pays":"ind",
-        "type":"plat"
+        "pays": "ind",
+        "type": "plat"
     },
     {
         "id": 31,
@@ -333,8 +342,8 @@
         "allergène": [],
         "image": "../photos/mochis.png",
         "description": "Doux et moelleux, ces gâteaux japonais sont parfaits pour terminer un repas.",
-        "pays":"jap",
-        "type":"dessert"
+        "pays": "jap",
+        "type": "dessert"
     },
     {
         "id": 32,
@@ -343,8 +352,8 @@
         "allergène": [],
         "image": "../photos/cheesecake.png",
         "description": "Doux et crémeux, ce cheesecake est un dessert incontournable du Japon.",
-        "pays":"jap",
-        "type":"dessert"
+        "pays": "jap",
+        "type": "dessert"
     },
     {
         "id": 33,
@@ -353,8 +362,8 @@
         "allergène": [],
         "image": "../photos/dorayaki.png",
         "description": "Un dessert japonais composé de pancakes fourrés avec une garniture de pâte de haricot rouge.",
-        "pays":"jap",
-        "type":"dessert"
+        "pays": "jap",
+        "type": "dessert"
     },
     {
         "id": 34,
@@ -363,8 +372,8 @@
         "allergène": [],
         "image": "../photos/kulfi.png",
         "description": "Un dessert indien traditionnel à base de lait concentré et de sucre.",
-        "pays":"ind",
-        "type":"dessert"
+        "pays": "ind",
+        "type": "dessert"
     },
     {
         "id": 35,
@@ -373,8 +382,8 @@
         "allergène": [],
         "image": "../photos/gulab-jamun.png",
         "description": "Douceur indienne à base de sucre et de farine de pois chiches.",
-        "pays":"ind",
-        "type":"dessert"
+        "pays": "ind",
+        "type": "dessert"
     },
     {
         "id": 36,
@@ -383,7 +392,7 @@
         "allergène": [],
         "image": "../photos/jalebi.png",
         "description": "Douceur indienne à base de sucre et de farine de pois chiches.",
-        "pays":"ind",
-        "type":"dessert"       
+        "pays": "ind",
+        "type": "dessert"
     }
 ]
