@@ -25,7 +25,7 @@ foreach ($donnees['panier'] as $item) {
 }
 
 $nouvelle_commande = [
-    'id' => uniqid(), 
+    'id' => uniqid(), //génère un id unique
     'client_email' => $email_client,
     'client_nom' => $_SESSION['client']['nom'] . ' ' . $_SESSION['client']['prenom'],
     'client_adresse' => $_SESSION['client']['adresse'] ?? 'Adresse non renseignée',
@@ -42,7 +42,7 @@ $toutes_commandes = file_exists($fichier_commandes) ? json_decode(file_get_conte
 $toutes_commandes[] = $nouvelle_commande;
 file_put_contents($fichier_commandes, json_encode($toutes_commandes, JSON_PRETTY_PRINT));
 
-// 2. Mettre à jour l'historique dans utilisateurs.json (pour le profil)
+
 $fichier_users = __DIR__ . '/../utilisateurs.json';
 $utilisateurs = json_decode(file_get_contents($fichier_users), true);
 
