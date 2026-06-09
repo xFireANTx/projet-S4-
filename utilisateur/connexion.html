@@ -44,8 +44,12 @@
 
 			<span class="icon">🔒</span>
 			<label for="connexion_mdp">Mot de passe:</label>
-			<input id="connexion_mdp" type="password" name="connexion_mdp" placeholder="Mot de passe" required><br>
-
+			<div style="display: flex; gap: 10px; align-items: center;">
+				<input id="connexion_mdp" type="password" name="connexion_mdp" placeholder="Mot de passe" required>
+				<button type="button" onclick="toggleMdp('connexion_mdp')"
+					style="cursor: pointer; background: none; border: none; font-size: 1.2rem;">👁️</button>
+			</div>
+			<br>
 			<br>
 			<div>
 				<button type="submit" class="compte_crea">Me connecter</button> &nbsp &nbsp
@@ -54,8 +58,9 @@
 		</form>
 
 	</div>
-	<script src="mode_sombre.js"></script>
 
+	<script src="mode_sombre.js"></script>
+	<script src="verif.js"></script>
 </body>
 
 </html>

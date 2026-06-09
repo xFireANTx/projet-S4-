@@ -63,5 +63,15 @@
         "mdp": "$2y$10$phY466QainDdAHOmbSi3k.ifXbxB5CsaqPX8056KtKEIfuUkAEdvu",
         "loyalty": 0,
         "order": []
+    },
+    {
+        "nom": "Galizzi",
+        "prenom": "Lucas",
+        "adresse": "\u00e9lys\u00e9e",
+        "phone": "0745987621",
+        "email": "lucas.galizzi.lyon@gmail.com",
+        "mdp": "$2y$12$k8\/ps6mUXH4C0Ic1YjXZG.8arcTAC25y3UW3lSnpr.u.kDmZP0e.u",
+        "loyalty": 0,
+        "order": []
     }
 ]

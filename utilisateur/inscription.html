@@ -11,75 +11,83 @@
 
 <body>
 
-<div class="bandeau">
-	<div class="logo_restaurant"><img class="logo" src="../photos/logo_japindien.png" /></div>
-	<div class="bandeau_nom">Le Japindien</div>
+	<div class="bandeau">
+		<div class="logo_restaurant"><img class="logo" src="../photos/logo_japindien.png" /></div>
+		<div class="bandeau_nom">Le Japindien</div>
 
-			<div class="navigation_droite">
-				<button id="bouton-theme" class="lien_bouton" style="background-color: #333;">Mode Sombre</button>
-				<div class="bandeau_accueil"><a class="lien_bouton" href="Accueil.php">Accueil</a></div>
-				<div class="bandeau_moncompte">
-					<div class="dropdown">
-						<button class="lien_bouton">Mon compte</button>
-						<div class="dropdown-content">
-							<a href="connexion.html">Connexion</a>
-							<a href="inscription.html">Inscription</a>
-						</div>
+		<div class="navigation_droite">
+			<button id="bouton-theme" class="lien_bouton" style="background-color: #333;">Mode Sombre</button>
+			<div class="bandeau_accueil"><a class="lien_bouton" href="Accueil.php">Accueil</a></div>
+			<div class="bandeau_moncompte">
+				<div class="dropdown">
+					<button class="lien_bouton">Mon compte</button>
+					<div class="dropdown-content">
+						<a href="connexion.html">Connexion</a>
+						<a href="inscription.html">Inscription</a>
 					</div>
 				</div>
-				<div class="bandeau_avis"><a class="lien_bouton" href="presentation.php">A la carte</a></div>
 			</div>
+			<div class="bandeau_avis"><a class="lien_bouton" href="presentation.php">A la carte</a></div>
 		</div>
+	</div>
 
-<div class="remplissage"></div>
+	<div class="remplissage"></div>
 
 
 
-		<div class="formulaire">
-			<div class="ins_con">&nbsp&nbspINSCRIPTION<div class="espace"></div><a class="lien"
-					href="connexion.html">CONNEXION</a>
+	<div class="formulaire">
+		<div class="ins_con">&nbsp&nbspINSCRIPTION<div class="espace"></div><a class="lien"
+				href="connexion.html">CONNEXION</a>
+		</div>
+		<form class="form_inscri" target="_self" method="post" action="inscription_verif.php">
+
+			<span class="icon">👤</span>
+			<label for="Nom">Nom:</label><br>
+			<input id="Nom" type="text" name="nom" width="50%" placeholder="Nom" required>
+			<br>
+
+			<span class="icon">👤</span>
+			<label for="Prenom">Prénom:</label><br>
+			<input id="Prenom" type="text" name="prenom" width="50%" placeholder="Prénom" required>
+			<br>
+
+			<span class="icon">📍</span>
+			<label for="Adresse">Adresse:</label><br>
+			<input id="Adresse" type="text" name="adresse" placeholder="Rue No Boîte postale" required><br>
+
+			<span class="icon">📞</span>
+			<label for="Phone">N° de Telephone:</label><br>
+			<input type="tel" id="Phone" name="phone" pattern="[0]{1}[0-9]{9}" placeholder="0102030405" required><br>
+
+			<span class="icon">✉️</span>
+			<label for="Mail">Mail:</label>
+			<input id="Mail" type="email" name="AdresseEmail" placeholder="Email" required><br>
+
+			<span class="icon">🔒</span>
+			<label for="Mdp">Mot de passe:</label>
+			<div style="display: flex; gap: 10px; align-index: center;">
+				<input id="Mdp" type="password" name="mdp" placeholder="Mot de passe" required>
+				<button type="button" onclick="toggleMdp('Mdp')"
+					style="cursor: pointer; background: none; border: none; font-size: 1.2rem;">👁️</button>
 			</div>
-			<form class="form_inscri" target="_self" method="post" action="inscription_verif.php">
+			<br>
 
-		<span class="icon">👤</span>
-		<label for="Nom">Nom:</label><br>
-		<input id="Nom" type="text" name="nom" width="50%" placeholder="Nom" required>
-		<br>
-
-		<span class="icon">👤</span>
-		<label for="Prenom">Prénom:</label><br>
-		<input id="Prenom" type="text" name="prenom" width="50%" placeholder="Prénom" required>
-		<br>
-
-		<span class="icon">📍</span>
-		<label for="Adresse">Adresse:</label><br>
-		<input id="Adresse" type="text" name="adresse" placeholder="Rue No Boîte postale" required><br>
-
-		<span class="icon">📞</span>
-		<label for="Phone">N° de Telephone:</label><br>
-		<input type="tel" id="Phone" name="phone" pattern="[0]{1}[0-9]{9}" placeholder="0102030405"
-			required><br>
-
-		<span class="icon">✉️</span>
-		<label for="Mail">Mail:</label>
-		<input id="Mail" type="email" name="AdresseEmail" placeholder="Email" required><br>
-
-		<span class="icon">🔒</span>
-		<label for="Mdp">Mot de passe:</label>
-		<input id="Mdp" type="password" name="mdp" placeholder="Mot de passe" required><br>
-
-				<span class="icon">🔒</span>
-				<label for="Confirmation mdp">Confirmation du mot de passe:</label><br>
+			<span class="icon">🔒</span>
+			<label for="Confirmation mdp">Confirmation du mot de passe:</label><br>
+			<div style="display: flex; gap: 10px; align-index: center;">
 				<input type="password" id="Confirmation mdp" name="confirmation_mdp"
 					placeholder="Confirmation du mot de passe" required>
-				<br>
-				<br>
-				<div>
-					<button type="submit" class="compte_crea">Créer mon compte</button> &nbsp &nbsp
-					<button type="reset" class="compte_del"><img class="gomme" src="../photos/gomme.png" /></button>
-					<div>
-			</form>
-			<script src="mode_sombre.js"></script>
+				<button type="button" onclick="toggleMdp('Confirmation mdp')"
+					style="cursor: pointer; background: none; border: none; font-size: 1.2rem;">👁️</button>
+			</div>
+			<button type="submit" class="compte_crea">Créer mon compte</button> &nbsp &nbsp
+			<button type="reset" class="compte_del"><img class="gomme" src="../photos/gomme.png" /></button>
+			<div>
+		</form>
+		<script src="mode_sombre.js"></script>
+
+		<div id="zone-donnees"></div>
+		<script src="verif.js"></script>
 </body>
 
 </html>
