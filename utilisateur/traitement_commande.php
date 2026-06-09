@@ -37,10 +37,11 @@ $nouvelle_commande = [
     'client_phone' => $_SESSION['client']['phone'] ?? 'Non renseigné',
     'date_livraison' => $donnees['date'],
     'heure_livraison' => $donnees['heure'],
-    'panier' => $donnees['panier'],
+	'panier' => $donnees['panier'],
     'total' => $total,
-    'statut' => 'en_attente' // 
+    'statut' => 'en_cours' 
 ];
+
 
 //Sauvegarder dans commandes.json (pour l'admin)
 $fichier_commandes = __DIR__ . '/../commandes.json';

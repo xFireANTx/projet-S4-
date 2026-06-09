@@ -30,16 +30,16 @@
                 "date": "2026-05-18",
                 "total": "15.20",
                 "items": [
-                    "Riz sauté"
+                    "Riz saut\u00e9"
                 ]
             },
             {
-                "date": "2026-06-08 à 02:03",
+                "date": "2026-06-08 \u00e0 02:03",
                 "total": 37,
                 "items": [
                     "1x Maki curry",
-                    "1x Samousa boeuf de kobé",
-                    "1x cheese naan au saké"
+                    "1x Samousa boeuf de kob\u00e9",
+                    "1x cheese naan au sak\u00e9"
                 ]
             },
             {
@@ -49,6 +49,47 @@
                     "1x Maki curry",
                     "1x Samousa boeuf de kob\u00e9",
                     "1x cheese naan au sak\u00e9"
+                ]
+            },
+            {
+                "id": "6a287d4d2608f",
+                "date": "2026-06-09 \u00e0 22:54",
+                "total": 24,
+                "items": [
+                    "2x Samousa boeuf de kob\u00e9"
+                ]
+            },
+            {
+                "id": "6a287da26c2e8",
+                "date": "2026-06-09 \u00e0 22:55",
+                "total": 24,
+                "items": [
+                    "2x Samousa boeuf de kob\u00e9"
+                ]
+            },
+            {
+                "id": "6a287ead61367",
+                "date": "2026-06-09 \u00e0 13:59",
+                "total": 36,
+                "items": [
+                    "3x Samousa boeuf de kob\u00e9"
+                ]
+            },
+            {
+                "id": "6a287ee4ccaeb",
+                "date": "2026-06-24 \u00e0 16:00",
+                "total": 34.5,
+                "items": [
+                    "3x cheese naan au sak\u00e9"
+                ]
+            },
+            {
+                "id": "6a287efd2d9af",
+                "date": "2026-06-11 \u00e0 14:00",
+                "total": 82.5,
+                "items": [
+                    "3x cheese naan au sak\u00e9",
+                    "4x Soupe miso poulet Tikka massala"
                 ]
             }
         ]

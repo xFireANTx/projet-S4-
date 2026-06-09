@@ -2,11 +2,12 @@
 $fichier_commandes = __DIR__ . '/../commandes.json';
 $commandes = file_exists($fichier_commandes) ? json_decode(file_get_contents($fichier_commandes), true) : [];
 
+// GESTION DU BOUTON "MARQUER COMME LIVRÉE"
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_livraison'])) {
     $id_a_valider = $_POST['id_livraison'];
     foreach ($commandes as &$c) {
         if ($c['id'] === $id_a_valider) {
-            $c['statut'] = 'livree';
+            $c['statut'] = 'livree'; // Clôture définitivement la commande
         }
     }
     file_put_contents($fichier_commandes, json_encode($commandes, JSON_PRETTY_PRINT));
@@ -19,12 +20,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_livraison'])) {
 <head>
     <link rel="stylesheet" type="text/css" href="administrateur.css">
     <meta charset="UTF-8">
-    <title>Livraisons</title>
+    <title>Livraisons en cours</title>
 </head>
 <body>
 
     <div class="tableau_livraison">
-        <h2>Livraisons à effectuer</h2>
+        <h2>Commandes prêtes (En cours de livraison)</h2>
         <br>
         <table border="1" style="width:100%; text-align:center;">
         <tr>
@@ -35,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_livraison'])) {
             <th><u>Etat de la livraison</u></th>
         </tr>
         <?php foreach ($commandes as $cmd): ?>
-            <?php if ($cmd['statut'] === 'en_attente'): ?>
+            <?php if (isset($cmd['statut']) && $cmd['statut'] === 'en_livraison'): ?>
             <tr>
                 <td><?= htmlspecialchars($cmd['client_nom']) ?></td>
                 <td><?= htmlspecialchars($cmd['client_adresse']) ?></td>
@@ -44,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_livraison'])) {
                 <td>
                     <form method="POST" style="margin: 0;">
                         <input type="hidden" name="id_livraison" value="<?= $cmd['id'] ?>">
-                        <button type="submit" style="cursor:pointer; background-color:#4CAF50; color:white; border:none; padding:5px 10px; border-radius:3px;">
+                        <button type="submit" style="cursor:pointer; background-color:#4CAF50; color:white; border:none; padding:6px 12px; border-radius:3px;">
                             Marquer comme livrée ✓
                         </button>
                     </form>
