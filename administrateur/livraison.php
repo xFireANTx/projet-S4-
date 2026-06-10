@@ -1,41 +1,9 @@
 <?php
-
-// 
-// 
-// 
-// 
-// 
-// pour le gps du livreur on peut utiliser ca 
-// 
-// partie php
-// $adresse = urlencode("Tour Eiffel, Paris");
-// $google_maps_url = "https://www.google.com/maps/search/?api=1&query=" . $adresse;
-// $waze_url = "https://waze.com/ul?q=" . $adresse;
-// 
-// partie html
-/* <a href="<?php echo $google_maps_url; ?>">Y aller avec Google Maps</a>
-// <a href="<?php echo $waze_url; ?>">Y aller avec Waze</a> */
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 session_start();
 
 $fichier_commandes = __DIR__ . '/../commandes.json';
 
-// 1. TRAITEMENT DU BOUTON "VALIDER LA LIVRAISON" (Action au clic)
+//traitement du bouton valider la livraison
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_commande'])) {
     $id_cmd_a_valider = $_POST['id_commande'];
     
@@ -58,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_commande'])) {
     exit;
 }
 
-// 2. RÉCUPÉRATION DES COMMANDES EN COURS DE LIVRAISON
+//recuperation des commendes en cours de livraison
 $commandes_a_livrer = [];
 if (file_exists($fichier_commandes)) {
     $commandes = json_decode(file_get_contents($fichier_commandes), true);
@@ -78,14 +46,12 @@ if (file_exists($fichier_commandes)) {
     <link rel="stylesheet" type="text/css" href="administrateur.css">
     <meta charset="UTF-8">
     <title>Espace Livraison - Le Japindien</title>
-    <style>
-        
-    </style>
+
 </head>
 <body>
 
     <div class="tableau_livraison" style="padding: 20px;">
-        <h2>🚚 Commandes à livrer</h2>
+        <h2>Commandes à livrer</h2>
         <br>
         <table border="1" style="width:100%; border-collapse: collapse; text-align: center;">
             <thead>
@@ -127,7 +93,7 @@ if (file_exists($fichier_commandes)) {
                 <?php else: ?>
                     <tr>
                         <td colspan="5" style="padding: 20px; color: #666;">
-                            🎉 Aucune livraison à faire pour le moment !
+                            Aucune livraison à faire pour le moment !
                         </td>
                     </tr>
                 <?php endif; ?>
