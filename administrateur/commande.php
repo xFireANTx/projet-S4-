@@ -1,4 +1,6 @@
 <?php
+session_start();
+$utilisateur = $_SESSION['client'];
 // On force le fuseau horaire français pour éviter les décalages d'heure du serveur
 date_default_timezone_set('Europe/Paris');
 
@@ -110,12 +112,16 @@ usort($commandes_livrees, $fonction_tri_archive);
                     </td>
                     <td><?= $cmd['total'] ?>€</td>
                     <td>
+                    
+		<?php if($utilisateur['role'] === 'restaurateur'):?>
                         <form method="POST" style="margin: 0;">
                             <input type="hidden" name="id_pret" value="<?= $cmd['id'] ?>">
                             <button type="submit" style="cursor:pointer; background-color:#FF9800; color:white; border:none; padding:6px 12px; border-radius:3px; font-weight:bold;">
                                 Prêt ➔
                             </button>
                         </form>
+                 <?php endif ; ?>
+                 
                     </td>
                 </tr>
             <?php endforeach; ?>
@@ -149,12 +155,15 @@ usort($commandes_livrees, $fonction_tri_archive);
                     </td>
                     <td><?= $cmd['total'] ?>€</td>
                     <td>
+                    
+                    <?php if($utilisateur['role'] === 'restaurateur'):?>
                         <form method="POST" style="margin: 0;">
                             <input type="hidden" name="id_pret" value="<?= $cmd['id'] ?>">
                             <button type="submit" style="cursor:pointer; background-color:#FF9800; color:white; border:none; padding:6px 12px; border-radius:3px; font-weight:bold;">
                                 Prêt ➔
                             </button>
                         </form>
+                     <?php endif; ?>
                     </td>
                 </tr>
             <?php endforeach; ?>
@@ -230,6 +239,9 @@ usort($commandes_livrees, $fonction_tri_archive);
     <a href="livraison.php">livraison</a>
     <a href="admin.php">admin</a>    
 </nav>
+<pre>
+<?php var_dump($_SESSION['client']); ?>
+</pre>
 
 </body>
 </html>
