@@ -1,80 +1,66 @@
-<?php
-session_start();
+<!DOCTYPE html>
+<html>
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+<head>
+	<link rel="stylesheet" type="text/css" href="utilisateur.css">
+	<meta name="author" content="groupe 6" />
+	<meta name="description"
+		content="Cette page est la page de connexion permettant d'accéder à un compte client sur le site du restaurant" />
+	<meta name="keywords" content="page connexion, compte, client, restaurant" />
+</head>
 
-	$temps_actuel = time(); // Temps actuel en sec
-	$delai_minimum = 10;
+<body>
+	<div class="bandeau">
+		<div class="logo_restaurant"><img class="logo" src="../photos/logo_japindien.png" /></div>
+		<div class="bandeau_nom">Le Japindien</div>
 
-	if (isset($_SESSION['derniere_tentative'])) {
-		$temps_ecoule = $temps_actuel - $_SESSION['derniere_tentative'];
+		<div class="navigation_droite">
+			<button id="bouton-theme" class="lien_bouton" style="background-color: #333;">Mode Sombre</button>
+			<div class="bandeau_accueil"><a class="lien_bouton" href="Accueil.php">Accueil</a></div>
+			<div class="bandeau_moncompte">
+				<div class="dropdown">
+					<button class="lien_bouton">Mon compte</button>
+					<div class="dropdown-content">
+						<a href="connexion.html">Connexion</a>
+						<a href="inscription.html">Inscription</a>
+					</div>
+				</div>
+			</div>
+			<div class="bandeau_avis"><a class="lien_bouton" href="presentation.php">A la carte</a></div>
+		</div>
+	</div>
 
-		if ($temps_ecoule < $delai_minimum) {
-			$temps_attente = $delai_minimum - $temps_ecoule;
-			echo "<p style='color:red; font-weight:bold;'>Veuillez patienter encore {$temps_attente} seconde(s) avant de réessayer.</p>";
-			echo "<br><a href='javascript:history.back()'>Retour</a>";
-			exit;
-		}
-	}
-
-	$_SESSION['derniere_tentative'] = $temps_actuel;
+	<div class="remplissage"></div>
+	<div class="formulaire">
+		<div class="ins_con">&nbsp&nbsp<a class="lien" href="inscription.html">INSCRIPTION</a>
+			<div class="espace"></div>CONNEXION
+		</div>
+		<form class="form_inscri" target="_self" method="post" action="connexion.php">
 
 
-	$email = $_POST['connexion_AdresseEmail'];
-	$mdp = $_POST['connexion_mdp'];
+			<span class="icon">✉️</span>
+			<label for="connexion_Mail"> Adresse Mail:</label>
+			<input id="connexion_Mail" type="text" name="connexion_AdresseEmail" placeholder="Email" required><br>
 
-	$fichier = '../utilisateurs.json';
+			<span class="icon">🔒</span>
+			<label for="connexion_mdp">Mot de passe:</label>
+			<div style="display: flex; gap: 10px; align-items: center;">
+				<input id="connexion_mdp" type="password" name="connexion_mdp" placeholder="Mot de passe" required>
+				<button type="button" onclick="toggleMdp('connexion_mdp')"
+					style="cursor: pointer; background: none; border: none; font-size: 1.2rem;">👁️</button>
+			</div>
+			<br>
+			<br>
+			<div>
+				<button type="submit" class="compte_crea">Me connecter</button> &nbsp &nbsp
+				<button type="reset" class="compte_del"><img class="gomme" src="../photos/gomme.png" /></button>
+			</div>
+		</form>
 
-	if (file_exists($fichier)) {
-		$contenu_actuel = file_get_contents($fichier);
-		$donnees = json_decode($contenu_actuel, true);
-		$utilisateur_trouve = false;
+	</div>
 
-		foreach ($donnees as $utilisateur) {
-			if ($utilisateur['email'] === $email) {
-				if (password_verify($mdp, $utilisateur['mdp'])) {
-					unset($_SESSION['derniere_tentative']);
+	<script src="mode_sombre.js"></script>
+	<script src="verif.js"></script>
+</body>
 
-					$_SESSION['client'] = [
-						'nom' => $utilisateur['nom'],
-						'prenom' => $utilisateur['prenom'],
-						'adresse' => $utilisateur['adresse'],
-						'phone' => $utilisateur['phone'],
-						'email' => $utilisateur['email'],
-						'role' => $utilisateur['role'],
-					];
-					$utilisateur_trouve = true;
-					break;
-				}
-			}
-		}
-		$role = $utilisateur['role'];
-		if ($utilisateur_trouve) {
-			if ($role === "admin") {
-				header("Location: ../administrateur/admin.php");
-				exit;
-			}
-			else if($role === "restaurateur") {
-				header("Location: ../administrateur/commande.php");
-				exit;
-			}
-			else if($role === "livreur") {
-				header("Location: ../administrateur/livraison.php");
-				exit;
-			}
-			header("Location: Accueil.php");
-			exit;
-		} 
-		else {
-			echo "<p style='color:red'>Adresse mail ou mot de passe incorrect</p>";
-			echo "<br><a href='javascript:history.back()'>Retour au formulaire de connexion</a>";
-		}
-	} 
-	else {
-		echo "<b style='color:red'>Erreur: </b>Base de données introuvable";
-	}
-} 
-else {
-	header("Location: connexion.html");
-	exit;
-}
+</html>
