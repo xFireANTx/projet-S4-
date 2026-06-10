@@ -24,11 +24,29 @@ if(isset($_GET['email']) && $_SESSION['client']['email'] === "admin@japindien.co
 	$profil_client= $_SESSION['client'];
 }
 
+// --- AJOUT : RÉCUPÉRATION DES STATUTS ET NOTES DEPUIS COMMANDES.JSON ---
+$fichier_commandes = __DIR__ . '/../commandes.json';
+$status_commandes = [];
+$notes_commandes = [];
+
+if (file_exists($fichier_commandes)) {
+    $cmds_json = json_decode(file_get_contents($fichier_commandes), true);
+    if (is_array($cmds_json)) {
+        foreach ($cmds_json as $c) {
+            if (isset($c['id'])) {
+                $status_commandes[$c['id']] = $c['statut'] ?? 'en_attente';
+                $notes_commandes[$c['id']] = isset($c['deja_note']) && $c['deja_note'] === true;
+            }
+        }
+    }
+}
+// ----------------------------------------------------------------------
+
 function h($s){ return htmlspecialchars($s ?? '', ENT_QUOTES); }
 ?>
 
 <?php
-// Handle AJAX JSON updates posted to this same file
+// Gestion des mises à jour AJAX du profil (Inchangé)
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
 	header('Content-Type: application/json; charset=utf-8');
 	$raw = file_get_contents('php://input');
@@ -99,7 +117,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 <!DOCTYPE html>
 <html>
-
 <head>
 	<link rel="stylesheet" type="text/css" href="utilisateur.css">
 	<meta name="author" content="groupe 6" />
@@ -110,10 +127,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 	.edit-btn { margin-left:8px; cursor:pointer; }
 	.small { font-size:0.9em; color:#555 }
 	.orders { margin-top:16px; border-top:1px solid #ddd; padding-top:8px }
-	.order { padding:8px; border:1px solid #eee; margin-bottom:8px }
+	.order { padding:12px; border:1px solid #eee; margin-bottom:12px; border-radius: 5px; }
 	</style>
 </head>
-
 <body>
 <h2>Profil</h2>
 
@@ -144,12 +160,45 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 	<div class="orders">
 		<h3>Anciennes commandes</h3>
+		
+		<?php if (isset($_GET['note']) && $_GET['note'] === 'success'): ?>
+			<div style="background-color: #d4edda; color: #155724; padding: 10px; margin-bottom: 15px; border-radius: 4px; font-weight: bold;">
+				🎉 Merci ! Votre note a bien été enregistrée.
+			</div>
+		<?php endif; ?>
+
 		<?php if(!empty($profil_client['orders']) && is_array($profil_client['orders'])): ?>
 			<?php foreach($profil_client['orders'] as $o): ?>
-				<div class="order">
-					<div><strong>Date:</strong> <?php echo h($o['date'] ?? '') ?></div>
-					<div><strong>Montant:</strong> <?php echo h($o['total'] ?? '') ?> €</div>
-					<div><strong>Articles:</strong> <?php echo h(implode(', ', $o['items'] ?? [])) ?></div>
+				<?php 
+				$id_cmd = $o['id'] ?? '';
+				$statut = $status_commandes[$id_cmd] ?? 'en_attente';
+				$deja_note = $notes_commandes[$id_cmd] ?? false;
+				?>
+				<div class="order" style="border-left: 5px solid <?= ($statut === 'livree') ? '#28a745' : (($statut === 'en_livraison') ? '#ff9800' : '#17a2b8') ?>;">
+					<div><strong>ID Commande :</strong> #<?php echo h(substr($id_cmd, -5)) ?></div>
+					<div><strong>Date :</strong> <?php echo h($o['date'] ?? '') ?></div>
+					<div><strong>Montant :</strong> <?php echo h($o['total'] ?? '') ?> €</div>
+					<div><strong>Articles :</strong> <?php echo h(implode(', ', $o['items'] ?? [])) ?></div>
+					<div><strong>Statut :</strong> 
+						<?php 
+						if ($statut === 'en_attente') echo '<span style="color: #6c757d;">⏳ En attente</span>';
+						elseif ($statut === 'en_cours') echo '<span style="color: #17a2b8;">🍳 En préparation</span>';
+						elseif ($statut === 'en_livraison') echo '<span style="color: #ff9800;">🚚 En cours de livraison</span>';
+						elseif ($statut === 'livree') echo '<span style="color: #28a745; font-weight:bold;">✅ Livrée</span>';
+						?>
+					</div>
+
+					<?php if ($statut === 'livree'): ?>
+						<div style="margin-top: 10px;">
+							<?php if ($deja_note): ?>
+								<span style="color: #28a745; font-weight: bold;">⭐ Commande déjà notée</span>
+							<?php else: ?>
+								<a href="notation.php?id=<?= urlencode($id_cmd) ?>" style="background-color: #ff9800; color: white; padding: 6px 12px; text-decoration: none; border-radius: 4px; font-size: 0.9em; font-weight: bold; display: inline-block;">
+									⭐ Noter la commande
+								</a>
+							<?php endif; ?>
+						</div>
+					<?php endif; ?>
 				</div>
 			<?php endforeach; ?>
 		<?php else: ?>
@@ -158,11 +207,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 	</div>
 
 	<div style="margin-top:16px">
-		<button onclick="javascript:history.back()">Retour</button>
+		<button onclick="window.location.href='Accueil.php'">Retour à l'accueil</button>
 	</div>
 </div>
 
 <script>
+// Script JS d'édition inline (Inchangé)
 document.querySelectorAll('.edit-btn').forEach(btn=>{
 	btn.addEventListener('click', e=>{
 		const field = btn.dataset.field;
@@ -183,7 +233,6 @@ document.querySelectorAll('.edit-btn').forEach(btn=>{
 
 		save.addEventListener('click', ()=>{
 			const value = input.value;
-			// client-side validation for phone
 			if(field === 'phone'){
 				const re = /^0[0-9]{9}$/;
 				if(!re.test(value)){
@@ -213,7 +262,5 @@ document.querySelectorAll('.edit-btn').forEach(btn=>{
 	});
 });
 </script>
-
 </body>
 </html>
-
