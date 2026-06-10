@@ -52,9 +52,9 @@ if (file_exists($fichier_plat)) {
 			<?php if ($estconnecte && $_SESSION['client']['email'] === 'admin@japindien.com'): ?>
 				<div class="bandeau_accueil"><a class="lien_bouton" href="../administrateur/admin.php">Admin</a></div>
 			<?php else: ?>
-					<button id="bouton-panier" class="lien_bouton" onclick="togglePanier()">
-						Panier (<span id="panier-compteur">0</span>)
-					</button>
+				<button id="bouton-panier" class="lien_bouton" onclick="togglePanier()">
+					Panier (<span id="panier-compteur">0</span>)
+				</button>
 			<?php endif; ?>
 		</div>
 	</div>
@@ -107,7 +107,7 @@ if (file_exists($fichier_plat)) {
 						<span class="ancien-prix">22,50€</span>
 						<span class="prix">20,00€</span>
 					</div>
-					<button class="ajouter">+</button>
+					<button class="ajouter" data-id="1" data-nom="Menu signature" data-prix="20.00">+</button>
 				</div>
 			</div>
 		</div>
@@ -141,7 +141,7 @@ if (file_exists($fichier_plat)) {
 						<span class="ancien-prix">25,00€</span>
 						<span class="prix">22,00€</span>
 					</div>
-					<button class="ajouter">+</button>
+					<button class="ajouter" data-id="2" data-nom="Menu japonais" data-prix="22.00">+</button>
 				</div>
 			</div>
 		</div>
@@ -175,7 +175,7 @@ if (file_exists($fichier_plat)) {
 						<span class="ancien-prix">24,50€</span>
 						<span class="prix">22,00€</span>
 					</div>
-					<button class="ajouter">+</button>
+					<button class="ajouter" data-id="3" data-nom="Menu indiens" data-prix="22.00">+</button>
 				</div>
 			</div>
 		</div>
@@ -494,32 +494,32 @@ if (file_exists($fichier_plat)) {
 		}
 		?>
 	<?php endif; ?>
-	
-			<div id="panier-volet" class="panier-ferme">
-			    	<div class="panier-entete">
-					<h3>Mon Panier</h3>
-					<button class="bouton-fermer" onclick="togglePanier()">×</button>
-			    	</div>
-			    
-			    	<div id="panier-articles">
-				</div>
-			    
-			    	<div class="panier-total">
-					<p>Total : <span id="panier-somme">0.00</span>€</p>
-					
-					<div style="margin-bottom: 15px; margin-top: 10px;">
-						<label for="date-commande" style="display: block; margin-bottom: 5px;">Date de livraison :</label>
-						<input type="date" id="date-commande" style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
-    					</div>
-    					
-					<div style="margin-bottom: 15px;">
-						<label for="heure-commande" style="display: block; margin-bottom: 5px;">Heure souhaitée :</label>
-						<input type="time" id="heure-commande" min="10:30" max="22:30" style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
-					</div>
-						<button id="bouton-valider" onclick="validerCommande()">Commander</button>
-						<button id="bouton-vider" onclick="viderPanier()">Vider le panier</button>
-				</div>
+
+	<div id="panier-volet" class="panier-ferme">
+		<div class="panier-entete">
+			<h3>Mon Panier</h3>
+			<button class="bouton-fermer" onclick="togglePanier()">×</button>
+		</div>
+
+		<div id="panier-articles">
+		</div>
+
+		<div class="panier-total">
+			<p>Total : <span id="panier-somme">0.00</span>€</p>
+
+			<div style="margin-bottom: 15px; margin-top: 10px;">
+				<label for="date-commande" style="display: block; margin-bottom: 5px;">Date de livraison :</label>
+				<input type="date" id="date-commande" style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
 			</div>
+
+			<div style="margin-bottom: 15px;">
+				<label for="heure-commande" style="display: block; margin-bottom: 5px;">Heure souhaitée :</label>
+				<input type="time" id="heure-commande" min="10:30" max="22:30" style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
+			</div>
+			<button id="bouton-valider" onclick="validerCommande()">Commander</button>
+			<button id="bouton-vider" onclick="viderPanier()">Vider le panier</button>
+		</div>
+	</div>
 
 	<script src="mode_sombre.js"></script>
 	<script src="filtre_allergenes.js"></script>
