@@ -189,7 +189,7 @@ function validerCommande() {
         return;
     }
 
-    // --- VÉRIFICATION DE LA DATE ET HEURE DANS LE PASSÉ ---
+    // VÉRIFICATION DE LA DATE ET HEURE DANS LE PASSÉ 
     const maintenant = new Date();
     // Crée un objet Date complet à partir des inputs (ex: "2026-06-10T15:30")
     const dateCommande = new Date(`${dateChoisie}T${heureChoisie}`);
@@ -198,7 +198,6 @@ function validerCommande() {
         alert("La date ou l'heure choisie est déjà passée. Veuillez sélectionner un horaire futur !");
         return;
     }
-    // ------------------------------------------------------
 
     // Désactiver le bouton pendant le chargement
     boutonValider.disabled = true;
