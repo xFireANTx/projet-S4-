@@ -41,6 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						'adresse' => $utilisateur['adresse'],
 						'phone' => $utilisateur['phone'],
 						'email' => $utilisateur['email'],
+						'role' => $utilisateur['role'],
 					];
 					$utilisateur_trouve = true;
 					break;
