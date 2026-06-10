@@ -169,3 +169,89 @@ function validerCommande() {
         boutonValider.textContent = "Commander";
     });
 }
+
+
+function validerCommande() {
+    if (panier.length === 0) {
+        alert("Votre panier est vide !");
+        return;
+    }
+
+    const champDate = document.getElementById('date-commande');
+    const champHeure = document.getElementById('heure-commande');
+    const boutonValider = document.getElementById('bouton-valider');
+
+    const dateChoisie = champDate.value;
+    const heureChoisie = champHeure.value;
+
+    if (!dateChoisie || !heureChoisie) {
+        alert("Veuillez choisir une date et une heure pour votre commande.");
+        return;
+    }
+
+    // VÉRIFICATION DE LA DATE ET HEURE DANS LE PASSÉ 
+    const maintenant = new Date();
+    // Crée un objet Date complet à partir des inputs (ex: "2026-06-10T15:30")
+    const dateCommande = new Date(`${dateChoisie}T${heureChoisie}`);
+
+    if (dateCommande < maintenant) {
+        alert("La date ou l'heure choisie est déjà passée. Veuillez sélectionner un horaire futur !");
+        return;
+    }
+
+    // Désactiver le bouton pendant le chargement
+    boutonValider.disabled = true;
+    boutonValider.textContent = "Commande en cours...";
+
+    fetch('traitement_commande.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            panier: panier,
+            date: dateChoisie,
+            heure: heureChoisie
+        })
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (!data.success) {
+                alert("Erreur : " + (data.message || "Veuillez vous reconnecter."));
+                return;
+            }
+
+            const paiement = data.cybank;
+
+            // Création du formulaire demandé par CY Bank
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = 'https://www.plateforme-smc.fr/cybank/index.php';
+
+            function ajouterChamp(nom, valeur) {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = nom;
+                input.value = valeur;
+                form.appendChild(input);
+            }
+
+            ajouterChamp('transaction', paiement.transaction);
+            ajouterChamp('montant', paiement.montant);
+            ajouterChamp('vendeur', paiement.vendeur);
+            ajouterChamp('retour', paiement.retour);
+            ajouterChamp('control', paiement.control);
+
+            document.body.appendChild(form);
+
+            // Envoi vers CY Bank
+            form.submit();
+        })
+        .catch(error => {
+            console.error('Erreur:', error);
+            alert("Une erreur de connexion est survenue.");
+        })
+        .finally(() => {
+            // Réactiver le bouton
+            boutonValider.disabled = false;
+            boutonValider.textContent = "Commander";
+        });
+}
