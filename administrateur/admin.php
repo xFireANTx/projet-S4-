@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	if(!isset($_SESSION['client']) || $_SESSION['client']['email'] !== "admin@japindien.com"){
+	if(!isset($_SESSION['client']) || $_SESSION['client']['role'] !== "admin"){
 		header("Location: ../utilisateur/Accueil.php");
 	}
 	$fichier = '../utilisateurs.json';
