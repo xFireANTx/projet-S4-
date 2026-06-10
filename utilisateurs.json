@@ -229,5 +229,27 @@
         "loyalty": 0,
         "order": [],
         "role": "admin"
+    },
+    {
+        "nom": "livreur",
+        "prenom": "A",
+        "adresse": "Paris",
+        "phone": "0908070605",
+        "email": "livreur@mail.fr",
+        "mdp": "$2y$10$1kXgdwxhkJcCvfBKPvBHw.Y4EF941YmlNadt7ryCtVBUzhtY72NSq",
+        "loyalty": 0,
+        "order": [],
+        "role": "livreur"
+    },
+    {
+        "nom": "restaurateur",
+        "prenom": "A",
+        "adresse": "Paris",
+        "phone": "0907060504",
+        "email": "restaurateur@mail.fr",
+        "mdp": "$2y$10$c9XY4gx0S7LXEOLhUyWP4uy4qb6X5DaLbl4n4\/g9Fesndjjyvvad6",
+        "loyalty": 0,
+        "order": [],
+        "role": "restaurateur"
     }
 ]
