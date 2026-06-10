@@ -61,6 +61,10 @@ if (file_exists($fichier_plat)) {
 						<a class="lien_bouton" href="../administrateur/commande.php">Commande</a>
 					<?php elseif($role === "livreur"): ?>
 						<a class="lien_bouton" href="../administrateur/livraison.php">Livreur</a>
+					<?php elseif($role === "client"): ?>
+					<button id="bouton-panier" class="lien_bouton" onclick="togglePanier()">
+						Panier (<span id="panier-compteur">0</span>)
+					</button>
 					<?php endif; ?>
 				</div>
 			<?php else: ?>
