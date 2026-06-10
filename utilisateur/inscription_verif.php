@@ -69,6 +69,7 @@
 		 	"mdp" => password_hash($mdp, PASSWORD_DEFAULT),//Le mode de passe est encrypté même dans le .json
 			"loyalty" => 0,
 			"order" => [],
+			"role" => "client",
 			];
 
 		array_push($donnees, $nouvelUtilisateur);
