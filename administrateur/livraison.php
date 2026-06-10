@@ -3,24 +3,31 @@ session_start();
 $utilisateur = $_SESSION['client'];
 $fichier_commandes = __DIR__ . '/../commandes.json';
 
-//traitement du bouton valider la livraison
+// traitement du bouton valider la livraison ou signaler adresse introuvable
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_commande'])) {
     $id_cmd_a_valider = $_POST['id_commande'];
-    
+    $action = $_POST['action'] ?? 'livree';
+
     if (file_exists($fichier_commandes)) {
         $commandes = json_decode(file_get_contents($fichier_commandes), true);
         if (is_array($commandes)) {
             foreach ($commandes as &$cmd) {
                 if ($cmd['id'] === $id_cmd_a_valider) {
-                    $cmd['statut'] = 'livree'; // On passe le statut à "livrée"
+                    if ($action === 'livree') {
+                        $cmd['statut'] = 'livree'; // On passe le statut à "livree"
+                    } elseif ($action === 'adresse_introuvable') {
+                        $cmd['statut'] = 'adresse_introuvable';
+                        $cmd['note_livreur'] = 'Adresse introuvable signalée par le livreur';
+                        $cmd['date_note_livreur'] = date('c');
+                    }
                     break;
                 }
             }
-            // On sauvegarde les modifications dans le fichier JSON
-            file_put_contents($fichier_commandes, json_encode($commandes, JSON_PRETTY_PRINT));
+            // On sauvegarde les modifications dans le fichier JSON (avec LOCK_EX)
+            file_put_contents($fichier_commandes, json_encode($commandes, JSON_PRETTY_PRINT), LOCK_EX);
         }
     }
-    
+
     // On recharge la page proprement pour rafraîchir la liste
     header("Location: livraison.php");
     exit;
@@ -91,15 +98,24 @@ if (file_exists($fichier_commandes)) {
                             </td>
                             
                             <td>
-                            	<?php if($utilisateur['role'] === 'livreur'):?>
-                                <form method="POST" action="livraison.php" style="margin:0;">
-                                    <input type="hidden" name="id_commande" value="<?= htmlspecialchars($cmd['id']) ?>">
-                                    <button type="submit" class="btn-validation-verte" title="Marquer comme livrée">
-                                        ✓ Livrée
-                                    </button>
-                                </form>
+                                <?php if($utilisateur['role'] === 'livreur'):?>
+                                    <form method="POST" action="livraison.php" style="display:inline;margin:0 4px;">
+                                        <input type="hidden" name="id_commande" value="<?= htmlspecialchars($cmd['id']) ?>">
+                                        <input type="hidden" name="action" value="livree">
+                                        <button type="submit" class="btn-validation-verte" title="Marquer comme livrée">
+                                            ✓ Livrée
+                                        </button>
+                                    </form>
 
-                            <?php endif; ?>
+                                    <form method="POST" action="livraison.php" style="display:inline;margin:0 4px;">
+                                        <input type="hidden" name="id_commande" value="<?= htmlspecialchars($cmd['id']) ?>">
+                                        <input type="hidden" name="action" value="adresse_introuvable">
+                                        <button type="submit" class="btn-warning" title="Signaler adresse introuvable" onclick="return confirm('Confirmer : adresse introuvable ?');">
+                                             Introuvable
+                                        </button>
+                                    </form>
+
+                                <?php endif; ?>
                             </td>
                         </tr>
                     <?php endforeach; ?>
