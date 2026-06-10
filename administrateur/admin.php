@@ -71,7 +71,6 @@
 					<li><a class="lien_bouton" href="../utilisateur/notation.html" target="_blank">Notation</a></li>
 				</ul>
 			</nav>
-			<h1> Il faut rendre cette page accessible uniquement pour administrateur </h1>
 	    </div>
 
 
