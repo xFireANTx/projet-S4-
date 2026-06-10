@@ -360,7 +360,9 @@
             }
         ],
         "total": 12,
-        "statut": "en_livraison"
+        "statut": "adresse_introuvable",
+        "note_livreur": "Adresse introuvable signal\u00e9e par le livreur",
+        "date_note_livreur": "2026-06-11T00:24:38+02:00"
     },
     {
         "id": "6a29ceb94f5b0",
@@ -380,7 +382,7 @@
         ],
         "total": 240,
         "montant_a_payer": "240.00",
-        "statut": "en_attente_paiement"
+        "statut": "livree"
     },
     {
         "id": "6a29cec33ce1a",
@@ -400,6 +402,105 @@
         ],
         "total": 168,
         "montant_a_payer": "168.00",
+        "statut": "livree"
+    },
+    {
+        "id": "6a29e1eb8a456",
+        "client_email": "anton@gmail.com",
+        "client_nom": "schaff anton",
+        "client_adresse": "cergy",
+        "client_phone": "0645124512",
+        "date_livraison": "2026-06-18",
+        "heure_livraison": "00:39",
+        "panier": [
+            {
+                "id": "11",
+                "nom": "Samousa boeuf de kob\u00e9",
+                "prix": 12,
+                "quantite": 7
+            }
+        ],
+        "total": 84,
+        "montant_a_payer": "36.00",
+        "statut": "en_attente_paiement"
+    },
+    {
+        "id": "6a29e27c44930",
+        "client_email": "anton@gmail.com",
+        "client_nom": "schaff anton",
+        "client_adresse": "cergy",
+        "client_phone": "0645124512",
+        "date_livraison": "2026-07-02",
+        "heure_livraison": "00:38",
+        "panier": [
+            {
+                "id": "11",
+                "nom": "Samousa boeuf de kob\u00e9",
+                "prix": 12,
+                "quantite": 3
+            }
+        ],
+        "total": 36,
+        "statut": "en_attente"
+    },
+    {
+        "id": "6a29e2894ceab",
+        "client_email": "anton@gmail.com",
+        "client_nom": "schaff anton",
+        "client_adresse": "cergy",
+        "client_phone": "0645124512",
+        "date_livraison": "2026-06-25",
+        "heure_livraison": "00:20",
+        "panier": [
+            {
+                "id": "11",
+                "nom": "Samousa boeuf de kob\u00e9",
+                "prix": 12,
+                "quantite": 5
+            }
+        ],
+        "total": 60,
+        "montant_a_payer": "60.00",
+        "statut": "en_attente_paiement"
+    },
+    {
+        "id": "6a29e36494c2c",
+        "client_email": "anton@gmail.com",
+        "client_nom": "schaff anton",
+        "client_adresse": "cergy",
+        "client_phone": "0645124512",
+        "date_livraison": "2026-06-24",
+        "heure_livraison": "00:24",
+        "panier": [
+            {
+                "id": "11",
+                "nom": "Samousa boeuf de kob\u00e9",
+                "prix": 12,
+                "quantite": 5
+            }
+        ],
+        "total": 60,
+        "montant_a_payer": "60.00",
+        "statut": "en_livraison"
+    },
+    {
+        "id": "6a29e458da127",
+        "client_email": "anton@gmail.com",
+        "client_nom": "schaff anton",
+        "client_adresse": "cergy",
+        "client_phone": "0645124512",
+        "date_livraison": "2026-06-25",
+        "heure_livraison": "00:25",
+        "panier": [
+            {
+                "id": "11",
+                "nom": "Samousa boeuf de kob\u00e9",
+                "prix": 12,
+                "quantite": 5
+            }
+        ],
+        "total": 60,
+        "montant_a_payer": "60.00",
         "statut": "en_attente_paiement"
     }
 ]

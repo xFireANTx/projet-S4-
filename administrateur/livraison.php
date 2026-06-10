@@ -90,7 +90,7 @@ if (file_exists($fichier_commandes)) {
                         <tr>
                             <td>#<?= htmlspecialchars(substr($cmd['id'], -5)) ?></td>
                             <td><?= htmlspecialchars($adresse_client) ?></td>
-                            <td><?= htmlspecialchars($cmd['client_telephone'] ?? 'Non spécifié') ?></td>
+                            <td><?= htmlspecialchars($cmd['client_phone'] ?? 'Non spécifié') ?></td>
                             <td>
                                 <a href="<?= $url_navigation ?>" target="_blank" class="btn-nav">
                                      Ouvrir le GPS

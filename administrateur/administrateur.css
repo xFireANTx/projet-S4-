@@ -15,7 +15,6 @@ th, td {
   padding: 10px;
 }
 
-/*Livraison*/
 
 div.tableau_livraison{
 	margin: 0 auto;
@@ -51,7 +50,7 @@ div.tableau_livraison{
 }
 
 .btn-validation-verte {
-    background-color: #28a745; /* Joli vert de validation */
+    background-color: #28a745; 
     color: white;
     border: 1px solid #218838;
     padding: 6px 12px;
@@ -63,11 +62,11 @@ div.tableau_livraison{
 }
 
 .btn-validation-verte:hover {
-    background-color: #218838; /* Vert un peu plus foncé au survol */
+    background-color: #218838;
 }
 
 .btn-warning {
-	background-color: #dc3545; /* Rouge danger */
+	background-color: #dc3545; 
 	color: white;
 	border: 1px solid #c82333;
 	padding: 6px 12px;
@@ -79,5 +78,5 @@ div.tableau_livraison{
 }
 
 .btn-warning:hover {
-	background-color: #c82333; /* Rouge un peu plus foncé au survol */
+	background-color: #c82333; 
 }

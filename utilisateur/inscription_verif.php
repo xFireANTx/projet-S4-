@@ -1,5 +1,5 @@
 <?php
-	//TODO stylisé les pages d'erreurs et de succès avec la da du site
+	
 	$nom = $_POST['nom'];
 	$prenom = $_POST['prenom'];
 	$adresse = $_POST['adresse'];
@@ -68,12 +68,12 @@
 		 	"email" => $email, 
 		 	"mdp" => password_hash($mdp, PASSWORD_DEFAULT),//Le mode de passe est encrypté même dans le .json
 			"loyalty" => 0,
-			"order" => [],
+			"orders" => [],
 			"role" => "client",
 			];
 
 		array_push($donnees, $nouvelUtilisateur);
-		if(file_put_contents($fichier, json_encode($donnees, JSON_PRETTY_PRINT))) {
+		if(file_put_contents($fichier, json_encode($donnees, JSON_PRETTY_PRINT), LOCK_EX)) {
 		    echo "Inscription réussie ! <a href='connexion.html'>Connectez-vous ici</a>";
 		}else{
 		    echo "Erreur lors de l'enregistrement.";

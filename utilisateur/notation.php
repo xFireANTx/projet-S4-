@@ -14,7 +14,7 @@ if (empty($id_commande)) {
     die("Erreur : ID de commande manquant.");
 }
 
-// TRAITEMENT DU FORMULAIRE LORS DU CLIC SUR SOUMETTRE
+// traitement du formulaire
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $rating_livraison = $_POST['rating_livraison'] ?? null;
     $rating_produit = $_POST['rating_produit'] ?? null;
@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
             }
             // Sauvegarde des modifications
-            file_put_contents($fichier_commandes, json_encode($commandes, JSON_PRETTY_PRINT));
+            file_put_contents($fichier_commandes, json_encode($commandes, JSON_PRETTY_PRINT), LOCK_EX);
         }
     }
 

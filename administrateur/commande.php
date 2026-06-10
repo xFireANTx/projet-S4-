@@ -18,7 +18,7 @@ if (file_exists($fichier_commandes)) {
     }
 }
 
-// 1. GESTION DU BOUTON "PRÊT"
+// gestion du bouton
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_pret'])) {
     $id_a_mettre_pret = $_POST['id_pret'];
     foreach ($commandes as &$c) {
@@ -26,12 +26,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_pret'])) {
             $c['statut'] = 'en_livraison';
         }
     }
-    file_put_contents($fichier_commandes, json_encode($commandes, JSON_PRETTY_PRINT));
+    file_put_contents($fichier_commandes, json_encode($commandes, JSON_PRETTY_PRINT), LOCK_EX);
     header("Location: commande.php");
     exit;
 }
 
-// 2. SÉPARATION DES COMMANDES EN 4 CATÉGORIES
+// separation des commandes
 $commandes_urgentes = [];
 $commandes_futures = [];
 $commandes_en_livraison = []; // Nouveau tableau : sur la route
@@ -43,7 +43,7 @@ $limite_2h = $maintenant + (2 * 3600); // Heure actuelle + 2 heures
 foreach ($commandes as $cmd) {
     if (isset($cmd['statut'])) {
         // Commandes en cuisine
-        if ($cmd['statut'] === 'en_cours' || $cmd['statut'] === 'en_attente') {
+            if ($cmd['statut'] === 'en_cours' || strpos($cmd['statut'], 'en_attente') === 0) {
             $temps_commande = strtotime($cmd['date_livraison'] . ' ' . $cmd['heure_livraison']);
             
             if ($temps_commande <= $limite_2h) {
@@ -63,7 +63,7 @@ foreach ($commandes as $cmd) {
     }
 }
 
-// 3. TRI CHRONOLOGIQUE
+// tri chronologique
 $fonction_tri = function($a, $b) {
     return strtotime($a['date_livraison'] . ' ' . $a['heure_livraison']) - strtotime($b['date_livraison'] . ' ' . $b['heure_livraison']);
 };

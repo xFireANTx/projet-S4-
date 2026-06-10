@@ -1,7 +1,7 @@
-// 1. On récupère les deux cases à cocher (checkboxes) par leur nom
+//On récupère les deux cases à cocher par leur nom
 const checkboxes = document.querySelectorAll('input[name="allergene"]');
 
-// 2. On récupère toutes les boîtes de plats de la page
+//On récupère toutes les boîtes de plats de la page
 const tousLesPlats = document.querySelectorAll('.plat');
 
 // Fonction qui va filtrer les plats
@@ -11,7 +11,7 @@ function filtrerLaCarte() {
 
     checkboxes.forEach(checkbox => {
         if (checkbox.checked) {
-            allergenesAExclure.push(checkbox.value); // "viande" et/ou "poisson"
+            allergenesAExclure.push(checkbox.value); // viande et/ou poisson
         }
     });
 
@@ -28,21 +28,19 @@ function filtrerLaCarte() {
             }
         });
 
-        // --- AMÉLIORATION VISUELLE POUR LES MENUS ---
         // Si c'est une formule de menu, on cible son parent (.conteneur-menu) pour éviter les trous blancs
         const elementAEnlever = plat.classList.contains('carte-formule') ? plat.parentElement : plat;
 
-        // 3. On applique le changement visuel
+        // On applique le changement visuel
         if (doitEtreMasque) {
             elementAEnlever.style.display = "none"; // On cache le plat ou le bloc menu complet
         } else {
-            // Note : pour un conteneur-menu ou un plat standard, "block" ou "" redonne le comportement d'origine
             elementAEnlever.style.display = "";
         }
     });
 }
 
-// 4. On demande à JavaScript d'exécuter la fonction "filtrerLaCarte" à chaque fois qu'on coche/décoche une case
+// On demande à JavaScript d'exécuter la fonction "filtrerLaCarte" à chaque fois qu'on coche/décoche une case
 checkboxes.forEach(checkbox => {
     checkbox.addEventListener('change', filtrerLaCarte);
 });

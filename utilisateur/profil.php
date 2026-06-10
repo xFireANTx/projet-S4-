@@ -24,13 +24,10 @@ if(isset($_GET['email']) && $_SESSION['client']['email'] === "admin@japindien.co
 	$profil_client= $_SESSION['client'];
 }
 
-// --- AJOUT : RÉCUPÉRATION DES STATUTS ET NOTES DEPUIS COMMANDES.JSON ---
-$fichier_commandes = __DIR__ . '/../commandes.json';
-// --- AJOUT : RÉCUPÉRATION DES STATUTS, NOTES ET PANIERS DEPUIS COMMANDES.JSON ---
 $fichier_commandes = __DIR__ . '/../commandes.json';
 $status_commandes = [];
 $notes_commandes = [];
-$paniers_commandes = []; // <-- AJOUTER CETTE LIGNE
+$paniers_commandes = []; 
 
 if (file_exists($fichier_commandes)) {
     $cmds_json = json_decode(file_get_contents($fichier_commandes), true);
@@ -39,12 +36,12 @@ if (file_exists($fichier_commandes)) {
             if (isset($c['id'])) {
                 $status_commandes[$c['id']] = $c['statut'] ?? 'en_attente';
                 $notes_commandes[$c['id']] = isset($c['deja_note']) && $c['deja_note'] === true;
-                $paniers_commandes[$c['id']] = $c['panier'] ?? []; // <-- AJOUTER CETTE LIGNE
+                $paniers_commandes[$c['id']] = $c['panier'] ?? []; 
             }
         }
     }
 }
-// ----------------------------------------------------------------------
+
 
 function h($s){ return htmlspecialchars($s ?? '', ENT_QUOTES); }
 ?>
@@ -167,7 +164,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 		
 		<?php if (isset($_GET['note']) && $_GET['note'] === 'success'): ?>
 			<div style="background-color: #d4edda; color: #155724; padding: 10px; margin-bottom: 15px; border-radius: 4px; font-weight: bold;">
-				🎉 Merci ! Votre note a bien été enregistrée.
+				Merci ! Votre note a bien été enregistrée.
 			</div>
 		<?php endif; ?>
 
@@ -186,17 +183,18 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 					<div><strong>Articles :</strong> <?php echo h(implode(', ', $o['items'] ?? [])) ?></div>
 					<div><strong>Statut :</strong> 
 						<?php 
-						if ($statut === 'en_attente') echo '<span style="color: #6c757d;">⏳ En attente</span>';
+						if (strpos($statut, 'en_attente') === 0) echo '<span style="color: #6c757d;">⏳ En attente</span>';
 						elseif ($statut === 'en_cours') echo '<span style="color: #17a2b8;">🍳 En préparation</span>';
 						elseif ($statut === 'en_livraison') echo '<span style="color: #ff9800;">🚚 En cours de livraison</span>';
 						elseif ($statut === 'livree') echo '<span style="color: #28a745; font-weight:bold;">✅ Livrée</span>';
+						elseif ($statut === 'adresse_introuvable') echo '<span style="color: #dc3545; font-weight:bold;">📍 Adresse introuvable</span>';
 						?>
 					</div>
 
-					<?php if ($statut === 'en_attente'): ?>
+					<?php if (strpos($statut, 'en_attente') === 0): ?>
 						<div style="margin-top: 10px;">
 							<button onclick='modifierMaCommande("<?= h($id_cmd) ?>", <?= json_encode($panier_complet) ?>)' style="background-color: #17a2b8; color: white; padding: 6px 12px; border: none; border-radius: 4px; font-size: 0.9em; font-weight: bold; cursor: pointer;">
-								✏️ Modifier la commande
+								Modifier la commande
 							</button>
 						</div>
 					<?php endif; ?>

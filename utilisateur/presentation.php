@@ -79,12 +79,12 @@ if (file_exists($fichier_plat)) {
 
 		<label style="margin-right: 20px; font-size: 16px; cursor: pointer;">
 			<input type="checkbox" name="allergene" value="viande" style="margin-right: 5px; transform: scale(1.2);">
-			🥩 Sans viande
+			 Sans viande
 		</label>
 
 		<label style="margin-right: 20px; font-size: 16px; cursor: pointer;">
 			<input type="checkbox" name="allergene" value="poisson" style="margin-right: 5px; transform: scale(1.2);">
-			🐟 Sans poisson
+			 Sans poisson
 		</label>
 	</div>
 

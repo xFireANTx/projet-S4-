@@ -2,13 +2,13 @@
 session_start();
 header('Content-Type: application/json');
 
-// 1. Vérifier si l'utilisateur est connecté
+//Vérifier si l'utilisateur est connecté
 if (!isset($_SESSION['client'])) {
     echo json_encode(['success' => false, 'message' => 'Non connecté']);
     exit;
 }
 
-// 2. Récupérer les données envoyées par panier.js
+//Récupérer les données envoyées par panier.js
 $donnees_json = file_get_contents('php://input');
 $donnees = json_decode($donnees_json, true);
 
@@ -39,8 +39,8 @@ $toutes_commandes = file_exists($fichier_commandes) ? json_decode(file_get_conte
 if (!empty($id_commande_modif)) {
     foreach ($toutes_commandes as $cmd) {
         if ($cmd['id'] === $id_commande_modif) {
-            // Sécurité : on ne peut modifier que si le statut est "en_attente"
-            if (isset($cmd['statut']) && $cmd['statut'] !== 'en_attente') {
+            // Sécurité : on ne peut modifier que si le statut est une forme d'"en_attente" (ex: en_attente, en_attente_paiement)
+            if (isset($cmd['statut']) && strpos($cmd['statut'], 'en_attente') !== 0) {
                 echo json_encode(['success' => false, 'message' => 'La commande est déjà en préparation ou livrée, modification impossible.']);
                 exit;
             }
@@ -54,9 +54,7 @@ if (!empty($id_commande_modif)) {
     $id_commande_unique = uniqid();
 }
 
-// =========================================================================
-// CAS 1 : MODIFICATION AVEC PRIX INFÉRIEUR OU ÉGAL -> PAS DE PAIEMENT REQUIS
-// =========================================================================
+// nouvelle commande moins chere
 if ($is_modification && $total <= $ancien_total) {
     
     // Structure mise à jour de la commande
@@ -109,10 +107,7 @@ if ($is_modification && $total <= $ancien_total) {
     echo json_encode(['success' => true, 'cybank' => null]);
     exit;
 }
-
-// =========================================================================
-// CAS 2 : NOUVELLE COMMANDE OU MODIFICATION PLUS CHÈRE -> PAIEMENT REQUIS
-// =========================================================================
+//nouvelle commande plus chere
 require_once(__DIR__ . '/../getapikey.php');
 $vendeur = "MEF-2_C";
 $api_key = getAPIKey($vendeur);
@@ -182,7 +177,7 @@ if ($montant_final == 0.00) {
     exit;
 }
 
-// --- Avant de rediriger vers la banque, créer une commande provisoire indiquant le montant dû ---
+//Avant de rediriger vers la banque, créer une commande provisoire indiquant le montant dû 
 $nouvelle_commande = [
     'id' => $id_commande_unique,
     'client_email' => $email_client,

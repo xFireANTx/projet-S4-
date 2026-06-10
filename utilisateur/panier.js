@@ -38,47 +38,8 @@ function ajouterAuPanier(id, nom, prix) {
     sauvegarderEtActualiser();
 }
 
-// Dans panier.js -> fonction validerCommande()
 
-const idCommandeModif = localStorage.getItem('modif_commande_id') || '';
-
-fetch('traitement_commande.php', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-        panier: panier,
-        date: dateChoisie,
-        heure: heureChoisie,
-        id_commande_modif: idCommandeModif // On envoie l'ID ici
-    })
-})
-.then(response => response.json())
-.then(data => {
-    if (!data.success) {
-        alert("Erreur : " + data.message);
-        return;
-    }
-
-    // On nettoie le flag de modification
-    localStorage.removeItem('modif_commande_id');
-    localStorage.removeItem('panier');
-
-    // SI le nouveau total est supérieur -> Redirection vers CY Bank pour la différence
-    if (data.cybank) {
-        const form = document.createElement('form');
-        form.method = 'POST';
-        form.action = 'https://www.plateforme-smc.fr/cybank/index.php';
-
-        // ... (votre logique actuelle pour ajouter les champs cachés paiement.transaction, montant, etc.) ...
-        
-        document.body.appendChild(form);
-        form.submit();
-    } else {
-        // SI le total est inférieur ou égal -> Pas besoin de payer, succès direct !
-        alert("Votre commande a été modifiée avec succès !");
-        window.location.href = 'profil.php';
-    }
-});
+// Note: validation/envoi se fait dans la fonction `validerCommande()` ci-dessous.
 
 function modifierQuantite(id, action) {
     const article = panier.find(item => item.id === id);
@@ -175,14 +136,13 @@ function validerCommande() {
                 return;
             }
 
-            // --- AJOUT ICI : Si le paiement n'est pas requis (modification moins chère) ---
             if (data.cybank === null) {
                 alert("Modification enregistrée avec succès (aucun paiement supplémentaire requis) !");
                 localStorage.removeItem('panier'); // On vide le panier local
                 window.location.href = "profil.php"; // Redirection vers le profil
                 return;
             }
-            // -----------------------------------------------------------------------------
+            
 
             const paiement = data.cybank;
 
@@ -240,9 +200,9 @@ function validerCommande() {
         return;
     }
 
-    // VÉRIFICATION DE LA DATE ET HEURE DANS LE PASSÉ 
+    //verification de la date et de l heure
     const maintenant = new Date();
-    // Crée un objet Date complet à partir des inputs (ex: "2026-06-10T15:30")
+    // Crée un objet Date complet à partir des inputs 
     const dateCommande = new Date(`${dateChoisie}T${heureChoisie}`);
 
     if (dateCommande < maintenant) {

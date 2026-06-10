@@ -111,12 +111,12 @@
 					<li><a class="lien_bouton" href="../utilisateur/connexion.html"  target="_blank">Connexion</a></li>
 					<li><a class="lien_bouton" href="../utilisateur/inscription.html"  target="_blank">Inscription</a></li>
 					<li><a class="lien_bouton" href="../utilisateur/presentation.php"  target="_blank">Présentation</a></li>
-					<li><a class="lien_bouton" href="../utilisateur/notation.html" target="_blank">Notation</a></li>
+					<li><a class="lien_bouton" href="../utilisateur/notation.php" target="_blank">Notation</a></li>
 				</ul>
 			</nav>
 	    </div>
 		<br><br>
-    <h1>🏆 Classement des plats les mieux notés</h1>
+    <h1> Classement des plats les mieux notés</h1>
     <div class="tableau" style="margin-bottom: 5px;">
         <br>
         <table border="1" style="width:100%; border-collapse: collapse;">

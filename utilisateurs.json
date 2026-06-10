@@ -182,6 +182,56 @@
                 ],
                 "montant_a_payer": "168.00",
                 "statut": "en_attente_paiement"
+            },
+            {
+                "id": "6a29e1eb8a456",
+                "date": "2026-06-18 \u00e0 00:39",
+                "total": 84,
+                "items": [
+                    "7x Samousa boeuf de kob\u00e9"
+                ],
+                "montant_a_payer": "36.00",
+                "statut": "en_attente_paiement"
+            },
+            {
+                "id": "6a29e27c44930",
+                "date": "2026-07-02 \u00e0 00:38",
+                "total": 36,
+                "items": [
+                    "3x Samousa boeuf de kob\u00e9"
+                ],
+                "montant_a_payer": "48.00",
+                "statut": "en_attente_paiement"
+            },
+            {
+                "id": "6a29e2894ceab",
+                "date": "2026-06-25 \u00e0 00:20",
+                "total": 60,
+                "items": [
+                    "5x Samousa boeuf de kob\u00e9"
+                ],
+                "montant_a_payer": "60.00",
+                "statut": "en_attente_paiement"
+            },
+            {
+                "id": "6a29e36494c2c",
+                "date": "2026-06-24 \u00e0 00:24",
+                "total": 60,
+                "items": [
+                    "5x Samousa boeuf de kob\u00e9"
+                ],
+                "montant_a_payer": "60.00",
+                "statut": "en_attente_paiement"
+            },
+            {
+                "id": "6a29e458da127",
+                "date": "2026-06-25 \u00e0 00:25",
+                "total": 60,
+                "items": [
+                    "5x Samousa boeuf de kob\u00e9"
+                ],
+                "montant_a_payer": "60.00",
+                "statut": "en_attente_paiement"
             }
         ],
         "role": "client"
