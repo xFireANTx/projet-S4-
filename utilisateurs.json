@@ -164,5 +164,16 @@
         "loyalty": 0,
         "order": [],
         "role": "client"
+    },
+    {
+        "nom": "Adminde",
+        "prenom": "as",
+        "adresse": "as",
+        "phone": "0100000000",
+        "email": "ab@gmail.com",
+        "mdp": "$2y$10$hes9XoHnbile9Uuk\/oM5mOBYsFlTBN1jshQ30bcWNNf8LXLoSN.4i",
+        "loyalty": 0,
+        "order": [],
+        "role": "admin"
     }
 ]

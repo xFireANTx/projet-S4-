@@ -52,7 +52,7 @@ if (file_exists($fichier_plat)) {
 			<?php endif; ?>
 
 			<div class="bandeau_accueil"><a class="lien_bouton" href="presentation.php">A la carte</a></div>
-			<?php if ($estconnecte && $_SESSION['client']['email'] === 'admin@japindien.com'): ?>
+			<?php if ($estconnecte && $_SESSION['client']['role'] === "admin"): ?>
 				<div class="bandeau_accueil"><a class="lien_bouton" href="../administrateur/admin.php">Admin</a></div>
 			<?php else: ?>
 				<div class="bandeau_accueil">
