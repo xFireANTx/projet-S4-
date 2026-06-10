@@ -1,6 +1,7 @@
 <?php
 session_start();
 $estconnecte = isset($_SESSION['client']);
+$role = $_SESSION['client']['role'] ?? null;
 
 $fichier_plat = __DIR__ . '/../menu.json';
 $liste_plat = [];
@@ -49,8 +50,16 @@ if (file_exists($fichier_plat)) {
 			<?php endif; ?>
 
 			<div class="bandeau_accueil"><a class="lien_bouton" href="presentation.php">A la carte</a></div>
-			<?php if ($estconnecte && $_SESSION['client']['role'] === "admin"): ?>
-				<div class="bandeau_accueil"><a class="lien_bouton" href="../administrateur/admin.php">Admin</a></div>
+			<?php if ($estconnecte): ?>
+				<div class="bandeau_accueil">
+					<?php if($role === "admin"): ?>
+						<a class="lien_bouton" href="../administrateur/admin.php">Admin</a>
+					<?php elseif($role === "restaurateur"): ?>
+						<a class="lien_bouton" href="../administrateur/commande.php">Commande</a>
+					<?php elseif($role === "livreur"): ?>
+						<a class="lien_bouton" href="../administrateur/livraison.php">Livreur</a>
+					<?php endif; ?>
+				</div>
 			<?php else: ?>
 				<button id="bouton-panier" class="lien_bouton" onclick="togglePanier()">
 					Panier (<span id="panier-compteur">0</span>)
