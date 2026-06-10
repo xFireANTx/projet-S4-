@@ -1,6 +1,7 @@
 <?php
 session_start();
 $estconnecte = isset($_SESSION['client']);
+$role = $_SESSION['client']['role'] ?? null;
 
 $fichier_plat = __DIR__ . '/../menu.json';
 $liste_plat = [];
@@ -52,14 +53,20 @@ if (file_exists($fichier_plat)) {
 			<?php endif; ?>
 
 			<div class="bandeau_accueil"><a class="lien_bouton" href="presentation.php">A la carte</a></div>
-			<?php if ($estconnecte && $_SESSION['client']['role'] === "admin"): ?>
-				<div class="bandeau_accueil"><a class="lien_bouton" href="../administrateur/admin.php">Admin</a></div>
-			<?php else: ?>
+			<?php if ($estconnecte): ?>
 				<div class="bandeau_accueil">
-					<button id="bouton-panier" class="lien_bouton" onclick="togglePanier()">
-						Panier (<span id="panier-compteur">0</span>)
-					</button>
+					<?php if($role === "admin"): ?>
+						<a class="lien_bouton" href="../administrateur/admin.php">Admin</a>
+					<?php elseif($role === "restaurateur"): ?>
+						<a class="lien_bouton" href="../administrateur/commande.php">Commande</a>
+					<?php elseif($role === "livreur"): ?>
+						<a class="lien_bouton" href="../administrateur/livraison.php">Livreur</a>
+					<?php endif; ?>
 				</div>
+			<?php else: ?>
+				<button id="bouton-panier" class="lien_bouton" onclick="togglePanier()">
+					Panier (<span id="panier-compteur">0</span>)
+				</button>
 			<?php endif; ?>
 
 		</div>
@@ -160,10 +167,10 @@ if (file_exists($fichier_plat)) {
 
 	<script>
 		function afficherAllergenes(elementClique) {
-			// 1. On cherche le paragraphe des allergènes qui se trouve juste à côté du texte cliqué
+			// On cherche le paragraphe des allergènes qui se trouve juste à côté du texte cliqué
 			const liste = elementClique.nextElementSibling;
 
-			// 2. Si la liste est cachée, on l'affiche, sinon on la cache
+			// Si la liste est cachée, on l'affiche, sinon on la cache
 			if (liste.style.display === "none") {
 				liste.style.display = "block";
 			} else {
