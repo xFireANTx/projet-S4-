@@ -1,13 +1,25 @@
 [
     {
-        "nom": "Machefert",
+        "nom": "Admin",
         "prenom": "Tom",
         "adresse": "ajnonok",
         "phone": "0600000000",
         "email": "admin@japindien.com",
         "mdp": "$2y$10$Heg.rvgs4\/OWsMBNPtYSwuovgJdnvO616e66Bo0zxVoc4k3krKafa",
         "loyalty": 0,
-        "orders": []
+        "orders": [],
+        "role": "admin",
+    },
+    {
+        "nom": "Galizzi",
+        "prenom": "Lucas",
+        "adresse": "Lyon",
+        "phone": "0111111111",
+        "email": "lucas@gmail.com",
+        "mdp": "$2y$10$4l258v4t0AcLVftccvykIODkwrcicVCqw3gxJp.OZqEvCQ6oqaKua",
+        "loyalty": 0,
+        "orders": [],
+        "role": "admin"
     },
     {
         "nom": "schaff",
@@ -117,17 +129,8 @@
                     "1x Maki curry"
                 ]
             }
-        ]
-    },
-    {
-        "nom": "Galizzi",
-        "prenom": "Lucas",
-        "adresse": "Lyon",
-        "phone": "0111111111",
-        "email": "lucas@gmail.com",
-        "mdp": "$2y$10$4l258v4t0AcLVftccvykIODkwrcicVCqw3gxJp.OZqEvCQ6oqaKua",
-        "loyalty": 0,
-        "orders": []
+        ],
+        "role": "client"
     },
     {
         "nom": "Salah ",
@@ -137,7 +140,8 @@
         "email": "mohamed@gmail.com",
         "mdp": "$2y$10$phY466QainDdAHOmbSi3k.ifXbxB5CsaqPX8056KtKEIfuUkAEdvu",
         "loyalty": 0,
-        "order": []
+        "order": [],
+        "role": "client"
     },
     {
         "nom": "Yannick",
@@ -147,7 +151,8 @@
         "email": "yannick@gmail.com",
         "mdp": "$2y$12$k8\/ps6mUXH4C0Ic1YjXZG.8arcTAC25y3UW3lSnpr.u.kDmZP0e.u",
         "loyalty": 0,
-        "order": []
+        "order": [],
+        "role": "client"
     },
     {
         "nom": "Galizzii",
@@ -157,6 +162,7 @@
         "email": "lucas.galizzi.lyon@gmail.com",
         "mdp": "$2y$12$0kV\/FTcYgDBd1zAXACTokeHm92UvcMV8zsoYWRiTOq\/f2xN8L1qVu",
         "loyalty": 0,
-        "order": []
+        "order": [],
+        "role": "client"
     }
 ]
