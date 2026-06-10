@@ -26,8 +26,11 @@ if(isset($_GET['email']) && $_SESSION['client']['email'] === "admin@japindien.co
 
 // --- AJOUT : RÉCUPÉRATION DES STATUTS ET NOTES DEPUIS COMMANDES.JSON ---
 $fichier_commandes = __DIR__ . '/../commandes.json';
+// --- AJOUT : RÉCUPÉRATION DES STATUTS, NOTES ET PANIERS DEPUIS COMMANDES.JSON ---
+$fichier_commandes = __DIR__ . '/../commandes.json';
 $status_commandes = [];
 $notes_commandes = [];
+$paniers_commandes = []; // <-- AJOUTER CETTE LIGNE
 
 if (file_exists($fichier_commandes)) {
     $cmds_json = json_decode(file_get_contents($fichier_commandes), true);
@@ -36,6 +39,7 @@ if (file_exists($fichier_commandes)) {
             if (isset($c['id'])) {
                 $status_commandes[$c['id']] = $c['statut'] ?? 'en_attente';
                 $notes_commandes[$c['id']] = isset($c['deja_note']) && $c['deja_note'] === true;
+                $paniers_commandes[$c['id']] = $c['panier'] ?? []; // <-- AJOUTER CETTE LIGNE
             }
         }
     }
@@ -173,6 +177,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 				$id_cmd = $o['id'] ?? '';
 				$statut = $status_commandes[$id_cmd] ?? 'en_attente';
 				$deja_note = $notes_commandes[$id_cmd] ?? false;
+				$panier_complet = $paniers_commandes[$id_cmd] ?? [];
 				?>
 				<div class="order" style="border-left: 5px solid <?= ($statut === 'livree') ? '#28a745' : (($statut === 'en_livraison') ? '#ff9800' : '#17a2b8') ?>;">
 					<div><strong>ID Commande :</strong> #<?php echo h(substr($id_cmd, -5)) ?></div>
@@ -187,6 +192,14 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 						elseif ($statut === 'livree') echo '<span style="color: #28a745; font-weight:bold;">✅ Livrée</span>';
 						?>
 					</div>
+
+					<?php if ($statut === 'en_attente'): ?>
+						<div style="margin-top: 10px;">
+							<button onclick='modifierMaCommande("<?= h($id_cmd) ?>", <?= json_encode($panier_complet) ?>)' style="background-color: #17a2b8; color: white; padding: 6px 12px; border: none; border-radius: 4px; font-size: 0.9em; font-weight: bold; cursor: pointer;">
+								✏️ Modifier la commande
+							</button>
+						</div>
+					<?php endif; ?>
 
 					<?php if ($statut === 'livree'): ?>
 						<div style="margin-top: 10px;">
@@ -205,13 +218,13 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 			<div class="small">Aucune commande trouvée.</div>
 		<?php endif; ?>
 	</div>
-
 	<div style="margin-top:16px">
 		<button onclick="window.location.href='Accueil.php'">Retour à l'accueil</button>
 	</div>
 </div>
 
 <script>
+
 // Script JS d'édition inline (Inchangé)
 document.querySelectorAll('.edit-btn').forEach(btn=>{
 	btn.addEventListener('click', e=>{
@@ -261,6 +274,13 @@ document.querySelectorAll('.edit-btn').forEach(btn=>{
 		});
 	});
 });
+function modifierMaCommande(idCommande, panierComplet) {
+    if (confirm("Voulez-vous modifier cette commande ? Votre panier actuel sera remplacé.")) {
+			localStorage.setItem('panier', JSON.stringify(panierComplet));
+			localStorage.setItem('modif_commande_id', idCommande);
+        window.location.href = 'presentation.php';
+    }
+}
 </script>
 </body>
 </html>

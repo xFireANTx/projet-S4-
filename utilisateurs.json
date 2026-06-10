@@ -128,6 +128,60 @@
                     "2x Samousa boeuf de kob\u00e9",
                     "1x Maki curry"
                 ]
+            },
+            {
+                "id": "6a29c605acc2b",
+                "date": "2026-06-20 \u00e0 22:18",
+                "total": 96,
+                "items": [
+                    "8x Samousa boeuf de kob\u00e9"
+                ]
+            },
+            {
+                "id": "6a29c62bf2d44",
+                "date": "2026-06-25 \u00e0 22:19",
+                "total": 84,
+                "items": [
+                    "7x Samousa boeuf de kob\u00e9"
+                ]
+            },
+            {
+                "id": "6a29c659179a1",
+                "date": "2026-06-25 \u00e0 22:58",
+                "total": 252,
+                "items": [
+                    "21x Samousa boeuf de kob\u00e9"
+                ],
+                "montant_a_payer": "60.00",
+                "statut": "en_attente_paiement"
+            },
+            {
+                "id": "6a29c8a7eba9e",
+                "date": "2026-06-25 \u00e0 22:59",
+                "total": 12,
+                "items": [
+                    "1x Samousa boeuf de kob\u00e9"
+                ]
+            },
+            {
+                "id": "6a29ceb94f5b0",
+                "date": "2026-06-24 \u00e0 16:57",
+                "total": 240,
+                "items": [
+                    "20x Samousa boeuf de kob\u00e9"
+                ],
+                "montant_a_payer": "240.00",
+                "statut": "en_attente_paiement"
+            },
+            {
+                "id": "6a29cec33ce1a",
+                "date": "2026-06-24 \u00e0 16:57",
+                "total": 168,
+                "items": [
+                    "14x Samousa boeuf de kob\u00e9"
+                ],
+                "montant_a_payer": "168.00",
+                "statut": "en_attente_paiement"
             }
         ],
         "role": "client"

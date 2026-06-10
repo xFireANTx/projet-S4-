@@ -38,6 +38,48 @@ function ajouterAuPanier(id, nom, prix) {
     sauvegarderEtActualiser();
 }
 
+// Dans panier.js -> fonction validerCommande()
+
+const idCommandeModif = localStorage.getItem('modif_commande_id') || '';
+
+fetch('traitement_commande.php', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+        panier: panier,
+        date: dateChoisie,
+        heure: heureChoisie,
+        id_commande_modif: idCommandeModif // On envoie l'ID ici
+    })
+})
+.then(response => response.json())
+.then(data => {
+    if (!data.success) {
+        alert("Erreur : " + data.message);
+        return;
+    }
+
+    // On nettoie le flag de modification
+    localStorage.removeItem('modif_commande_id');
+    localStorage.removeItem('panier');
+
+    // SI le nouveau total est supérieur -> Redirection vers CY Bank pour la différence
+    if (data.cybank) {
+        const form = document.createElement('form');
+        form.method = 'POST';
+        form.action = 'https://www.plateforme-smc.fr/cybank/index.php';
+
+        // ... (votre logique actuelle pour ajouter les champs cachés paiement.transaction, montant, etc.) ...
+        
+        document.body.appendChild(form);
+        form.submit();
+    } else {
+        // SI le total est inférieur ou égal -> Pas besoin de payer, succès direct !
+        alert("Votre commande a été modifiée avec succès !");
+        window.location.href = 'profil.php';
+    }
+});
+
 function modifierQuantite(id, action) {
     const article = panier.find(item => item.id === id);
     if (!article) return;
@@ -126,16 +168,25 @@ function validerCommande() {
             heure: heureChoisie
         })
     })
-    .then(response => response.json())
-    .then(data => {
-		if (!data.success) {
-			alert("Erreur : " + (data.message || "Veuillez vous reconnecter."));
-			return;
-		}
+        .then(response => response.json())
+        .then(data => {
+            if (!data.success) {
+                alert("Erreur : " + (data.message || "Veuillez vous reconnecter."));
+                return;
+            }
 
-		const paiement = data.cybank;
+            // --- AJOUT ICI : Si le paiement n'est pas requis (modification moins chère) ---
+            if (data.cybank === null) {
+                alert("Modification enregistrée avec succès (aucun paiement supplémentaire requis) !");
+                localStorage.removeItem('panier'); // On vide le panier local
+                window.location.href = "profil.php"; // Redirection vers le profil
+                return;
+            }
+            // -----------------------------------------------------------------------------
 
-        // Création du formulaire demandé par CY Bank
+            const paiement = data.cybank;
+
+            // Création du formulaire demandé par CY Bank
         const form = document.createElement('form');
         form.method = 'POST';
         form.action = 'https://www.plateforme-smc.fr/cybank/index.php';
@@ -203,19 +254,30 @@ function validerCommande() {
     boutonValider.disabled = true;
     boutonValider.textContent = "Commande en cours...";
 
+    const idCommandeModif = localStorage.getItem('modif_commande_id') || '';
+
     fetch('traitement_commande.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
             panier: panier,
             date: dateChoisie,
-            heure: heureChoisie
+            heure: heureChoisie,
+            id_commande_modif: idCommandeModif
         })
     })
         .then(response => response.json())
         .then(data => {
             if (!data.success) {
                 alert("Erreur : " + (data.message || "Veuillez vous reconnecter."));
+                return;
+            }
+            // Si aucun paiement requis
+            if (data.cybank === null) {
+                alert("Modification enregistrée avec succès (aucun paiement supplémentaire requis) !");
+                localStorage.removeItem('panier');
+                localStorage.removeItem('modif_commande_id');
+                window.location.href = "profil.php";
                 return;
             }
 

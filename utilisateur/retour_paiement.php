@@ -63,6 +63,47 @@ else{
                     localStorage.removeItem('panier');
                 </script>
 
+                        <?php
+                            // Mise à jour côté serveur : marquer la commande comme payée/confirmée
+                            $fichier_commandes = __DIR__ . '/../commandes.json';
+                            if (file_exists($fichier_commandes)) {
+                                $cmds = json_decode(file_get_contents($fichier_commandes), true);
+                                $changed = false;
+                                if (is_array($cmds)) {
+                                    foreach ($cmds as &$c) {
+                                        if (isset($c['id']) && $c['id'] === $transaction) {
+                                            $c['statut'] = 'en_attente'; // paiement reçu, en attente de préparation
+                                            $changed = true;
+                                            break;
+                                        }
+                                    }
+                                }
+                                if ($changed) {
+                                    file_put_contents($fichier_commandes, json_encode($cmds, JSON_PRETTY_PRINT), LOCK_EX);
+
+                                    // Mettre aussi à jour l'historique de l'utilisateur si possible
+                                    $fichier_users = __DIR__ . '/../utilisateurs.json';
+                                    if (file_exists($fichier_users)) {
+                                        $users = json_decode(file_get_contents($fichier_users), true);
+                                        if (is_array($users)) {
+                                            foreach ($users as &$u) {
+                                                if (isset($u['orders']) && is_array($u['orders'])) {
+                                                    foreach ($u['orders'] as &$o) {
+                                                        if (isset($o['id']) && $o['id'] === $transaction) {
+                                                            $o['statut'] = 'en_attente';
+                                                            // on ne modifie pas le total (déjà présent)
+                                                            break 2;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            file_put_contents($fichier_users, json_encode($users, JSON_PRETTY_PRINT), LOCK_EX);
+                                        }
+                                    }
+                                }
+                            }
+                        ?>
+
             <?php else: ?>
                 <h1 class="erreur"> Échec du paiement</h1>
                 <p>Malheureusement, nous n'avons pas pu valider votre règlement.</p>
