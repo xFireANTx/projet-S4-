@@ -9,6 +9,49 @@
 	if(file_exists($fichier)){
 		$utilisateurs = json_decode(file_get_contents($fichier), true);
 	}
+	// stats des plats
+	$fichier_commandes = __DIR__ . '/../commandes.json';
+	$stats_plats = [];
+	if (file_exists($fichier_commandes)) {
+		$commandes = json_decode(file_get_contents($fichier_commandes), true);
+		if (is_array($commandes)) {
+			foreach ($commandes as $cmd) {
+				// les commandes qui ont reçu une note
+				if (isset($cmd['note_produit']) && !empty($cmd['note_produit'])) {
+					$note = floatval($cmd['note_produit']);
+					// Récupération des plats
+					$items = $cmd['items'] ?? $cmd['panier'] ?? [];
+					if (is_array($items)) {
+						foreach ($items as $item) {
+							// Nettoyage pour récupérer uniquement le nom du plat
+							$nom_plat = is_string($item) ? preg_replace('/^\d+x\s*/', '', $item) : ($item['nom'] ?? '');
+							if (!empty($nom_plat)) {
+								if (!isset($stats_plats[$nom_plat])) {
+									$stats_plats[$nom_plat] = ['somme' => 0, 'count' => 0];
+								}
+								$stats_plats[$nom_plat]['somme'] += $note;
+								$stats_plats[$nom_plat]['count'] += 1;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// Calcul des moyennes et tri du meilleur au moins bon
+	$plats_classement = [];
+	foreach ($stats_plats as $nom => $data) {
+		$plats_classement[] = [
+			'nom' => $nom,
+			'moyenne' => round($data['somme'] / $data['count'], 2),
+			'votes' => $data['count']
+		];
+	}
+	// Tri décroissant sur la note moyenne
+	usort($plats_classement, function($a, $b) {
+		return $b['moyenne'] <=> $a['moyenne'];
+	});
 	?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -72,7 +115,39 @@
 				</ul>
 			</nav>
 	    </div>
-
+		<br><br>
+    <h1>🏆 Classement des plats les mieux notés</h1>
+    <div class="tableau" style="margin-bottom: 5px;">
+        <br>
+        <table border="1" style="width:100%; border-collapse: collapse;">
+            <thead>
+                <tr style="background-color: #f2f2f2;">
+                    <th><u>Nom du Plat</u></th>
+                    <th><u>Note Moyenne</u></th>
+                    <th><u>Nombre d'avis</u></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php if (!empty($plats_classement)): ?>
+                    <?php foreach ($plats_classement as $p): ?>
+                        <tr align="center">
+                            <td><strong><?= htmlspecialchars($p['nom']) ?></strong></td>
+                            <td style="color: #ff9800; font-weight: bold; font-size: 1.1em;">
+                                <?= htmlspecialchars($p['moyenne']) ?> / 5 ★
+                            </td>
+                            <td><?= htmlspecialchars($p['votes']) ?> évaluation(s)</td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <tr>
+                        <td colspan="3" align="center" style="padding: 20px; color: #666;">
+                            Aucune évaluation de plat enregistrée pour le moment.
+                        </td>
+                    </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+    </div>
 
 </body>
 </html>

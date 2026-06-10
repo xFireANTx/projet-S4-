@@ -6,7 +6,7 @@ $vendeur = isset($_GET['vendeur']) ? $_GET['vendeur'] : '';
 $transaction = isset($_GET['transaction']) ? $_GET['transaction'] : '';
 $montant = isset($_GET['montant']) ? $_GET['montant'] : '';
 $control_recu = isset($_GET['control']) ? $_GET['control'] : '';
-$statut = $_GET['statut'] ?? $_GET['status'] ?? : '';
+$statut = $_GET['statut'] ?? $_GET['status'] ?? '';
 
 $paiement_valide = false;
 $message_erreur = "";
