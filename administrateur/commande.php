@@ -234,10 +234,13 @@ usort($commandes_livrees, $fonction_tri_archive);
 </div>
 
 <nav style="margin-top: 40px;">
-    <a href="../utilisateur/profil.php">profil</a>
-    <a href="commande.php">commande</a>
-    <a href="livraison.php">livraison</a>
-    <a href="admin.php">admin</a>    
+	<?php if($utilisateur['role'] === 'admin' || $utilisateur['role'] === 'restaurateur' ): ?>
+        	<a href="../utilisateur/profil.php">profil</a>
+        	<?php if($utilisateur['role'] === 'admin' ): ?>
+        		<a href="admin.php">admin</a>    
+        		<a href="livraison.php">livraison</a> 
+        	<?php endif; ?>
+        <?php endif; ?>  
 </nav>
 <pre>
 <?php var_dump($_SESSION['client']); ?>
