@@ -29,17 +29,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_pret'])) {
     exit;
 }
 
-// 2. SÉPARATION DES COMMANDES (Moins de 2h vs Plus tard vs Livrées)
+// 2. SÉPARATION DES COMMANDES EN 4 CATÉGORIES
 $commandes_urgentes = [];
 $commandes_futures = [];
-$commandes_livrees = []; // Nouveau tableau pour stocker les commandes terminées
+$commandes_en_livraison = []; // Nouveau tableau : sur la route
+$commandes_livrees = [];
 
 $maintenant = time(); // Heure actuelle
 $limite_2h = $maintenant + (2 * 3600); // Heure actuelle + 2 heures
 
 foreach ($commandes as $cmd) {
     if (isset($cmd['statut'])) {
-        // Si la commande est à préparer (en cours ou en attente)
+        // Commandes en cuisine
         if ($cmd['statut'] === 'en_cours' || $cmd['statut'] === 'en_attente') {
             $temps_commande = strtotime($cmd['date_livraison'] . ' ' . $cmd['heure_livraison']);
             
@@ -49,7 +50,11 @@ foreach ($commandes as $cmd) {
                 $commandes_futures[] = $cmd;
             }
         } 
-        // Si la commande a été marquée comme livrée
+        // Commandes remises au livreur
+        elseif ($cmd['statut'] === 'en_livraison') {
+            $commandes_en_livraison[] = $cmd;
+        }
+        // Commandes terminées
         elseif ($cmd['statut'] === 'livree') {
             $commandes_livrees[] = $cmd;
         }
@@ -61,13 +66,13 @@ $fonction_tri = function($a, $b) {
     return strtotime($a['date_livraison'] . ' ' . $a['heure_livraison']) - strtotime($b['date_livraison'] . ' ' . $b['heure_livraison']);
 };
 
-// Pour les livrées, on trie à l'envers (la plus récente livrée apparaît tout en haut de l'historique)
 $fonction_tri_archive = function($a, $b) {
     return strtotime($b['date_livraison'] . ' ' . $b['heure_livraison']) - strtotime($a['date_livraison'] . ' ' . $a['heure_livraison']);
 };
 
 usort($commandes_urgentes, $fonction_tri);
 usort($commandes_futures, $fonction_tri);
+usort($commandes_en_livraison, $fonction_tri); // On trie aussi celles en livraison
 usort($commandes_livrees, $fonction_tri_archive);
 ?>
 <!DOCTYPE html>
@@ -80,7 +85,7 @@ usort($commandes_livrees, $fonction_tri_archive);
 <body>
 
 <div style="margin-bottom: 40px;">
-    <h2 style="color: #d9534f;">🔥 Commandes Urgentes (Moins de 2h)</h2>
+    <h2 style="color: #d9534f;">🔥 Commandes Urgentes (Cuisine)</h2>
     <table border="1" style="width:100%; text-align:center; border-collapse: collapse;">
         <tr style="background-color: #f2dede;">
             <th>ID Commande</th>
@@ -119,7 +124,7 @@ usort($commandes_livrees, $fonction_tri_archive);
 </div>
 
 <div style="margin-bottom: 40px;">
-    <h2 style="color: #5bc0de;">📅 Commandes à venir (Plus de 2h)</h2>
+    <h2 style="color: #5bc0de;">📅 Commandes à venir (Cuisine)</h2>
     <table border="1" style="width:100%; text-align:center; border-collapse: collapse;">
         <tr style="background-color: #d9edf7;">
             <th>ID Commande</th>
@@ -158,6 +163,36 @@ usort($commandes_livrees, $fonction_tri_archive);
 </div>
 
 <hr style="margin: 30px 0; border: 1px solid #ccc;">
+
+<div style="margin-bottom: 40px;">
+    <h2 style="color: #28a745;">🚚 En cours de livraison (Livreurs)</h2>
+    <table border="1" style="width:100%; text-align:center; border-collapse: collapse;">
+        <tr style="background-color: #d4edda; color: #155724;">
+            <th>ID Commande</th>
+            <th>Client</th>
+            <th>Date & Heure Livraison</th>
+            <th>Détail (Quantité x Plat)</th>
+            <th>Total</th>
+        </tr>
+        <?php if (empty($commandes_en_livraison)): ?>
+            <tr><td colspan="5">Aucune commande actuellement sur la route.</td></tr>
+        <?php else: ?>
+            <?php foreach ($commandes_en_livraison as $cmd): ?>
+                <tr style="background-color: #f8fff9;">
+                    <td><?= htmlspecialchars(substr($cmd['id'], -5)) ?></td>
+                    <td><?= htmlspecialchars($cmd['client_nom']) ?></td>
+                    <td><?= htmlspecialchars($cmd['date_livraison'] . ' à ' . $cmd['heure_livraison']) ?></td>
+                    <td>
+                        <?php foreach ($cmd['panier'] as $item): ?>
+                            <?= $item['quantite'] ?>x <?= htmlspecialchars($item['nom']) ?><br>
+                        <?php endforeach; ?>
+                    </td>
+                    <td><?= $cmd['total'] ?>€</td>
+                </tr>
+            <?php endforeach; ?>
+        <?php endif; ?>
+    </table>
+</div>
 
 <div>
     <h2 style="color: #6c757d;">✅ Historique des Commandes Livrées</h2>
