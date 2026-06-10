@@ -78,7 +78,6 @@ if (file_exists($fichier_plat)) {
 					echo "<div class='conteneur-menu'>";
 				}
 		?>
-				<?php ?>
 				<div class="plat">
 					<div class="section">
 						<div class="image">
