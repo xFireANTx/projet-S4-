@@ -1,4 +1,36 @@
 <?php
+
+// 
+// 
+// 
+// 
+// 
+// pour le gps du livreur on peut utiliser ca 
+// 
+// partie php
+// $adresse = urlencode("Tour Eiffel, Paris");
+// $google_maps_url = "https://www.google.com/maps/search/?api=1&query=" . $adresse;
+// $waze_url = "https://waze.com/ul?q=" . $adresse;
+// 
+// partie html
+/* <a href="<?php echo $google_maps_url; ?>">Y aller avec Google Maps</a>
+// <a href="<?php echo $waze_url; ?>">Y aller avec Waze</a> */
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+
 $fichier_commandes = __DIR__ . '/../commandes.json';
 $commandes = file_exists($fichier_commandes) ? json_decode(file_get_contents($fichier_commandes), true) : [];
 
