@@ -65,3 +65,19 @@ div.tableau_livraison{
 .btn-validation-verte:hover {
     background-color: #218838; /* Vert un peu plus foncé au survol */
 }
+
+.btn-warning {
+	background-color: #dc3545; /* Rouge danger */
+	color: white;
+	border: 1px solid #c82333;
+	padding: 6px 12px;
+	border-radius: 4px;
+	cursor: pointer;
+	font-weight: bold;
+	font-size: 0.9em;
+	transition: background-color 0.2s;
+}
+
+.btn-warning:hover {
+	background-color: #c82333; /* Rouge un peu plus foncé au survol */
+}
