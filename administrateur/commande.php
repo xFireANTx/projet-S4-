@@ -242,9 +242,5 @@ usort($commandes_livrees, $fonction_tri_archive);
         	<?php endif; ?>
         <?php endif; ?>  
 </nav>
-<pre>
-<?php var_dump($_SESSION['client']); ?>
-</pre>
-
 </body>
 </html>
