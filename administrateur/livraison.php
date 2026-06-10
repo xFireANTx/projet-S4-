@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+$utilisateur = $_SESSION['client'];
 $fichier_commandes = __DIR__ . '/../commandes.json';
 
 //traitement du bouton valider la livraison
@@ -80,13 +80,17 @@ if (file_exists($fichier_commandes)) {
                                     🗺️ Ouvrir le GPS
                                 </a>
                             </td>
+                            
                             <td>
+                            	<?php if($utilisateur['role'] === 'livreur'):?>
                                 <form method="POST" action="livraison.php" style="margin:0;">
                                     <input type="hidden" name="id_commande" value="<?= htmlspecialchars($cmd['id']) ?>">
                                     <button type="submit" class="btn-validation-verte" title="Marquer comme livrée">
                                         ✓ Livrée
                                     </button>
                                 </form>
+
+                            <?php endif; ?>
                             </td>
                         </tr>
                     <?php endforeach; ?>
