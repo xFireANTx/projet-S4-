@@ -256,7 +256,7 @@
             }
         ],
         "total": 37.5,
-        "statut": "en_livraison"
+        "statut": "livree"
     },
     {
         "id": "6a2965231a172",
@@ -281,7 +281,7 @@
             }
         ],
         "total": 37.5,
-        "statut": "en_livraison"
+        "statut": "livree"
     },
     {
         "id": "6a29c605acc2b",
@@ -300,7 +300,7 @@
             }
         ],
         "total": 96,
-        "statut": "en_livraison"
+        "statut": "livree"
     },
     {
         "id": "6a29c62bf2d44",
@@ -319,7 +319,7 @@
             }
         ],
         "total": 84,
-        "statut": "en_livraison"
+        "statut": "livree"
     },
     {
         "id": "6a29c659179a1",

@@ -85,9 +85,17 @@ usort($commandes_livrees, $fonction_tri_archive);
     <title>Gestion des Commandes</title>
 </head>
 <body>
-
+<nav style="margin-top: 40px;">
+	<?php if($utilisateur['role'] === 'admin' || $utilisateur['role'] === 'restaurateur' ): ?>
+        	<a href="../utilisateur/profil.php">profil</a>
+        	<?php if($utilisateur['role'] === 'admin' ): ?>
+        		<a href="admin.php">admin</a>    
+        		<a href="livraison.php">livraison</a> 
+        	<?php endif; ?>
+        <?php endif; ?>  
+</nav>
 <div style="margin-bottom: 40px;">
-    <h2 style="color: #d9534f;">🔥 Commandes Urgentes (Cuisine)</h2>
+    <h2 style="color: #d9534f;"> Commandes Urgentes (Cuisine)</h2>
     <table border="1" style="width:100%; text-align:center; border-collapse: collapse;">
         <tr style="background-color: #f2dede;">
             <th>ID Commande</th>
@@ -130,7 +138,7 @@ usort($commandes_livrees, $fonction_tri_archive);
 </div>
 
 <div style="margin-bottom: 40px;">
-    <h2 style="color: #5bc0de;">📅 Commandes à venir (Cuisine)</h2>
+    <h2 style="color: #5bc0de;"> Commandes à venir (Cuisine)</h2>
     <table border="1" style="width:100%; text-align:center; border-collapse: collapse;">
         <tr style="background-color: #d9edf7;">
             <th>ID Commande</th>
@@ -174,7 +182,7 @@ usort($commandes_livrees, $fonction_tri_archive);
 <hr style="margin: 30px 0; border: 1px solid #ccc;">
 
 <div style="margin-bottom: 40px;">
-    <h2 style="color: #28a745;">🚚 En cours de livraison (Livreurs)</h2>
+    <h2 style="color: #28a745;"> En cours de livraison (Livreurs)</h2>
     <table border="1" style="width:100%; text-align:center; border-collapse: collapse;">
         <tr style="background-color: #d4edda; color: #155724;">
             <th>ID Commande</th>
@@ -204,7 +212,7 @@ usort($commandes_livrees, $fonction_tri_archive);
 </div>
 
 <div>
-    <h2 style="color: #6c757d;">✅ Historique des Commandes Livrées</h2>
+    <h2 style="color: #6c757d;"> Historique des Commandes Livrées</h2>
     <table border="1" style="width:100%; text-align:center; border-collapse: collapse;">
         <tr style="background-color: #e2e3e5; color: #383d41;">
             <th>ID Commande</th>
@@ -233,14 +241,6 @@ usort($commandes_livrees, $fonction_tri_archive);
     </table>
 </div>
 
-<nav style="margin-top: 40px;">
-	<?php if($utilisateur['role'] === 'admin' || $utilisateur['role'] === 'restaurateur' ): ?>
-        	<a href="../utilisateur/profil.php">profil</a>
-        	<?php if($utilisateur['role'] === 'admin' ): ?>
-        		<a href="admin.php">admin</a>    
-        		<a href="livraison.php">livraison</a> 
-        	<?php endif; ?>
-        <?php endif; ?>  
-</nav>
+
 </body>
 </html>

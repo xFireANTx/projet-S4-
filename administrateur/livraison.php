@@ -49,6 +49,15 @@ if (file_exists($fichier_commandes)) {
 
 </head>
 <body>
+    <nav>
+    <a href="../utilisateur/profil.php">profil</a>
+	<?php if($utilisateur['role'] === 'admin' || $utilisateur['role'] === 'restaurateur' ): ?>
+        	<a href="commande.php">commande</a>
+        	<?php if($utilisateur['role'] === 'admin' ): ?>
+        		<a href="admin.php">admin</a>    
+        	<?php endif; ?>
+        <?php endif; ?>
+    </nav>
 
     <div class="tableau_livraison" style="padding: 20px;">
         <h2>Commandes à livrer</h2>
@@ -77,7 +86,7 @@ if (file_exists($fichier_commandes)) {
                             <td><?= htmlspecialchars($cmd['client_telephone'] ?? 'Non spécifié') ?></td>
                             <td>
                                 <a href="<?= $url_navigation ?>" target="_blank" class="btn-nav">
-                                    🗺️ Ouvrir le GPS
+                                     Ouvrir le GPS
                                 </a>
                             </td>
                             
@@ -105,15 +114,7 @@ if (file_exists($fichier_commandes)) {
         </table>
     </div>
 
-    <nav style="margin-top: 40px;">
-    <a href="../utilisateur/profil.php">profil</a>
-	<?php if($utilisateur['role'] === 'admin' || $utilisateur['role'] === 'restaurateur' ): ?>
-        	<a href="commande.php">commande</a>
-        	<?php if($utilisateur['role'] === 'admin' ): ?>
-        		<a href="admin.php">admin</a>    
-        	<?php endif; ?>
-        <?php endif; ?>
-    </nav>
+
 
 </body>
 </html>
