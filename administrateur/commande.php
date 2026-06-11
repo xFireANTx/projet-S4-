@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_pret'])) {
             $c['statut'] = 'en_livraison';
         }
     }
-    file_put_contents($fichier_commandes, json_encode($commandes, JSON_PRETTY_PRINT), LOCK_EX);
+    file_put_contents($fichier_commandes, json_encode($commandes, JSON_PRETTY_PRINT));
     header("Location: commande.php");
     exit;
 }

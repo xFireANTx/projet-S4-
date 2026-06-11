@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
             }
             // Sauvegarde des modifications
-            file_put_contents($fichier_commandes, json_encode($commandes, JSON_PRETTY_PRINT), LOCK_EX);
+            file_put_contents($fichier_commandes, json_encode($commandes, JSON_PRETTY_PRINT));
         }
     }
 

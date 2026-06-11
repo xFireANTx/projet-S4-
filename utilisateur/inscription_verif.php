@@ -68,12 +68,12 @@
 		 	"email" => $email, 
 		 	"mdp" => password_hash($mdp, PASSWORD_DEFAULT),//Le mode de passe est encrypté même dans le .json
 			"loyalty" => 0,
-			"orders" => [],
+			"order" => [],
 			"role" => "client",
 			];
 
 		array_push($donnees, $nouvelUtilisateur);
-		if(file_put_contents($fichier, json_encode($donnees, JSON_PRETTY_PRINT), LOCK_EX)) {
+		if(file_put_contents($fichier, json_encode($donnees, JSON_PRETTY_PRINT))) {
 		    echo "Inscription réussie ! <a href='connexion.html'>Connectez-vous ici</a>";
 		}else{
 		    echo "Erreur lors de l'enregistrement.";
